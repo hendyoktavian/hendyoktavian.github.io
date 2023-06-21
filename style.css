@@ -3,8 +3,26 @@
   background-color: #e2edff;
 }
 
+#about hr {
+  width: 250px;
+  border-top: 4px solid #666;
+  margin: auto;
+}
+
 #projects {
   background-color: #e2edff;
+}
+
+#projects hr {
+  width: 250px;
+  border-top: 4px solid #666;
+  margin: auto;
+}
+
+#contact hr {
+  width: 250px;
+  border-top: 4px solid #666;
+  margin: auto;
 }
 
 section {
