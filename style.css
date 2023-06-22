@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 .jumbotron {
   padding-top: 6rem;
   background-color: #e2edff;
@@ -9,4 +13,9 @@
 
 section {
   padding-top: 5rem;
+}
+
+footer {
+  margin-top: 5rem;
+  padding-top: 2rem;
 }
