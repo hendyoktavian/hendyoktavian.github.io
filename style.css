@@ -5,10 +5,11 @@ html {
 .jumbotron {
   padding-top: 6rem;
   background-color: #e2edff;
-  background-image: url(img/BG-Head-2.png);
+  background-image: url(img/BG-Head-Blurred.png);
   background-size: cover;
+  background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: 0 2rem;
+  background-position: center;
 }
 
 .jumbotron h1,
