@@ -5,6 +5,35 @@ html {
 .jumbotron {
   padding-top: 6rem;
   background-color: #e2edff;
+  background-image: url(img/BG-Head-2.png);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 0 2rem;
+}
+
+.jumbotron h1,
+.jumbotron p {
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+.jumbotron img {
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+.pKiri, .pKanan {
+  opacity: 0;
+  transform: translate(-50px, 0);
+  transition: 1s;
+}
+
+.pKanan {
+  transform: translate(50px, 0);
+}
+
+.pKiri.pMuncul, .pKanan.pMuncul {
+  opacity: 1;
+  transform: translate(0, 0);
+
 }
 
 #projects {
