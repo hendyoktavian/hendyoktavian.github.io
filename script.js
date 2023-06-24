@@ -11,7 +11,7 @@ $(window).scroll(function () {
   var wScroll = $(this).scrollTop();
 
   $(".jumbotron img").css({
-    transform: "translate(0px, +" + wScroll / 5.7 + "%)",
+    transform: "translate(0px, +" + wScroll / 7.5 + "%)",
   });
 
   $(".jumbotron h1").css({

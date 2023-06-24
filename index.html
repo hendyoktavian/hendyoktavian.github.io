@@ -8,13 +8,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
     <!-- My CSS -->
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&display=swap" rel="stylesheet" />
   </head>
   <body id="home">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm fixed-top">
+    <nav class="navbar navbar-expand-lg shadow-sm fixed-top">
       <div class="container">
         <a class="navbar-brand" href="#home">
-          <img src="img/logo ico/Logo H White.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top" />
+          <img src="img/logo ico/Logo H.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top" />
           Hendy Oktavian
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,7 +64,7 @@
             <p class="pKiri">I am a Visual Communication Design student who has an interest in trying new things and gaining new experiences, especially in technology and creative fields.</p>
           </div>
           <div class="col-md-4">
-            <p class="pKanan">I am currently working on art and design fields such as user interface and graphic design. I am highly motivated to improve and explore my creative skills.</p>
+            <p class="pKanan">I am currently studying on graphic design and web developing. I am highly motivated to improve and explore my web developing and creative skills.</p>
           </div>
         </div>
       </div>
@@ -87,19 +90,19 @@
         <!-- Full-width images with number and caption text -->
         <div class="mySlides projectfade">
           <div class="numbertext">1 / 3</div>
-          <img src="img/projects/Gambar Suasana.jpg" style="height: 25em" />
+          <img src="img/projects/Gambar Suasana.jpg" style="width: 80%" />
           <div class="projecttext">Illustration</div>
         </div>
 
         <div class="mySlides projectfade">
           <div class="numbertext">2 / 3</div>
-          <img src="img/projects/Space Girl.jpg" style="height: 25em" />
+          <img src="img/projects/Space Girl.jpg" style="width: 40%" />
           <div class="projecttext">Illustration</div>
         </div>
 
         <div class="mySlides projectfade">
           <div class="numbertext">3 / 3</div>
-          <img src="img/projects/DBW11.jpg" style="height: 25em" />
+          <img src="img/projects/DBW11.jpg" style="width: 50%" />
           <div class="projecttext">Illustration</div>
         </div>
 
@@ -129,7 +132,7 @@
     <section id="contact">
       <div class="row text-center mb-4">
         <div class="col">
-          <h2 class="mb-4">Contact Me</h2>
+          <h2 class="mb-4" style="font-family: 'Oswald', sans-serif">Contact Me</h2>
           <hr style="width: 250px; border-top: 4px solid #666; margin: auto" />
         </div>
       </div>
@@ -145,16 +148,16 @@
           </div>
           <form name="portfolio-contact-form">
             <div class="mb-3 px-5">
-              <label for="name" class="form-label">Nama Lengkap</label>
-              <input type="text" class="form-control" id="name" aria-describedby="name" name="Nama" placeholder="Masukan Nama Lengkap" />
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name" aria-describedby="name" name="Nama" placeholder="Enter Your Name*" />
             </div>
             <div class="mb-3 px-5">
               <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" aria-describedby="email" name="Email" placeholder="Masukan Email" />
+              <input type="email" class="form-control" id="email" aria-describedby="email" name="Email" placeholder="Enter Your Email*" />
             </div>
             <div class="mb-3 px-5">
-              <label for="pesan" class="form-label">Pesan</label>
-              <textarea class="form-control" id="pesan" rows="3" name="Pesan" placeholder="Tulis Pesan..."></textarea>
+              <label for="pesan" class="form-label">Message</label>
+              <textarea class="form-control" id="pesan" rows="3" name="Pesan" placeholder="Your Message Here*"></textarea>
             </div>
             <button type="submit" class="btn btn-primary btn-kirim ms-5">Kirim</button>
             <button class="btn btn-primary btn-loading d-none ms-5" type="button" disabled>
@@ -168,7 +171,7 @@
     <!-- Contact Ends -->
 
     <!-- Footer -->
-    <footer class="bg-primary text-white text-center pb-2">
+    <footer class="shadow-md text-center pb-2">
       <p>Copyright © 2023 Hendy Oktavian</p>
     </footer>
     <!-- Footer Ends -->
