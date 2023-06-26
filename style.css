@@ -5,6 +5,7 @@ html {
 nav {
   font-family: "Oswald", sans-serif;
   backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .jumbotron {
@@ -49,12 +50,22 @@ nav {
 }
 
 #projects {
-  background-color: #e2edff;
+  background-color: #c6d2e6;
   font-family: "Oswald", sans-serif;
 }
 
 section {
   padding-top: 5rem;
+}
+
+#contact a {
+  text-decoration: none;
+  color: #2d4046;
+  margin: 0px 5px;
+}
+
+#contact a:hover {
+  color: black;
 }
 
 footer {
@@ -67,7 +78,7 @@ footer {
 
 .slideshow-container {
   box-sizing: border-box;
-  max-width: 1000px;
+  width: 50vw;
   position: relative;
   margin: auto;
 }
@@ -76,6 +87,19 @@ footer {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  width: 40vw;
+  height: 30vw;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 1080px) {
+  .mySlides img {
+    width: 76vw;
+    height: 57vw;
+  }
+  .slideshow-container {
+    width: 90vw;
+  }
 }
 
 .mySlides {
@@ -118,15 +142,6 @@ footer {
   bottom: 8px;
   width: 100%;
   text-align: center;
-}
-
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
 }
 
 /* The dots/bullets/indicators */
