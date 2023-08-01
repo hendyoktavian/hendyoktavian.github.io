@@ -38,23 +38,6 @@ nav {
   font-family: "Oswald", sans-serif;
 }
 
-.pKiri,
-.pKanan {
-  opacity: 0;
-  transform: translate(-50px, 0);
-  transition: 1s;
-}
-
-.pKanan {
-  transform: translate(50px, 0);
-}
-
-.pKiri.pMuncul,
-.pKanan.pMuncul {
-  opacity: 1;
-  transform: translate(0, 0);
-}
-
 #projects {
   padding-top: 4rem;
   background-color: #c6d2e6;
