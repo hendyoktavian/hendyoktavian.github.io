@@ -26,7 +26,7 @@ nav {
 
 .jumbotron h1,
 .jumbotron p {
-  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
 }
 
 .jumbotron img {
@@ -41,6 +41,11 @@ nav {
 #projects {
   padding-top: 4rem;
   background-color: #c6d2e6;
+  font-family: "Oswald", sans-serif;
+}
+
+#web-projects {
+  padding-top: 4rem;
   font-family: "Oswald", sans-serif;
 }
 
@@ -82,13 +87,29 @@ footer {
   object-fit: contain;
 }
 
+/* Web Projects */
+
+.the-web img {
+  width: 100%;
+}
+
+.web-projects .the-web p span a {
+  text-decoration: none;
+  font-weight: 400;
+}
+
+@media screen and (min-width: 768px) {
+  .the-web {
+    width: 50%;
+  }
+}
 @media screen and (max-width: 1080px) {
   .mySlides img {
     width: 76vw;
     height: 57vw;
   }
   .slideshow-container {
-    width: 90vw;
+    width: 80vw;
   }
 }
 
