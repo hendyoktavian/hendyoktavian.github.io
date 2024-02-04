@@ -1,0 +1,5 @@
+# Ignore blog.html
+blog.html
+
+# Ignore node_modules folder
+node_modules/
