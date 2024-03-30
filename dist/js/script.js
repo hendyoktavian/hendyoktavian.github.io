@@ -1,20 +1,3 @@
-// Navbar Fixed
-window.onscroll = function () {
-  const header = document.querySelector("header");
-  const fixedNav = header.offsetTop;
-  const toTop = document.querySelector("#to-top");
-
-  if (window.scrollY > fixedNav) {
-    header.classList.add("navbar-fixed");
-    toTop.classList.remove("hidden");
-    toTop.classList.add("flex");
-  } else {
-    header.classList.remove("navbar-fixed");
-    toTop.classList.remove("flex");
-    toTop.classList.add("hidden");
-  }
-};
-
 // Hamburger
 
 const hamburger = document.querySelector("#hamburger");
@@ -33,23 +16,30 @@ window.addEventListener("click", function (e) {
   }
 });
 
-// Dark Mode Toggle
-const darkToggle = document.querySelector("#dark-toggle");
-const html = document.querySelector("html");
+// Animasi Scroll
+const scrollers = document.querySelectorAll(".scroller");
 
-darkToggle.addEventListener("click", function () {
-  if (darkToggle.checked) {
-    html.classList.add("dark");
-    localStorage.theme = "dark";
-  } else {
-    html.classList.remove("dark");
-    localStorage.theme = "light";
-  }
-});
+// If a user hasn't opted in for recuded motion, then we add the animation
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  addAnimation();
+}
 
-// Pindah Posisi Toggle Sesuai Mode
-if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-  darkToggle.checked = true;
-} else {
-  darkToggle.checked = false;
+function addAnimation() {
+  scrollers.forEach((scroller) => {
+    // add data-animated="true" to every `.scroller` on the page
+    scroller.setAttribute("data-animated", true);
+
+    // Make an array from the elements within `.scroller-inner`
+    const scrollerInner = scroller.querySelector(".scroller__inner");
+    const scrollerContent = Array.from(scrollerInner.children);
+
+    // For each item in the array, clone it
+    // add aria-hidden to it
+    // add it into the `.scroller-inner`
+    scrollerContent.forEach((item) => {
+      const duplicatedItem = item.cloneNode(true);
+      duplicatedItem.setAttribute("aria-hidden", true);
+      scrollerInner.appendChild(duplicatedItem);
+    });
+  });
 }
