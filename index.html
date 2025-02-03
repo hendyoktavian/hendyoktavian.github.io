@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hendy Oktavian's - Portfolio</title>
+    <link rel="icon" href="dist/img/Logo.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="dist/output.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Header Awal -->
+    <header class="bg-primary fixed w-full flex items-center z-10 shadow-md">
+      <div class="container">
+        <div class="flex items-center justify-between md:justify-around relative py-5 md:py-3">
+          <div class="px-4 md:mx-auto hover:opacity-80 duration-300 ease-in-out">
+            <a href="#home"><img src="dist/img/Logo Fill.svg" alt="Logo" class="w-8" /></a>
+          </div>
+          <div class="flex items-center px-10">
+            <button id="hamburger" name="hamburger" type="button" class="block absolute right md:hidden">
+              <span class="hamburger-line transition duration-300 ease-in-out origin-top-right"></span>
+              <span class="hamburger-line transition duration-300 ease-in-out"></span>
+              <span class="hamburger-line transition duration-300 ease-in-out origin-bottom-right"></span>
+            </button>
+            <nav id="nav-menu" class="hidden absolute bg-cream shadow-lg rounded-lg max-w-[250px] w-full right-0 top-full md:block md:static md:bg-transparent md:max-w-full md:shadow-none md:rounded-none">
+              <ul class="block md:flex">
+                <li class="group">
+                  <a href="#about" class="text-base md:text-cream py-4 mx-6 hover:opacity-80 duration-300 ease-in-out flex">About</a>
+                </li>
+                <li class="group">
+                  <a href="#projects" class="text-base md:text-cream py-4 mx-6 hover:opacity-80 duration-300 ease-in-out flex">Projects</a>
+                </li>
+                <li class="group">
+                  <a href="#experience" class="text-base md:text-cream py-4 mx-6 hover:opacity-80 duration-300 ease-in-out flex">Experience</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="hidden md:block items-center px-4 lg:mx-auto">
+            <ul class="flex">
+              <li class="group hover:opacity-80 duration-300 ease-in-out">
+                <a href="https://www.instagram.com/moka.cinno/" target="_blank" class="w-9 h-9 mr-1 items-center justify-center flex text-cream hover:text-cream transition">
+                  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.67" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <title>Instagram</title>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </a>
+              </li>
+              <li class="group hover:opacity-80 duration-300 ease-in-out">
+                <a href="https://www.linkedin.com/in/hendy-oktavian/" target="_blank" class="w-9 h-9 mr-1 items-center justify-center flex text-cream hover:text-cream transition">
+                  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.67" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+                    <title>Linkedin</title>
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                </a>
+              </li>
+              <li class="group hover:opacity-80 duration-300 ease-in-out">
+                <a href="mailto:hendyoktavians@gmail.com" target="_blank" class="w-9 h-9 mr-1 items-center justify-center flex text-cream hover:text-cream transition">
+                  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="1.67" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+                    <title>Mail</title>
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Header Akhir -->
+
+    <!-- Hero Section Awal -->
+    <section id="home" class="pt-28 md:pt-32 lg:pt-36 bg-gradient-to-b from-cream to-transparent w-full">
+      <div class="w-[320px] md:w-[570px] lg:w-[800px] mx-auto flex-col items-center justify-center">
+        <div class="flex items-center justify-center">
+          <div class="pr-6 lg:pr-[72px]">
+            <h1 class="text-lg font-bold text-primary block font-bold md:text-4xl lg:text-5xl">I'm Hendy Oktavian</h1>
+            <h1 class="text-lg font-extralight text-primary block font-bold md:text-4xl lg:text-5xl mt-2">A Graphic & UI UX Designer.</h1>
+          </div>
+          <div>
+            <img src="dist/img/Logo Face Flip.svg" alt="Hendy Oktavian" class="w-10 md:w-[68px] lg:w-24" />
+          </div>
+        </div>
+        <div class="pl-2 mt-4 md:mt-6 lg:mt-8">
+          <button class="bg-primary hover:shadow-lg hover:opacity-80 text-cream text-xs md:text-sm lg:text-base font-semibold py-2 md:py-3 px-4 md:px-8 rounded-full transition duration-300 ease-in-out">
+            <a href="mailto:hendyoktavians@gmail.com">Contact Me</a>
+          </button>
+        </div>
+      </div>
+      <div class="scroller pt-4 md:pt-6 lg:pt-8" data-direction="right" data-speed="slow">
+        <div class="scroller__inner">
+          <img src="dist/img/scroll/1.png" alt="Sustainable Oil Poster" class="h-20 md:h-[120px] lg:h-[180px]" />
+          <img src="dist/img/scroll/2.png" alt="DjamuGo Poster" class="h-20 md:h-[120px] lg:h-[180px]" />
+          <img src="dist/img/scroll/3.png" alt="Jiwa Toast" class="h-20 md:h-[120px] lg:h-[180px]" />
+          <img src="dist/img/scroll/4.png" alt="Corporate Identity" class="h-20 md:h-[120px] lg:h-[180px]" />
+          <img src="dist/img/scroll/5.png" alt="Minumako Posters" class="h-20 md:h-[120px] lg:h-[180px]" />
+          <img src="dist/img/scroll/6.png" alt="Kim Da-hyun Illustration" class="h-20 md:h-[120px] lg:h-[180px]" />
+          <img src="dist/img/scroll/7.png" alt="Space Girl Illustration" class="h-20 md:h-[120px] lg:h-[180px]" />
+          <img src="dist/img/scroll/8.png" alt="Group Illustration" class="h-20 md:h-[120px] lg:h-[180px]" />
+          <img src="dist/img/scroll/9.png" alt="Kim Seon-ho Illustration" class="h-20 md:h-[120px] lg:h-[180px]" />
+          <img src="dist/img/scroll/10.png" alt="Meraki Wedding Organizer Logo" class="h-20 md:h-[120px] lg:h-[180px]" />
+          <img src="dist/img/scroll/11.png" alt="Honey Bliss Packaging" class="h-20 md:h-[120px] lg:h-[180px]" />
+          <img src="dist/img/scroll/12.png" alt="Dairy Soe Packaging" class="h-20 md:h-[120px] lg:h-[180px]" />
+          <img src="dist/img/scroll/13.png" alt="Kembang Goyang Packaging" class="h-20 md:h-[120px] lg:h-[180px]" />
+        </div>
+      </div>
+    </section>
+    <!-- Hero Section Akhir -->
+
+    <!-- About Section Awal -->
+    <section id="about" class="pt-24 md:pt-32 lg:pt-36">
+      <div class="w-[320px] md:w-[570px] lg:w-[800px] mx-auto flex items-center justify-center">
+        <div class="mr-4 md:mr-5 lg:mr-7">
+          <img src="dist/img/Profile.png" alt="Hendy Oktavian" />
+        </div>
+        <div>
+          <h2 class="text-base md:text-2xl lg:text-4xl font-bold text-primary">About Me</h2>
+          <p class="text-[10px] md:text-sm lg:text-xl font-normal text-primary mt-3 lg:mt-6 w-[216px] md:w-[420px] lg:w-[600px]">
+            Hey There! I'm Hendy, a UX/UI & Graphic Designer with over 2+ years of experience and Web Development Background. Need visually stunning designs that are both intuitive and functional? Reach out to discuss your project and bring
+            your ideas to life!
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- About Section Akhir -->
+
+    <!-- Projects Section Awal -->
+    <section id="projects" class="pt-24 lg:pt-28">
+      <div class="w-[320px] md:w-[570px] lg:w-[800px] mx-auto">
+        <div class="mb-4 md:mb-6 lg:mb-8">
+          <h2 class="md:text-2xl lg:text-4xl font-bold text-primary block">Featured Projects</h2>
+        </div>
+        <div class="w-full flex flex-wrap justify-center">
+          <div class="mb-8 md:mb-12 lg:mb-[72px]">
+            <div class="rounded-xl shadow-md overflow-hidden mb-4 md:mb-6 lg:mb-8 hover:shadow-lg hover:opacity-80 duration-300 ease-in-out">
+              <a href="https://hendyoktavian.github.io/seko-coffee/" target="_blank">
+                <img src="dist/img/projects/Banner Seko.png" alt="Seko Coffe Website" />
+              </a>
+            </div>
+            <h3 class="font-semibold text-sm md:text-xl lg:text-2xl text-primary mb-2 lg:mb-4">Seko Coffee Website</h3>
+            <p class="text-[10px] md:text-sm lg:text-base text-primary">
+              This website was my assignment for my final semester exam assignment in a Web Design course, where I am required to create a website for a small and medium enterprise, and I choose SEKO Coffee as the small and medium business
+              that I will create a website for.
+            </p>
+          </div>
+          <div class="mb-8 md:mb-12 lg:mb-[72px] md:flex">
+            <div class="w-[320px] md:w-[275px] lg:w-[390px] mb-8 lg:mb-0 md:mr-5">
+              <div class="rounded-xl shadow-md overflow-hidden mb-4 md:mb-6 lg:mb-8 hover:shadow-lg hover:opacity-80 duration-300 ease-in-out">
+                <a
+                  href="https://www.figma.com/proto/8C5P6zKxiRsQy3ujYg4Omy/Pijar-Music-App?page-id=0%3A1&type=design&node-id=4-2&viewport=505%2C298%2C0.17&t=pkzlxFjyMeabMtDr-1&scaling=scale-down&starting-point-node-id=29%3A640&show-proto-sidebar=1&mode=design"
+                  target="_blank"
+                >
+                  <img src="dist/img/projects/Pijar Music App.jpg" alt="Pijar Music App" />
+                </a>
+              </div>
+              <h3 class="font-semibold text-sm md:text-xl lg:text-2xl text-primary mb-2 lg:mb-4">Pijar Music App</h3>
+              <p class="text-[10px] md:text-sm lg:text-base text-primary">
+                Pijar Music App is an online music concert ticket booking website where part of the profits from booking tickets will be donated to donations for victims of natural disasters
+              </p>
+            </div>
+            <div class="w-[320px] md:w-[275px] lg:w-[390px]">
+              <div class="rounded-xl shadow-md overflow-hidden mb-4 md:mb-6 lg:mb-8 hover:shadow-lg hover:opacity-80 duration-300 ease-in-out">
+                <a
+                  href="https://www.figma.com/proto/qjLVzfJRCqQqjtD4IYYtrD/Pijar-Music-Website?page-id=27%3A170&type=design&node-id=27-870&viewport=590%2C165%2C0.05&t=xRs4Rzp1aExk2FPP-1&scaling=min-zoom&starting-point-node-id=27%3A870&mode=design"
+                  target="_blank"
+                >
+                  <img src="dist/img/projects/Pijar Music Web.jpg" alt="Pijar Music Web" />
+                </a>
+              </div>
+              <h3 class="font-semibold text-sm md:text-xl lg:text-2xl text-primary mb-2 lg:mb-4">Pijar Music Website</h3>
+              <p class="text-[10px] md:text-sm lg:text-base text-primary">The Pijar Music website is also the same but this is the desktop website version of the app,</p>
+            </div>
+          </div>
+          <div class="mb-8 md:mb-12 lg:mb-[72px]">
+            <div class="rounded-xl shadow-md overflow-hidden mb-4 md:mb-6 lg:mb-8 hover:shadow-lg hover:opacity-80 duration-300 ease-in-out">
+              <a href="https://www.instagram.com/p/C3e83K1Jaxv/?img_index=1" target="_blank">
+                <img src="dist/img/projects/Visualive.png" alt="Visualive Learning App" />
+              </a>
+            </div>
+            <h3 class="font-semibold text-sm md:text-xl lg:text-2xl text-primary mb-2 lg:mb-4">Visualive - Illustration Learning App - UX</h3>
+            <p class="text-[10px] md:text-sm lg:text-base text-primary">
+              Visualive is an application to help prospective students enter the world of art and design. This application is expected to be a solution to expensive drawing tutoring.
+            </p>
+          </div>
+        </div>
+        <div class="md:flex">
+          <div class="w-[320px] md:w-[275px] lg:w-[390px] mb-8 lg:mb-0 md:mr-5">
+            <div class="rounded-xl shadow-md overflow-hidden mb-4 md:mb-6 lg:mb-8hover:shadow-lg hover:opacity-80 duration-300 ease-in-out">
+              <a
+                href="https://www.figma.com/proto/vCuRHONSDxwXv7QU6plu6g/DetikX?page-id=6%3A1057&type=design&node-id=6-1477&viewport=329%2C197%2C0.08&t=3zpHkcnAq4dyRY2I-1&scaling=min-zoom&starting-point-node-id=6%3A1477&mode=design"
+                target="_blank"
+              >
+                <img src="dist/img/projects/DetikX.jpg" alt="DetikX Microsite" />
+              </a>
+            </div>
+            <h3 class="font-semibold text-sm md:text-xl lg:text-2xl text-primary mb-2 md:mb-6 lg:mb-4">DetikX Microsite</h3>
+            <p class="text-[10px] md:text-sm lg:text-base text-primary">
+              This is the result of the MSIB assignment test too, detikX is actually a microsite of the detik website which has a slightly more specific topic but it looks like it is still under development, therefore this website needs a
+              redesign so that the website can look neater.
+            </p>
+          </div>
+          <div class="w-[320px] md:w-[275px] lg:w-[390px]">
+            <div class="rounded-xl shadow-md overflow-hidden mb-4 lg:mb-8 hover:shadow-lg hover:opacity-80 duration-300 ease-in-out">
+              <a
+                href="https://www.figma.com/proto/QIzWdi6KR6GQHgix3brRX5/Sejaloka?page-id=40%3A4&type=design&node-id=40-152&viewport=489%2C368%2C0.06&t=VsjG7C8KVIVTDtC8-1&scaling=min-zoom&starting-point-node-id=40%3A59&mode=design"
+                target="_blank"
+              >
+                <img src="dist/img/projects/Sejaloka.jpg" alt="Sejaloka Website" />
+              </a>
+            </div>
+            <h3 class="font-semibold text-sm md:text-xl lg:text-2xl text-primary mb-2 lg:mb-4">Sejaloka Website</h3>
+            <p class="text-[10px] md:text-sm lg:text-base text-primary">
+              Sejaloka is a local historical tourism recommendation application to increase knowledge of local tourism and increase people's interest in trying to travel to local historical tourism in Indonesia
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Projects Section Akhir -->
+
+    <!-- Experience Section Awal-->
+    <section id="experience" class="pt-24 md:pt-28">
+      <div class="w-[320px] md:w-[570px] lg:w-[800px] mx-auto">
+        <div class="mb-28 lg:mb-52 md:flex">
+          <div class="w-[320px] md:w-[275px] lg:w-[362px] mb-16 md:mr-5 lg:mr-12">
+            <h2 class="font-bold md:text-2xl lg:text-4xl text-primary mb-4">Other Projects</h2>
+            <p class="text-[10px] md:text-sm lg:text-base text-primary">My other projects like unpublished projects.</p>
+            <div class="flex items-start justify-center mt-4 md:mt-7 lg:mt-9">
+              <div class="mr-4 lg:mr-5 w-20">
+                <img src="dist/img/other/Snora.png" alt="SNORA" />
+              </div>
+              <div class="w-[220px] md:w-[170px] lg:w-[290px]">
+                <h2 class="text-xs md:text-sm lg:text-base font-semibold text-primary">SNORA</h2>
+                <p class="text-[10px] md:text-xs lg:text-sm font-normal text-primary mt-2">SNORA is a smart notation reader application used by blind friends to recognize music more easily</p>
+              </div>
+            </div>
+            <div class="flex items-start justify-center mt-4 lg:mt-6">
+              <div class="mr-4 lg:mr-5 w-20">
+                <img src="dist/img/other/Coofis.png" alt="Coofis" />
+              </div>
+              <div class="w-[220px] md:w-[170px] lg:w-[290px]">
+                <h2 class="text-xs md:text-sm lg:text-base font-semibold text-primary">Coofis</h2>
+                <p class="text-[10px] md:text-xs lg:text-sm font-normal text-primary mt-2">Coofis NDE is an office bureaucratic automation application which was a project I worked on during my internship at PT ARM Solusi</p>
+              </div>
+            </div>
+            <div class="flex items-start justify-center mt-4 lg:mt-6">
+              <div class="mr-4 lg:mr-5 w-20">
+                <img src="dist/img/other/Smart Lock.png" alt="Smart Lock" />
+              </div>
+              <div class="w-[220px] md:w-[170px] lg:w-[290px]">
+                <h2 class="text-xs md:text-sm lg:text-base font-semibold text-primary">Smart Lock</h2>
+                <p class="text-[10px] md:text-xs lg:text-sm font-normal text-primary mt-2">Smart Lock is a UI UX design project, where my team and I designed an application that can open and close a drawer using an employee's QR code.</p>
+              </div>
+            </div>
+            <div class="flex items-start justify-center mt-4 lg:mt-6">
+              <div class="mr-4 lg:mr-5 w-20">
+                <img src="dist/img/other/Pulau Seribu.png" alt="Pulau Seribu Website" />
+              </div>
+              <div class="w-[220px] md:w-[170px] lg:w-[290px]">
+                <h2 class="text-xs md:text-sm lg:text-base font-semibold text-primary">Pulau Seribu Website</h2>
+                <p class="text-[10px] md:text-xs lg:text-sm font-normal text-primary mt-2">
+                  I created this website to fulfill the requirements for passing course at SIB Kampus Merdeka x Dicoding Cycle 5 for a Basic Web Programming Course.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="w-[320px] md:w-[275px] lg:w-[400px]">
+            <h2 class="font-bold md:text-2xl lg:text-4xl text-primary mb-4">Experience</h2>
+            <p class="text-[10px] md:text-sm lg:text-base text-primary">My working and organizational experience.</p>
+            <div class="mt-4 md:mt-7 lg:mt-9">
+              <h2 class="font-semibold text-xs md:text-sm lg:text-base text-primary">UI UX Designer | 2024</h2>
+              <p class="text-[10px] md:text-xs lg:text-sm font-normal text-primary mt-2">PT ARM Solusi</p>
+            </div>
+            <div class="mt-4 lg:mt-6">
+              <h2 class="font-semibold text-xs md:text-sm lg:text-base text-primary">Chief Executive | 2023-2024</h2>
+              <p class="text-[10px] md:text-xs lg:text-sm font-normal text-primary mt-2">Isola Digital Media Student Activity Units UPI</p>
+            </div>
+            <div class="mt-4 lg:mt-6">
+              <h2 class="font-semibold text-xs md:text-sm lg:text-base text-primary">Head of the Education Department | 2023-2024</h2>
+              <p class="text-[10px] md:text-xs lg:text-sm font-normal text-primary mt-2">Visual Communication Design Student Association - HIKAVI UPI.</p>
+            </div>
+            <div class="mt-4 lg:mt-6">
+              <h2 class="font-semibold text-xs md:text-sm lg:text-base text-primary">Assistant Lecturer | 2022-2024</h2>
+              <p class="text-[10px] md:text-xs lg:text-sm font-normal text-primary mt-2">Universitas Pendidikan Indonesia</p>
+            </div>
+            <div class="mt-4 lg:mt-6">
+              <h2 class="font-semibold text-xs md:text-sm lg:text-base text-primary">Fullstack Developer Mentee | 2023</h2>
+              <p class="text-[10px] md:text-xs lg:text-sm font-normal text-primary mt-2">Dicoding Indonesia</p>
+            </div>
+            <div class="mt-4 lg:mt-6">
+              <h2 class="font-semibold text-xs md:text-sm lg:text-base text-primary">Graphic Designer | 2020</h2>
+              <p class="text-[10px] md:text-xs lg:text-sm font-normal text-primary mt-2">PT Penerbit Erlangga</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Experience Section Akhir -->
+
+    <!-- Footer Awal -->
+    <footer class="bg-primary py-8 lg:py-10 w-full">
+      <div class="flex justify-center items-center">
+        <div class="py-3 flex items-center">
+          <a href="#home"><img src="dist/img/Logo Fill.svg" alt="Logo" class="w-9 md:w-10 lg:w-12 pr-2 block" /></a>
+        </div>
+        <div>
+          <p class="font-extralight md:text-xl lg:text-2xl text-cream text-center md:tracking-[1.5px] lg:tracking-[1px]">
+            <a href="https://instagram.com/moka.cinno" target="_blank">HENDY OKTAVIAN</a>
+          </p>
+          <p class="font-extralight text-[10px] md:text-sm lg:text-base text-cream text-center">
+            <a href="mailto:hendyoktavians@gmail.com" target="_blank">hendyoktavians@gmail.com</a>
+          </p>
+        </div>
+      </div>
+      <ul class="flex justify-center items-center mt-4 md:mt-6 lg:mt-8">
+        <li class="group">
+          <a href="https://www.instagram.com/moka.cinno/" target="_blank" class="w-5 md:w-6 lg:w-9 h-5 md:h-6 lg:h-9 mr-4 items-center justify-center flex text-cream hover:border-cream hover:text-cream transition">
+            <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="1.67" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <title>Instagram</title>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+        </li>
+        <li class="group">
+          <a href="https://www.linkedin.com/in/hendy-oktavian/" target="_blank" class="w-5 md:w-6 lg:w-9 h-5 md:h-6 lg:h-9 mr-4 items-center justify-center flex text-cream hover:border-cream hover:text-cream transition">
+            <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="1.67" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+              <title>Linkedin</title>
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+        </li>
+        <li class="group">
+          <a href="mailto:hendyoktavians@gmail.com" target="_blank" class="w-5 md:w-6 lg:w-9 h-5 md:h-6 lg:h-9 items-center justify-center flex text-cream hover:border-cream hover:text-cream transition">
+            <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="1.67" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+              <title>Mail</title>
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <p class="font-extralight text-[10px] md:text-xs lg:text-sm text-cream text-center mt-4 md:mt-6 lg:mt-8">
+        <a href="mailto:hendyoktavians@gmail.com" target="_blank">Copyright © 2023 Hendy Oktavian</a>
+      </p>
+    </footer>
+    <!-- Footer Akhir -->
+
+    <script src="dist/js/script.js"></script>
+  </body>
+</html>
