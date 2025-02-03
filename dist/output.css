@@ -568,6 +568,9 @@
     clip: auto;
     white-space: normal;
   }
+  .\!relative {
+    position: relative !important;
+  }
   .absolute {
     position: absolute;
   }
@@ -2664,6 +2667,12 @@
   }
   .\[keywords\:node-addon-api\] {
     keywords: node-addon-api;
+  }
+  .\[vite\:css\] {
+    vite: css;
+  }
+  .\[vite\:html\] {
+    vite: html;
   }
   .backface-hidden {
     backface-visibility: hidden;
