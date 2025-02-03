@@ -1,13 +1,19 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #533420;
+  --color-mainblue: #1F1E5C;
+  --color-mainred: #982C3E;
+  --color-cream: #F5E8D3;
+  --color-dark: #212121;
+}
 
 body {
   font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 .hamburger-line {
-  @apply w-[30px] h-[2px] my-2 block bg-cream;
+  @apply w-[30px] h-[2px] my-2 block bg-mainblue;
 }
 
 .hamburger-active > span:nth-child(1) {
