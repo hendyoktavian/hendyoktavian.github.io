@@ -225,8 +225,22 @@
     </section>
     <!-- Projects Section Akhir -->
 
-    <!-- Experience Section Awal-->
+    <!-- Exp JSON -->
     <section id="experience" class="pt-24 md:pt-28">
+      <div class="w-[320px] md:w-[570px] lg:w-[800px] mx-auto">
+        <div class="mb-16">
+          <h2 class="font-bold text-3xl lg:text-5xl inline-block bg-gradient-to-r from-[#1F1E5C] to-[#982C3E] bg-clip-text text-transparent mb-4">Experience</h2>
+          <p class="text-[10px] md:text-sm lg:text-base text-dark">Here are my working experience.</p>
+
+          <!-- Container dinamis -->
+          <div id="dynamic-experience"></div>
+        </div>
+      </div>
+    </section>
+    <!-- Exp JSON -->
+
+    <!-- Experience Section Awal-->
+    <!-- <section id="experience" class="pt-24 md:pt-28">
       <div class="w-[320px] md:w-[570px] lg:w-[800px] mx-auto">
         <div class="mb-16">
           <h2 class="font-bold text-3xl lg:text-5xl inline-block bg-gradient-to-r from-[#1F1E5C] to-[#982C3E] bg-clip-text text-transparent mb-4">Experience</h2>
@@ -304,7 +318,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- Experience Section Akhir -->
 
     <!-- Education Leadership Section Awal-->
@@ -422,5 +436,18 @@
     <!-- Footer Akhir -->
 
     <script src="dist/js/script.js"></script>
+    <script src="dist/js/fetch.js"></script>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
   </body>
 </html>

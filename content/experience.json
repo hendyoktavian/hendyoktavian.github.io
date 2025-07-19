@@ -1,0 +1,56 @@
+[
+  {
+    "company": "Apple Developer Academy",
+    "role": "Jr Product Designer",
+    "date": "Feb 2025",
+    "logo": "dist/img/other/Logo Apple Developer Academy.png",
+    "description": [
+      "Design by focusing on creating seamless UI/UX designs, which included conducting user research, creating personas, mapping journeys, and developing both low-fidelity and high-fidelity prototypes."
+    ]
+  },
+  {
+    "company": "PT Kimia Farma Tbk",
+    "role": "Multimedia Designer",
+    "date": "Jul 2024 - Jan 2025",
+    "logo": "dist/img/other/Logo Kimia Farma.png",
+    "description": [
+      "Designed posters and flyers for training sessions within the Kimia Farma Group, enhancing event visibility and engagement.",
+      "Created thumbnails for the e-learning website to improve user experience and visual appeal.",
+      "Developed content for Instagram for the Corporate University, including writing scripts, recording and editing videos, designing cover reels, and crafting captions to effectively communicate key messages.",
+      "Documented training activities, ensuring comprehensive records of employee training sessions.",
+      "Compiled photo and video highlights from training events to showcase achievements and engagement.",
+      "Prepared reports for LinkedIn Learning certificates and the e-learning initiatives of Kimia Farma Group, contributing to ongoing professional development efforts."
+    ]
+  },
+  {
+    "company": "Universitas Pendidikan Indonesia",
+    "role": "Assistant Lecturer",
+    "date": "Jun 2022 - Aug 2024",
+    "logo": "dist/img/other/Logo UPI.png",
+    "description": [
+      "Assisted in the Art and Design Studies course, delivering lectures on key concepts and evaluating mid-term and final assignments while compiling student grades.",
+      "Served as an Assistant Lecturer for the Web Design course, providing support to students facing challenges with assignments and clarifying course material to enhance understanding and skills."
+    ]
+  },
+  {
+    "company": "PT ARM Solusi",
+    "role": "UI/UX Designer",
+    "date": "Feb 2024 - Jun 2024",
+    "logo": "dist/img/other/Logo ARM Solusi.png",
+    "description": [
+      "As a UX Designer for the Coofis redesign, creating optimized application flows while preserving key design elements from the original interface to ensure user familiarity.",
+      "As a UI Designer to develop an information-dense layout that balances clarity and modern aesthetics, delivering a clean and user-friendly interface.",
+      "Creating hundreds of screens for Coofis NDE with my UI/UX intern teammates at PT ARM Solusi."
+    ]
+  },
+  {
+    "company": "PT Penerbit Erlangga",
+    "role": "Graphic Designer",
+    "date": "Feb 2020 - May 2020",
+    "logo": "dist/img/other/Logo Erlangga.png",
+    "description": [
+      "Internship as a graphic designer during a vocational school internship.",
+      "Handling graphic design needs such as posters, improving existing designs, and designing social media needs such as Instagram stories."
+    ]
+  }
+]

@@ -1,0 +1,29 @@
+backend:
+  name: github
+  repo: hendyoktavian/nama-repo-kamu
+  branch: main
+
+media_folder: "dist/img/uploads"
+public_folder: "/dist/img/uploads"
+
+collections:
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    fields:
+      - { name: "title", label: "Title" }
+      - { name: "image", label: "Image", widget: "image" }
+      - { name: "description", label: "Description", widget: "markdown" }
+      - { name: "link", label: "Project Link" }
+
+  - name: "experience"
+    label: "Experience"
+    folder: "content/experience"
+    create: true
+    fields:
+      - { name: "company", label: "Company" }
+      - { name: "role", label: "Role" }
+      - { name: "logo", label: "Logo", widget: "image" }
+      - { name: "date", label: "Date" }
+      - { name: "description", label: "Description", widget: "list" }
