@@ -2,6 +2,7 @@ backend:
   name: github
   repo: hendyoktavian/hendyoktavian.github.io
   branch: master
+  oauth_client_id: Ov23lih9zMRYGj4388gk
 
 media_folder: "dist/img/uploads"
 public_folder: "/dist/img/uploads"
