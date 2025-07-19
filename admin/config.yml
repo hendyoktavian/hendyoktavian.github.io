@@ -1,29 +1,32 @@
 backend:
   name: github
-  repo: hendyoktavian/nama-repo-kamu
-  branch: main
+  repo: hendyoktavian/hendyoktavian.github.io
+  branch: master
 
 media_folder: "dist/img/uploads"
 public_folder: "/dist/img/uploads"
 
 collections:
+  - name: "experience"
+    label: "Experience"
+    label_singular: "Experience Item"
+    folder: "content/experience"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Company", name: "company", widget: "string" }
+      - { label: "Role", name: "role", widget: "string" }
+      - { label: "Date", name: "date", widget: "string" }
+      - { label: "Logo", name: "logo", widget: "image" }
+      - { label: "Description", name: "description", widget: "list" }
+
   - name: "projects"
     label: "Projects"
     folder: "content/projects"
     create: true
+    slug: "{{slug}}"
     fields:
-      - { name: "title", label: "Title" }
-      - { name: "image", label: "Image", widget: "image" }
-      - { name: "description", label: "Description", widget: "markdown" }
-      - { name: "link", label: "Project Link" }
-
-  - name: "experience"
-    label: "Experience"
-    folder: "content/experience"
-    create: true
-    fields:
-      - { name: "company", label: "Company" }
-      - { name: "role", label: "Role" }
-      - { name: "logo", label: "Logo", widget: "image" }
-      - { name: "date", label: "Date" }
-      - { name: "description", label: "Description", widget: "list" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Description", name: "description", widget: "markdown" }
+      - { label: "Link", name: "link", widget: "string" }
