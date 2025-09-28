@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About Me | Hendy Oktavian</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
+    <!-- Fonts & Favicon -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="dist/img/logo/Logo H Black.svg" />
+
+    <!-- Tailwind Config (copy dari index agar konsisten) -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#212121",
+              background: "#FFFFFF",
+              text: "#212121",
+              secondary: "#616161",
+              footer: "#ACACAC",
+              border: "#E0E0E0",
+              card: "#F5F5F5",
+            },
+            fontFamily: {
+              display: ["Plus Jakarta Sans", "ui-sans-serif", "system-ui", "sans-serif"],
+            },
+            borderRadius: { lg: "1rem" },
+            keyframes: {
+              bgShift: {
+                "0%": { backgroundPosition: "0% 50%" },
+                "50%": { backgroundPosition: "100% 50%" },
+                "100%": { backgroundPosition: "0% 50%" },
+              },
+            },
+            animation: { "bg-shift": "bgShift 3s ease infinite" },
+          },
+        },
+      };
+    </script>
+
+    <!-- Utilities -->
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .container-page {
+          @apply container mx-auto max-w-6xl px-4;
+        }
+        .btn {
+          @apply relative inline-flex items-center justify-center rounded-full px-8 py-3 font-medium text-white bg-black overflow-hidden;
+        }
+        .btn::before {
+          content: "";
+          background-image: linear-gradient(to right, #1f1e5c, #e73429);
+          @apply absolute inset-0 opacity-0 transition-opacity duration-500 bg-[length:200%_200%];
+        }
+        .btn:hover::before {
+          @apply opacity-100 animate-bg-shift;
+        }
+        .btn > span {
+          @apply relative z-10;
+        }
+
+        /* Badges */
+        .chip {
+          @apply inline-flex items-center rounded-full bg-card px-3 py-1 text-sm text-secondary ring-1 ring-border;
+        }
+
+        /* Section card */
+        .card {
+          @apply bg-white rounded-lg ring-1 ring-border p-5;
+        }
+
+        /* Grid for "Uses" */
+        .uses-item {
+          @apply p-5 bg-white rounded-lg ring-1 ring-border shadow-sm;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="font-display bg-background text-text">
+    <div class="flex sticky top-0 z-50 w-full justify-center">
+      <nav class="mt-12 w-full max-w-[340px] sm:max-w-[420px] md:max-w-[480px]">
+        <ul
+          class="relative overflow-hidden flex justify-between rounded-full px-2 py-2 text-black shadow-[0_4px_12px_rgba(0,0,0,0.08)] ring-1 ring-black/10 bg-black supports-[backdrop-filter]:backdrop-blur-2xl supports-[backdrop-filter]:backdrop-saturate-150 before:content-[''] before:absolute before:inset-0 before:rounded-full before:bg-gradient-to-b before:from-white/40 before:to-transparent before:opacity-60 before:pointer-events-none after:content-[''] after:absolute after:inset-0 after:rounded-full after:pointer-events-none after:[box-shadow:inset_0_1px_0_rgba(255,255,255,0.5),inset_0_-1px_0_rgba(255,255,255,0.1)] [background:radial-gradient(140px_100px_at_10%_0%,rgba(255,255,255,.28),rgba(255,255,255,0)),radial-gradient(160px_140px_at_90%_30%,rgba(255,255,255,.18),rgba(255,255,255,0))]"
+        >
+          <li class="flex-1">
+            <a
+              href="index.html#work"
+              class="block text-center rounded-full px-4 py-2.5 sm:px-4 sm:py-2.5 md:px-5 md:py-3 text-xs sm:text-sm md:text-base transition-colors duration-300 ease-in-out hover:bg-black/5 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)] active:scale-[0.99]"
+              >Work</a
+            >
+          </li>
+          <li class="flex-1">
+            <a
+              href="aboutme.html"
+              class="block text-center rounded-full px-4 py-2.5 sm:px-4 sm:py-2.5 md:px-5 md:py-3 text-xs sm:text-sm md:text-base transition-colors duration-300 ease-in-out hover:bg-black/5 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)] active:scale-[0.99]"
+              >About</a
+            >
+          </li>
+          <li class="flex-1">
+            <a
+              href="https://drive.google.com/file/d/1H6n4esL4zbqSCZvwfpK4qqR3ngo8dlt4/view?usp=drive_link"
+              target="_blank"
+              class="block text-center rounded-full px-4 py-2.5 sm:px-4 sm:py-2.5 md:px-5 md:py-3 text-xs sm:text-sm md:text-base transition-colors duration-300 ease-in-out hover:bg-black/5 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)] active:scale-[0.99]"
+              >Resume</a
+            >
+          </li>
+          <li class="flex-1">
+            <a
+              href="mailto:hendyoktavians@gmail.com"
+              class="block text-center rounded-full px-4 py-2.5 sm:px-4 sm:py-2.5 md:px-5 md:py-3 text-xs sm:text-sm md:text-base transition-colors duration-300 ease-in-out hover:bg-black/5 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)] active:scale-[0.99]"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <main class="container-page mt-8 py-16 md:py-24 space-y-24 md:space-y-32">
+      <!-- Intro -->
+      <section id="intro" class="flex flex-col-reverse md:flex-row items-center gap-10 md:gap-16">
+        <div class="flex-1 text-center md:text-left space-y-6">
+          <h2 class="text-2xl md:text-3xl font-bold">Hi, I’m Hendy 👋</h2>
+          <p class="text-secondary max-w-prose mx-auto md:mx-0">
+            A guy who labeled himself as a Product Designer, Use Figma as his main tools, but integrate it with others tools as well. Love to create something new/different that solve the problem and also love to share what i know to others
+            especially related to my expertise.
+          </p>
+          <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+            <span class="chip">Product Design</span>
+            <span class="chip">UI/UX</span>
+            <span class="chip">Design Systems</span>
+            <span class="chip">SwiftUI (basics)</span>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4">
+            <div class="card">
+              <p class="text-sm text-secondary">Based in</p>
+              <p class="font-medium">Indonesia</p>
+            </div>
+            <div class="card">
+              <p class="text-sm text-secondary">Role</p>
+              <p class="font-medium">Product Designer</p>
+            </div>
+            <div class="card">
+              <p class="text-sm text-secondary">Focus</p>
+              <p class="font-medium">Mobile & Web</p>
+            </div>
+          </div>
+        </div>
+        <img src="dist/img/profile/Photo.png" alt="Hendy Oktavian" class="w-[240px] rounded-3xl" />
+      </section>
+
+      <!-- Now -->
+      <section id="now" class="space-y-8">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold">What I’m doing now</h2>
+          <p class="text-secondary mt-2">A quick snapshot of my current focus.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="card space-y-2">
+            <h3 class="font-semibold">Designing iOS concepts</h3>
+            <p class="text-secondary text-sm">Exploring flows for Compast, Cinebites, and Tarea! with SwiftUI-friendly UI.</p>
+          </div>
+          <div class="card space-y-2">
+            <h3 class="font-semibold">Portfolio refinement</h3>
+            <p class="text-secondary text-sm">Turning projects into clear stories with problem → process → impact.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stack -->
+      <section id="stack" class="space-y-8">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold">Design & Dev Stack</h2>
+          <p class="text-secondary mt-2">Tools I use frequently.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div class="uses-item">
+            <h3 class="font-semibold">Design</h3>
+            <div class="mt-3 flex flex-wrap gap-2"><span class="chip">Figma</span><span class="chip">FigJam</span><span class="chip">Design Tokens</span><span class="chip">Auto-Layout</span></div>
+          </div>
+          <div class="uses-item">
+            <h3 class="font-semibold">Frontend</h3>
+            <div class="mt-3 flex flex-wrap gap-2"><span class="chip">TailwindCSS</span><span class="chip">HTML</span><span class="chip">SwiftUI</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience / Timeline -->
+      <section id="experience" class="space-y-8">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold">Experience</h2>
+          <p class="text-secondary mt-2">Selected roles & programs.</p>
+        </div>
+
+        <div class="space-y-6">
+          <!-- Jr Product Designer — Apple Developer Academy -->
+          <article class="card">
+            <div class="flex items-start justify-between gap-6">
+              <div>
+                <h3 class="font-semibold">Jr Product Designer — Apple Developer Academy</h3>
+                <p class="text-sm text-secondary">Feb 2025</p>
+              </div>
+              <span class="chip">iOS</span>
+            </div>
+            <ul class="mt-3 list-disc list-inside text-secondary">
+              <li>Designed seamless UI/UX by conducting user research, creating personas, mapping user journeys, and developing both low-fidelity and high-fidelity prototypes.</li>
+            </ul>
+          </article>
+
+          <!-- Multimedia Designer — PT Kimia Farma Tbk -->
+          <article class="card">
+            <div class="flex items-start justify-between gap-6">
+              <div>
+                <h3 class="font-semibold">Multimedia Designer — PT Kimia Farma Tbk</h3>
+                <p class="text-sm text-secondary">Jul 2024 – Jan 2025</p>
+              </div>
+              <span class="chip">Corporate University</span>
+            </div>
+            <ul class="mt-3 list-disc list-inside text-secondary">
+              <li>Designed posters and flyers for training sessions across Kimia Farma Group to boost event visibility and engagement.</li>
+              <li>Produced Instagram content for the Corporate University: writing scripts, recording and editing videos, designing reel covers, and crafting captions.</li>
+              <li>Prepared LinkedIn Learning certificate reports and supported e-learning initiatives for Kimia Farma Group.</li>
+            </ul>
+          </article>
+
+          <!-- UI/UX Designer — PT ARM Solusi -->
+          <article class="card">
+            <div class="flex items-start justify-between gap-6">
+              <div>
+                <h3 class="font-semibold">UI/UX Designer — PT ARM Solusi</h3>
+                <p class="text-sm text-secondary">Feb 2024 – Jun 2024</p>
+              </div>
+              <span class="chip">Coofis</span>
+            </div>
+            <ul class="mt-3 list-disc list-inside text-secondary">
+              <li>Led UX redesign for Coofis, optimizing application flows while preserving essential UI patterns for user familiarity.</li>
+              <li>Developed an information-dense UI that balances clarity and modern aesthetics for a clean, user-friendly interface.</li>
+              <li>Produced hundreds of screens for Coofis NDE in collaboration with UI/UX intern teammates.</li>
+            </ul>
+          </article>
+
+          <!-- Graphic Designer — PT Penerbit Erlangga -->
+          <article class="card">
+            <div class="flex items-start justify-between gap-6">
+              <div>
+                <h3 class="font-semibold">Graphic Designer — PT Penerbit Erlangga (Intern)</h3>
+                <p class="text-sm text-secondary">Feb 2020 – May 2020</p>
+              </div>
+              <span class="chip">Internship</span>
+            </div>
+            <ul class="mt-3 list-disc list-inside text-secondary">
+              <li>Handled graphic design needs including posters, improvements to existing designs, and social media assets such as Instagram stories.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- Uses (Gear / Setup) -->
+      <section id="uses" class="space-y-8">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold">Uses</h2>
+          <p class="text-secondary mt-2">Hardware & software I rely on.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div class="uses-item">
+            <h3 class="font-semibold">Hardware</h3>
+            <ul class="mt-3 space-y-1 text-secondary">
+              <li>MacBook Pro M4</li>
+              <li>Nintendo Switch (for sanity 😄)</li>
+            </ul>
+          </div>
+          <div class="uses-item">
+            <h3 class="font-semibold">Browser & Dev</h3>
+            <ul class="mt-3 space-y-1 text-secondary">
+              <li>Chrome · Safari</li>
+              <li>VS Code</li>
+              <li>XCode</li>
+            </ul>
+          </div>
+          <div class="uses-item">
+            <h3 class="font-semibold">Content</h3>
+            <ul class="mt-3 space-y-1 text-secondary">
+              <li>Google Docs</li>
+              <li>Apple Notes</li>
+              <li>Screenshots + Markup</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section id="contact" class="text-center space-y-6">
+        <h2 class="text-2xl md:text-3xl font-bold">Let’s build something</h2>
+        <p class="text-secondary max-w-xl mx-auto">I’m open to collaborations, freelance projects, or just a chat about design.</p>
+        <a href="mailto:hendyoktavians@gmail.com" class="btn"><span>Contact Me</span></a>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-card">
+      <div class="container-page py-12">
+        <div class="space-y-8 md:space-y-12">
+          <h3 class="text-2xl font-semibold text-text">Get In Touch</h3>
+
+          <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:gap-12">
+            <!-- Contact & Social -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div class="space-y-3">
+                <p class="text-base uppercase tracking-wide text-footer text-secondary">Contact Me</p>
+                <a href="mailto:hendyoktavians@gmail.com" class="hover:underline text-text break-all sm:break-normal"> hendyoktavians@gmail.com </a>
+              </div>
+
+              <div class="space-y-3">
+                <p class="text-base uppercase tracking-wide text-footer text-secondary">Let’s Connect</p>
+                <nav class="flex flex-wrap gap-x-4 gap-y-2 text-text" aria-label="Social links">
+                  <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/hendy-oktavian/" class="hover:underline">LinkedIn</a>
+                  <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/moka.cinno/" class="hover:underline">Instagram</a>
+                  <a target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/1H6n4esL4zbqSCZvwfpK4qqR3ngo8dlt4/view?usp=drive_link" class="hover:underline">Resume</a>
+                </nav>
+              </div>
+            </div>
+
+            <!-- Copyright -->
+            <p class="text-sm md:text-base text-text md:whitespace-nowrap border-t border-border pt-6 md:pt-0 md:border-0">©2023 Hendy Oktavian</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

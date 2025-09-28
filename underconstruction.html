@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projects | Hendy Oktavian</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
+    <!-- Fonts & Favicon -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="dist/img/logo/Logo H Black.svg" />
+
+    <!-- Tailwind Config (same palette & tokens as your main page) -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#212121",
+              background: "#FFFFFF",
+              text: "#212121",
+              secondary: "#616161",
+              footer: "#ACACAC",
+              border: "#E0E0E0",
+              card: "#F5F5F5",
+            },
+            fontFamily: {
+              display: ["Plus Jakarta Sans", "ui-sans-serif", "system-ui", "sans-serif"],
+            },
+            borderRadius: { lg: "1rem" },
+            keyframes: {
+              bgShift: {
+                "0%": { backgroundPosition: "0% 50%" },
+                "50%": { backgroundPosition: "100% 50%" },
+                "100%": { backgroundPosition: "0% 50%" },
+              },
+            },
+            animation: { "bg-shift": "bgShift 3s ease infinite" },
+          },
+        },
+      };
+    </script>
+
+    <!-- Utilities -->
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .container-page {
+          @apply container mx-auto max-w-6xl px-4;
+        }
+
+        /* Reusable button gradient (same as index) */
+        .btn {
+          @apply relative inline-flex items-center justify-center rounded-full px-8 py-3 font-medium text-white bg-black overflow-hidden;
+        }
+        .btn::before {
+          content: "";
+          background-image: linear-gradient(to right, #1f1e5c, #e73429);
+          @apply absolute inset-0 opacity-0 transition-opacity duration-500 bg-[length:200%_200%];
+        }
+        .btn:hover::before {
+          @apply opacity-100 animate-bg-shift;
+        }
+        .btn > span {
+          @apply relative z-10;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="font-display bg-background text-text">
+    <!-- Hero: Under Construction -->
+    <header class="relative flex flex-col items-center justify-center text-black min-h-[70vh] sm:min-h-[80vh] md:min-h-screen bg-cover bg-center" style="background-image: url(&quot;dist/img/background/Background 2.png&quot;)">
+      <div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-white/20 via-transparent to-white/20"></div>
+
+      <div class="relative z-10 container-page">
+        <div class="mx-auto max-w-3xl text-center space-y-8">
+          <!-- Icon -->
+          <div class="inline-flex items-center justify-center rounded-full ring-1 ring-border bg-white/70 backdrop-blur px-5 py-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.34 3.94 2.7 18.06A2 2 0 0 0 4.47 21h15.06a2 2 0 0 0 1.77-2.94L13.66 3.94a2 2 0 0 0-3.32 0Z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01" />
+            </svg>
+            <span class="text-sm font-medium text-secondary">Projects</span>
+          </div>
+
+          <!-- Heading -->
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">This page is under construction</h1>
+
+          <!-- Subtitle -->
+          <p class="text-secondary max-w-prose mx-auto">I’m currently building this section. Please check back soon.</p>
+
+          <!-- Optional actions -->
+          <div class="pt-2 flex items-center justify-center gap-4">
+            <a href="index.html" class="btn"><span>Back to Home</span></a>
+            <a href="mailto:hendyoktavians@gmail.com" class="btn"><span>Contact Me</span></a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Footer -->
+    <footer class="bg-card">
+      <div class="container-page py-12">
+        <div class="space-y-8 md:space-y-12">
+          <h3 class="text-2xl font-semibold text-text">Get In Touch</h3>
+
+          <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:gap-12">
+            <!-- Contact & Social -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div class="space-y-3">
+                <p class="text-base uppercase tracking-wide text-footer text-secondary">Contact Me</p>
+                <a href="mailto:hendyoktavians@gmail.com" class="hover:underline text-text break-all sm:break-normal"> hendyoktavians@gmail.com </a>
+              </div>
+
+              <div class="space-y-3">
+                <p class="text-base uppercase tracking-wide text-footer text-secondary">Let’s Connect</p>
+                <nav class="flex flex-wrap gap-x-4 gap-y-2 text-text" aria-label="Social links">
+                  <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/hendy-oktavian/" class="hover:underline">LinkedIn</a>
+                  <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/moka.cinno/" class="hover:underline">Instagram</a>
+                  <a target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/1H6n4esL4zbqSCZvwfpK4qqR3ngo8dlt4/view?usp=drive_link" class="hover:underline">Resume</a>
+                </nav>
+              </div>
+            </div>
+
+            <!-- Copyright -->
+            <p class="text-sm md:text-base text-text md:whitespace-nowrap border-t border-border pt-6 md:pt-0 md:border-0">©2023 Hendy Oktavian</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
