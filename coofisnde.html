@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hendy Oktavian | Product Designer</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
+    <!-- Fonts & Favicon -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="dist/img/logo/Logo H Black.svg" />
+
+    <!-- Tailwind Config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#212121",
+              background: "#FFFFFF",
+              text: "#212121",
+              secondary: "#616161",
+              footer: "#ACACAC",
+              border: "#E0E0E0",
+              card: "#F5F5F5",
+            },
+            fontFamily: { display: ["Plus Jakarta Sans", "ui-sans-serif", "system-ui", "sans-serif"] },
+            borderRadius: { lg: "1rem" },
+          },
+        },
+      };
+    </script>
+
+    <!-- Utilities -->
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .container-page {
+          @apply container mx-auto max-w-5xl px-4;
+        }
+        .badge {
+          @apply rounded-full bg-card px-4 py-1 text-sm;
+        }
+        .k-section {
+          @apply mt-16;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="font-display bg-background text-text">
+    <main id="project-detail" class="bg-white">
+      <!-- Container -->
+      <section class="container-page py-16">
+        <!-- Back / Breadcrumb -->
+        <div class="mb-8 flex items-center justify-between gap-4">
+          <a href="index.html#work" class="inline-flex items-center gap-2 text-sm hover:opacity-70">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Work
+          </a>
+          <div class="hidden md:flex items-center gap-2 text-sm text-secondary">
+            <a href="index.html#work" class="hover:opacity-70">Work</a>
+            <span>/</span>
+            <span class="text-primary">Project Detail</span>
+          </div>
+        </div>
+
+        <!-- Cover -->
+        <div class="mt-12">
+          <img src="dist/img/project details/coofisnde/Cover.png" alt="Project Cover" class="w-full rounded-3xl" />
+        </div>
+
+        <!-- Title Row -->
+        <div class="mt-12 flex flex-col md:flex-row md:items-start md:justify-between gap-10">
+          <div class="md:max-w-[60%]">
+            <h1 class="text-5xl font-bold leading-tight">Coofis NDE</h1>
+            <div class="mt-6 flex flex-wrap gap-2">
+              <span class="badge">UI/UX</span>
+            </div>
+          </div>
+
+          <!-- Quick facts -->
+          <aside class="md:max-w-[40%] w-full">
+            <div class="rounded-2xl border border-border bg-[#f9f9f9] p-6">
+              <dl class="grid grid-cols-2 gap-x-6 gap-y-4 text-sm">
+                <div>
+                  <dt class="uppercase tracking-wide text-[#acacac]">Role</dt>
+                  <dd class="mt-1">UI/UX Designer</dd>
+                </div>
+                <div>
+                  <dt class="uppercase tracking-wide text-[#acacac]">Timeline</dt>
+                  <dd class="mt-1">Feb 2024 – Jun 2024</dd>
+                </div>
+                <div>
+                  <dt class="uppercase tracking-wide text-[#acacac]">Team</dt>
+                  <dd class="mt-1">Hendy, Javier, Agung, Ramdhan, Habibi, Rustu, Najla, Tyara</dd>
+                </div>
+                <div>
+                  <dt class="uppercase tracking-wide text-[#acacac]">Tools</dt>
+                  <dd class="mt-1">Figma, Microsoft Loop, Adobe Illustrator</dd>
+                </div>
+              </dl>
+            </div>
+          </aside>
+        </div>
+
+        <!-- Context -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold">Context</h2>
+          <p class="k-caption mt-4">
+            During my internship at PT ARM Solusi, my team and I worked on a project to redesign the Coofis application. Coofis is a platform developed to support collaboration and office correspondence management within organizations,
+            providing an end-to-end solution for document workflows and internal communication. Our redesign focused on enhancing the overall user experience and interface consistency, while aligning the product with modern design
+            principles and Coofis’s visual identity.
+          </p>
+        </div>
+
+        <!-- Problem & Goals -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold">Problem &amp; Goals</h2>
+          <p class="k-caption mt-4">
+            The previous version of Coofis presented several usability and consistency issues that affected user efficiency and clarity. Many interface elements lacked structure, and the overall user flow felt fragmented. Inconsistent
+            language use, unclear icons, and a long login process created friction for users in completing daily tasks.
+          </p>
+          <ul class="k-caption mt-4 list-disc pl-6 space-y-2">
+            <li>Improve usability and interface consistency through a structured design system.</li>
+            <li>Simplify user flows, especially for login, 2FA, and document management.</li>
+            <li>Enhance visual hierarchy and readability by refining typography, spacing, and color use.</li>
+            <li>Ensure language consistency across all features to improve comprehension.</li>
+            <li>Align the design with Coofis’s brand identity while maintaining a professional and minimal aesthetic.</li>
+          </ul>
+
+          <img src="dist/img/project details/coofisnde/Previous Interface.png" alt="Coofis Before Redesign" class="w-full my-12 rounded-3xl" />
+        </div>
+
+        <!-- Pain Point -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold">Pain Point</h2>
+          <p class="k-caption mt-4">Through a review of the previous Coofis interface and team discussions, we identified several key pain points that negatively impacted the user experience:</p>
+          <ul class="k-caption mt-4 list-disc pl-6 space-y-2">
+            <li>Unclear iconography</li>
+            <li>Complex login and 2FA process</li>
+            <li>Inconsistent language and copywriting</li>
+            <li>Lack of visual feedback</li>
+            <li>No Help or Report feature</li>
+            <li>Inconsistent layout and spacing</li>
+          </ul>
+        </div>
+
+        <!-- Research & Insights -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold">Research Insights</h2>
+          <p class="k-caption mt-4">Before starting the redesign, our team aligned on the goals, constraints, and workflow to ensure efficiency and consistency throughout the project.</p>
+          <p class="k-caption mt-4">
+            We aimed not only to fix usability issues but also to establish a new design system that reflected Coofis’s identity and improved the user’s overall journey. Our intention was to make the interface both functional and visually
+            engaging, allowing users to enjoy smooth interactions while maintaining productivity.
+          </p>
+          <p class="k-caption mt-4 font-bold">Constraints</p>
+          <p class="k-caption mt-4">
+            The project was focused on Coofis NDE (Nota Dinas Elektronik), one of the main applications within the Coofis ecosystem. The redesign process, from ideation to the finalized version 1.0, took approximately two months.
+          </p>
+          <p class="k-caption mt-4 font-bold">Workflow</p>
+          <p class="k-caption mt-4">
+            With a relatively large team, we divided tasks into specific sub-divisions such as UX, UI, and Graphic Design. Each group contributed to shared milestones, ensuring that design decisions stayed consistent across the system.
+            Collaboration was key, we continuously aligned on progress, exchanged feedback, and refined our outputs together.
+          </p>
+        </div>
+
+        <!-- Solution -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold">Solution</h2>
+
+          <img src="dist/img/project details/coofisnde/UI Redesign.png" alt="Coofis UI Redesign" class="w-full my-12 rounded-3xl" />
+          <p class="k-caption mt-4">
+            Our redesign of Coofis NDE focused on creating a more consistent, intuitive, and modern interface while maintaining the professional identity of the platform. We approached the redesign with both usability and visual clarity in
+            mind — ensuring that every improvement directly enhanced the user experience.
+          </p>
+
+          <p class="k-caption mt-4 font-bold">Key Improvements</p>
+          <ul class="k-caption mt-4 list-disc pl-6 space-y-2">
+            <li>Introduced a structured design system for consistency.</li>
+            <li>Simplified the login and 2FA flow.</li>
+            <li>Refined layout and hierarchy.</li>
+            <li>Unified language usage.</li>
+            <li>Enhanced visual indicators such as icons, tooltips, and states.</li>
+            <li>Implemented main components and auto-layouts.</li>
+            <li>Integrated illustration and iconography that align with Coofis’s identity.</li>
+          </ul>
+
+          <p class="k-caption mt-4 font-bold">Added Features</p>
+          <p class="k-caption mt-4">To strengthen functionality and accessibility, we also introduced several new features in version 1.0 of the redesign:</p>
+          <ul class="k-caption mt-4 list-disc pl-6 space-y-2">
+            <li>Help & Report section</li>
+            <li>Error alert system</li>
+            <li>File upload with comment feature</li>
+            <li>Search list improvement</li>
+            <li>SMS-based 2FA</li>
+            <li>Password visibility toggle</li>
+            <li>Filter function</li>
+          </ul>
+        </div>
+
+        <!-- UI Components (Design Systems) -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold">UI Components (Design Systems)</h2>
+          <img src="dist/img/project details/coofisdesignsystem/Design System.png" alt="Design System" class="w-full my-8 rounded-3xl" />
+          <img src="dist/img/project details/coofisdesignsystem/Design System Components.png" alt="Design System" class="w-full my-8 rounded-3xl" />
+        </div>
+
+        <!-- Results & Impact -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold">Results &amp; Impact</h2>
+          <p class="k-caption mt-4">
+            The redesign of Coofis NDE successfully addressed the core usability and consistency issues found in the previous version. Through the creation of a unified design system and refined user flows, the product became more
+            intuitive, visually coherent, and efficient for daily use.
+          </p>
+
+          <p class="k-caption mt-4 font-bold">Outcomes</p>
+          <ul class="k-caption mt-4 list-disc pl-6 space-y-2">
+            <li>Improved interface consistency</li>
+            <li>Enhanced user clarity</li>
+            <li>Better accessibility and readability</li>
+            <li>Streamlined workflows</li>
+            <li>Established a scalable design system</li>
+          </ul>
+
+          <p class="k-caption mt-4">
+            Beyond visual and functional improvements, this project also strengthened our team’s collaboration and design communication, helping us better align with development teams and organizational stakeholders.
+          </p>
+        </div>
+
+        <!-- Learnings -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold">Learnings</h2>
+          <p class="k-caption mt-4">
+            The Coofis NDE redesign taught me the importance of collaboration, communication, and consistency in large scale projects. Working with a multidisciplinary team helped me understand how design decisions affect real
+            implementation and user workflows. I also learned how a well-structured design system can improve efficiency and coherence across the product. Overall, this project strengthened my ability to think systematically, adapt to
+            challenges, and design with both function and clarity in mind.
+          </p>
+        </div>
+
+        <!-- Team -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold">Every Great Project Is Built Together</h2>
+          <p class="k-caption mt-4">This project came to life thanks to the amazing collaboration between our team members:</p>
+          <p class="k-caption mt-4"><strong>UI/UX Design:</strong> Hendy Oktavian, Javier Ramadhan, Ramdhan Mahfudz, Agung Tauhid, Yusran Habibi, Rustu Nur Ilham</p>
+          <p class="k-caption mt-2"><strong>Illustration & Visual Assets:</strong> Tyara Nissa A, Najla Noor Faizah</p>
+          <p class="k-caption mt-2"><strong>Mentor:</strong> Muhammad Faizal</p>
+          <img src="dist/img/project details/coofisnde/Arms Team.JPG" alt="ARMS UI/UX Design Team" class="w-full my-12 rounded-3xl" />
+        </div>
+
+        <!-- Prev / Next -->
+        <div class="mt-20 flex w-full justify-end">
+          <a href="#next" class="group inline-flex items-center gap-2">
+            Next Project
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-card">
+      <div class="container-page py-12">
+        <div class="space-y-8 md:space-y-12">
+          <h3 class="text-2xl font-semibold text-text">Get In Touch</h3>
+
+          <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:gap-12">
+            <!-- Contact & Social -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div class="space-y-3">
+                <p class="text-base uppercase tracking-wide text-footer text-secondary">Contact Me</p>
+                <a href="mailto:hendyoktavians@gmail.com" class="hover:underline text-text break-all sm:break-normal flex flex-wrap gap-x-4 gap-y-2"> hendyoktavians@gmail.com </a>
+              </div>
+
+              <div class="space-y-3">
+                <p class="text-base uppercase tracking-wide text-footer text-secondary">Let’s Connect</p>
+                <nav class="flex flex-wrap gap-x-4 gap-y-2 text-text" aria-label="Social links">
+                  <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/hendy-oktavian/" class="hover:underline">LinkedIn</a>
+                  <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/moka.cinno/" class="hover:underline">Instagram</a>
+                  <a target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/1H6n4esL4zbqSCZvwfpK4qqR3ngo8dlt4/view?usp=drive_link" class="hover:underline">Resume</a>
+                </nav>
+              </div>
+            </div>
+
+            <!-- Copyright -->
+            <p class="text-sm md:text-base text-text md:whitespace-nowrap border-t border-border pt-6 md:pt-0 md:border-0">©2023 Hendy Oktavian</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Lightbox (single, non-duplicate) -->
+    <div id="hl-modal" class="fixed inset-0 z-50 hidden" aria-hidden="true">
+      <!-- Backdrop -->
+      <div id="hl-backdrop" class="absolute inset-0 bg-black/80 opacity-0 transition-opacity"></div>
+
+      <!-- Image -->
+      <img id="hl-image" src="" alt="" class="absolute inset-0 m-auto max-w-[90vw] max-h-[90vh] object-contain pointer-events-none select-none" />
+
+      <!-- Close -->
+      <button id="hl-close" type="button" class="absolute top-4 right-4 rounded-full bg-white/10 backdrop-blur px-3 py-2 text-white text-sm hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/60" aria-label="Close">✕</button>
+
+      <!-- Prev / Next -->
+      <button
+        id="hl-prev"
+        type="button"
+        class="absolute left-4 top-1/2 -translate-y-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-white/10 backdrop-blur text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/60"
+        aria-label="Previous"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <button
+        id="hl-next"
+        type="button"
+        class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-white/10 backdrop-blur text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/60"
+        aria-label="Next"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Lightbox Script -->
+    <script>
+      (() => {
+        const grid = document.getElementById("highlights-grid");
+        const modal = document.getElementById("hl-modal");
+        const backdrop = document.getElementById("hl-backdrop");
+        const imgEl = document.getElementById("hl-image");
+        const btnClose = document.getElementById("hl-close");
+        const btnPrev = document.getElementById("hl-prev");
+        const btnNext = document.getElementById("hl-next");
+
+        if (!grid || !modal || !backdrop || !imgEl || !btnClose || !btnPrev || !btnNext) return;
+
+        const items = Array.from(grid.querySelectorAll("button[data-index]")).map((btn) => ({
+          index: Number(btn.dataset.index),
+          src: btn.dataset.src,
+          alt: btn.querySelector("img")?.alt || "",
+        }));
+
+        let current = 0;
+        let lastFocused = null;
+
+        function openModal(i) {
+          current = i;
+          lastFocused = document.activeElement;
+          updateImage();
+          modal.classList.remove("hidden");
+          requestAnimationFrame(() => backdrop.classList.remove("opacity-0"));
+          document.body.classList.add("overflow-hidden");
+          btnClose.focus();
+          modal.setAttribute("aria-hidden", "false");
+          document.addEventListener("keydown", onKey);
+        }
+
+        function closeModal() {
+          backdrop.classList.add("opacity-0");
+          modal.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("overflow-hidden");
+          document.removeEventListener("keydown", onKey);
+          setTimeout(() => {
+            modal.classList.add("hidden");
+            if (lastFocused) lastFocused.focus();
+          }, 150);
+        }
+
+        function updateImage() {
+          const item = items[current];
+          imgEl.src = item.src;
+          imgEl.alt = item.alt;
+          const atStart = current === 0;
+          const atEnd = current === items.length - 1;
+          btnPrev.disabled = atStart;
+          btnNext.disabled = atEnd;
+          btnPrev.classList.toggle("opacity-40", atStart);
+          btnNext.classList.toggle("opacity-40", atEnd);
+        }
+
+        function prev() {
+          if (current > 0) {
+            current--;
+            updateImage();
+          }
+        }
+        function next() {
+          if (current < items.length - 1) {
+            current++;
+            updateImage();
+          }
+        }
+
+        function onKey(e) {
+          if (modal.classList.contains("hidden")) return;
+          if (e.key === "Escape") closeModal();
+          if (e.key === "ArrowLeft") prev();
+          if (e.key === "ArrowRight") next();
+        }
+
+        // Triggers
+        grid.addEventListener("click", (e) => {
+          const btn = e.target.closest("button[data-index]");
+          if (btn) openModal(Number(btn.dataset.index));
+        });
+
+        // Controls
+        btnClose.addEventListener("click", closeModal);
+        btnPrev.addEventListener("click", prev);
+        btnNext.addEventListener("click", next);
+        backdrop.addEventListener("click", closeModal);
+      })();
+    </script>
+  </body>
+</html>
