@@ -52,6 +52,21 @@
     <!-- Utilities -->
     <style type="text/tailwindcss">
       @layer utilities {
+        @keyframes fadeSlideIn {
+          0% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-fade-slide {
+          animation: fadeSlideIn 1s ease-out forwards;
+        }
+
         .container-page {
           @apply container mx-auto max-w-6xl px-4;
         }
@@ -101,8 +116,9 @@
         <div class="group w-full flex flex-col-reverse md:flex-row justify-center items-center md:items-start text-center md:text-left gap-6 sm:gap-10 md:gap-[72px]">
           <!-- Text -->
           <div class="flex flex-col gap-3 sm:gap-4">
-            <h1 class="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight">I’m Hendy Oktavian</h1>
-            <p class="italic text-lg sm:text-xl md:text-2xl lg:text-3xl">A Product Designer.</p>
+            <h1 class="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight animate-fade-slide">I’m Hendy Oktavian</h1>
+            <p class="italic text-lg sm:text-xl md:text-2xl lg:text-3xl animate-fade-slide opacity-0">A Product Designer.</p>
+
             <!-- CTA -->
             <div class="flex flex-wrap mt-12 items-center justify-center md:justify-start gap-4 sm:gap-6">
               <a href="mailto:hendyoktavians@gmail.com" class="btn"><span>Contact Me</span></a>
@@ -110,7 +126,7 @@
           </div>
 
           <!-- Logo -->
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" class="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 transition-transform duration-500 group-hover:scale-[1.03]">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" class="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 transition-transform duration-500 group-hover:scale-[1.03] animate-fade-slide">
             <defs>
               <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stop-color="#1F1E5C" class="group-hover:animate-shift-a" />
@@ -229,7 +245,7 @@
               <span class="rounded-full bg-card px-4 py-1 text-sm text-secondary">UI/UX</span>
             </div>
             <div class="mt-6">
-              <a href="underconstruction.html" class="btn"><span>View</span></a>
+              <a href="/coofis-nde/" class="btn"><span>View</span></a>
             </div>
           </div>
         </section>
