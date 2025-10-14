@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hendy Oktavian | Product Designer</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
+    <!-- Fonts & Favicon -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="dist/img/logo/Logo H Black.svg" />
+
+    <!-- Tailwind Config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#212121",
+              background: "#FFFFFF",
+              text: "#212121",
+              secondary: "#616161",
+              footer: "#ACACAC",
+              border: "#E0E0E0",
+              card: "#F5F5F5",
+            },
+            fontFamily: { display: ["Plus Jakarta Sans", "ui-sans-serif", "system-ui", "sans-serif"] },
+            borderRadius: { lg: "1rem" },
+          },
+        },
+      };
+    </script>
+
+    <!-- Utilities -->
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .container-page {
+          @apply container mx-auto max-w-5xl px-4;
+        }
+        .badge {
+          @apply rounded-full bg-card px-4 py-1 text-sm;
+        }
+        .k-section {
+          @apply mt-16;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="font-display bg-background text-text">
+    <main id="project-detail" class="bg-white">
+      <!-- Container -->
+      <section class="container-page py-16">
+        <!-- Back / Breadcrumb -->
+        <div class="mb-8 flex items-center justify-between gap-4">
+          <a href="index.html#work" class="inline-flex items-center gap-2 text-sm hover:opacity-70">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Work
+          </a>
+          <div class="hidden md:flex items-center gap-2 text-sm text-secondary">
+            <a href="index.html#work" class="hover:opacity-70">Work</a>
+            <span>/</span>
+            <span class="text-primary">Project Detail</span>
+          </div>
+        </div>
+
+        <!-- Cover -->
+        <div class="mt-12">
+          <img src="dist/img/project details/tarea/Cover.png" alt="Project Cover" class="w-full rounded-3xl" />
+        </div>
+
+        <!-- Title Row -->
+        <div class="mt-12 flex flex-col md:flex-row md:items-start md:justify-between gap-10">
+          <div class="md:max-w-[60%]">
+            <h1 class="text-5xl font-bold leading-tight">Tarea!</h1>
+            <div class="mt-6 flex flex-wrap gap-2">
+              <span class="badge">Product Design</span>
+              <span class="badge">Research</span>
+              <span class="badge">iOS</span>
+            </div>
+          </div>
+
+          <!-- Quick facts -->
+          <aside class="md:max-w-[40%] w-full">
+            <div class="rounded-2xl border border-border bg-[#f9f9f9] p-6">
+              <dl class="grid grid-cols-2 gap-x-6 gap-y-4 text-sm">
+                <div>
+                  <dt class="uppercase tracking-wide text-[#acacac]">Role</dt>
+                  <dd class="mt-1">Product Designer</dd>
+                </div>
+                <div>
+                  <dt class="uppercase tracking-wide text-[#acacac]">Timeline</dt>
+                  <dd class="mt-1">Jun–July 2025</dd>
+                </div>
+                <div>
+                  <dt class="uppercase tracking-wide text-[#acacac]">Team</dt>
+                  <dd class="mt-1">1 Designers, 1 PM, 1 UX Research, 1 Coders</dd>
+                </div>
+                <div>
+                  <dt class="uppercase tracking-wide text-[#acacac]">Tools</dt>
+                  <dd class="mt-1">Figma, Swift, Miro</dd>
+                </div>
+              </dl>
+            </div>
+          </aside>
+        </div>
+
+        <!-- Context -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold">Context</h2>
+          <p class="k-caption mt-4">Tarea was created as part of Challenge 3: “Within the Circle” at the Apple Developer Academy. Our goal was to design a product that truly meets the needs of a specific user group within our community.</p>
+          <p class="k-caption mt-4">
+            Through our research, we discovered that tutors often face communication challenges, they receive student messages outside of work hours and experience delays when waiting for replies. This constant cycle of off-hour messaging
+            and slow communication creates unnecessary stress and disrupts their work-life balance.
+          </p>
+          <p class="k-caption mt-4">
+            To address this, our team designed Tarea, a productivity app that helps tutors assign, track, and manage homework seamlessly. By integrating communication and task management in one platform, Tarea allows tutors to skip
+            administrative hassles, maintain healthy boundaries, and give students a clearer, more engaging way to stay on top of their work.
+          </p>
+        </div>
+
+        <!-- Problem & Goals -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold">Problem &amp; Goals</h2>
+          <p class="k-caption mt-4">
+            Tutors often face challenges in managing their workflow effectively. Many of them have to juggle between messaging apps, notebooks, and calendars just to handle class schedules, assignments, and student progress. This scattered
+            process not only consumes time but also causes unnecessary stress, especially when students message them outside working hours or take too long to respond.
+          </p>
+          <p class="k-caption mt-4">
+            The lack of a centralized system makes it difficult for tutors to maintain boundaries, keep track of student performance, and communicate efficiently. As a result, their productivity and work-life balance are often disrupted.
+          </p>
+          <p class="k-caption mt-4">Our goal with Tarea was to create a solution that simplifies tutors’ administrative tasks while improving communication and clarity. We aimed to:</p>
+          <ul class="k-caption mt-4 list-disc pl-6 space-y-2">
+            <li>Provide an all-in-one platform where tutors can assign and track homework easily.</li>
+            <li>Reduce communication friction between tutors and students.</li>
+            <li>Inconsistent language and copywriting</li>
+            <li>Help tutors manage time better and maintain healthy work boundaries.</li>
+            <li>Offer students a clear, engaging way to stay organized with their assignments and deadlines.</li>
+          </ul>
+        </div>
+
+        <!-- Research & Insights -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold">Research Insights</h2>
+          <img src="dist/img/project details/tarea/Interviewee.jpeg" alt="Documentation" class="w-full my-8 rounded-3xl" />
+          <p class="k-caption mt-4">
+            To better understand tutors’ real challenges, we conducted interviews with tutors from diverse backgrounds, covering different subjects, age groups, and locations across various parts of the world. This diversity gave us a
+            broader view of how tutoring practices and struggles vary depending on context, tools, and cultural expectations.
+          </p>
+          <p class="k-caption mt-4">From our interviews, we identified several recurring patterns that shaped the foundation of our design decisions:</p>
+          <p class="k-caption mt-4">
+            Tutors rely heavily on multiple disconnected tools such as messaging apps, Google Calendar, notebooks, and spreadsheets to manage classes and communicate with students. Many mentioned that while these tools help, switching
+            between them daily creates friction and slows down their workflow.
+          </p>
+          <p class="k-caption mt-4">
+            We also found that communication boundaries are often unclear. Tutors frequently receive messages from students outside of working hours, leading to burnout and stress. On the other hand, when tutors send messages, students
+            often take a long time to respond, delaying feedback and lesson progress.
+          </p>
+          <p class="k-caption mt-4">
+            Another common issue was manual tracking. Most tutors still write student progress in notebooks or personal documents. This makes it hard to access and share updates efficiently with parents or institutions. Additionally, many
+            tutors expressed a need for a more organized and transparent way to monitor student performance.
+          </p>
+          <p class="k-caption mt-4">
+            Despite these challenges, tutors shared a strong sense of commitment to their students. They invest time in creating personalized lessons, tracking individual struggles, and maintaining a human connection beyond digital tools.
+            This insight reinforced our belief that technology should support, not replace the empathy and dedication at the heart of teaching.
+          </p>
+        </div>
+
+        <!-- Solution -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold">Solution</h2>
+          <img src="dist/img/projects/Tarea!.png" alt="Solution Images" class="w-full my-8 rounded-3xl" />
+          <p class="k-caption mt-4">
+            After identifying the core issues faced by tutors, fragmented tools, unclear communication boundaries, and time-consuming manual tracking, we designed Tarea, a productivity app built to streamline the tutoring experience. Our
+            goal was to create a space where tutors could focus on teaching, not chasing messages.
+          </p>
+          <p class="k-caption mt-4">
+            Tarea simplifies the entire process of assigning, managing, and tracking homework through an integrated workflow. Instead of switching between chats, calendars, and documents, tutors can now handle everything in one place.
+          </p>
+          <h3 class="font-semibold mt-12">Key Features</h3>
+
+          <div class="flex flex-col gap-8 mt-12">
+            <div>
+              <h3 class="font-semibold">Centralized Student Management</h3>
+              <p class="k-caption mt-4">
+                Tutors can view all their students and their homework status in one dashboard. Color coded progress indicators help tutors quickly identify which tasks are due soon or need attention, minimizing the need for constant
+                check-ins or reminders.
+              </p>
+            </div>
+            <div>
+              <h3 class="font-semibold">Seamless Homework Assignment</h3>
+              <p class="k-caption mt-4">The homework creation flow lets tutors assign multiple tasks, set due dates, and attach files or links within a single screen. This reduces administrative effort and ensures clarity for students.</p>
+            </div>
+            <div>
+              <h3 class="font-semibold">Transparent Progress Tracking</h3>
+              <p class="k-caption mt-4">
+                Each student’s page displays a clear timeline of assigned tasks, completion status, and deadlines. Tutors can easily monitor progress at a glance, improving lesson planning and communication with both students and parents.
+              </p>
+            </div>
+            <div>
+              <h3 class="font-semibold">Organized Student View</h3>
+              <p class="k-caption mt-4">
+                For students, Tarea consolidates all homework into a simple, checklist-style interface. They can see what’s due next, mark completed tasks, and stay on track—helping them develop accountability and consistency.
+              </p>
+            </div>
+          </div>
+
+          <h3 class="font-semibold mt-12">Outcome</h3>
+          <p class="k-caption mt-4">
+            By integrating these features, Tarea removes the stress of scattered communication and manual updates. It helps tutors maintain professional boundaries, save time, and support their students’ learning in a structured and
+            engaging way.
+          </p>
+        </div>
+
+        <!-- Wireframes -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold">Wireframe</h2>
+          <img src="dist/img/project details/tarea/LoFi.png" alt="LoFi Design" class="w-full my-8 rounded-3xl" />
+        </div>
+
+        <!-- Results & Impact -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold">Results &amp; Impact</h2>
+          <p class="k-caption mt-4">
+            Although Tarea has not yet been publicly launched, early testing during an exhibition received positive feedback. Many visitors appreciated its clean user interface and found the concept of simplifying tutors’ workflow both
+            relevant and practical.
+          </p>
+          <p class="k-caption mt-4">
+            These responses validated our design direction and showed strong interest in a tool that helps tutors manage tasks and communication more efficiently. The feedback also motivated us to refine the user experience further before
+            moving into broader testing.
+          </p>
+        </div>
+
+        <!-- Team -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold">This project wouldn’t have been possible without the team.</h2>
+
+          <img src="dist/img/project details/tarea/Team 8.jpeg" alt="Team 8 Photo" class="w-full my-8 rounded-3xl" />
+          <p class="k-caption mt-4">It came to life through shared ideas, collaboration, and creativity.</p>
+          <p class="k-caption mt-4"><strong>Designer:</strong> Hendy Oktavian</p>
+          <p class="k-caption mt-2"><strong>UX Reserach:</strong> Anastasiia Firsova</p>
+          <p class="k-caption mt-2"><strong>Coder:</strong> Christofle Valiant</p>
+          <p class="k-caption mt-2"><strong>PM:</strong> Steven (Phi Phi Pham)</p>
+        </div>
+
+        <!-- Gallery / Highlights -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold">Highlights</h2>
+          <div class="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-6" id="highlights-grid">
+            <button type="button" class="group rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-white/50" data-index="0" data-src="dist/img/project details/tarea/Highlight 1.png">
+              <img class="w-full h-full object-cover transition-transform group-hover:scale-[1.02]" src="dist/img/project details/tarea/Highlight 1.png" alt="Highlight 1" loading="lazy" />
+            </button>
+            <button type="button" class="group rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-white/50" data-index="1" data-src="dist/img/project details/tarea/Highlight 2.png">
+              <img class="w-full h-full object-cover transition-transform group-hover:scale-[1.02]" src="dist/img/project details/tarea/Highlight 2.png" alt="Highlight 2" loading="lazy" />
+            </button>
+            <button type="button" class="group rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-white/50" data-index="2" data-src="dist/img/project details/tarea/Highlight 3.png">
+              <img class="w-full h-full object-cover transition-transform group-hover:scale-[1.02]" src="dist/img/project details/tarea/Highlight 3.png" alt="Highlight 3" loading="lazy" />
+            </button>
+            <button type="button" class="group rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-white/50" data-index="3" data-src="dist/img/project details/tarea/Highlight 4.png">
+              <img class="w-full h-full object-cover transition-transform group-hover:scale-[1.02]" src="dist/img/project details/tarea/Highlight 4.png" alt="Highlight 4" loading="lazy" />
+            </button>
+          </div>
+        </div>
+
+        <!-- Prev / Next -->
+        <div class="mt-20 flex w-full justify-end">
+          <a href="#next" class="group inline-flex items-center gap-2">
+            Next Project
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-card">
+      <div class="container-page py-12">
+        <div class="space-y-8 md:space-y-12">
+          <h3 class="text-2xl font-semibold text-text">Get In Touch</h3>
+
+          <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:gap-12">
+            <!-- Contact & Social -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div class="space-y-3">
+                <p class="text-base uppercase tracking-wide text-footer text-secondary">Contact Me</p>
+                <a href="mailto:hendyoktavians@gmail.com" class="hover:underline text-text break-all sm:break-normal flex flex-wrap gap-x-4 gap-y-2"> hendyoktavians@gmail.com </a>
+              </div>
+
+              <div class="space-y-3">
+                <p class="text-base uppercase tracking-wide text-footer text-secondary">Let’s Connect</p>
+                <nav class="flex flex-wrap gap-x-4 gap-y-2 text-text" aria-label="Social links">
+                  <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/hendy-oktavian/" class="hover:underline">LinkedIn</a>
+                  <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/moka.cinno/" class="hover:underline">Instagram</a>
+                  <a target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/1H6n4esL4zbqSCZvwfpK4qqR3ngo8dlt4/view?usp=drive_link" class="hover:underline">Resume</a>
+                </nav>
+              </div>
+            </div>
+
+            <!-- Copyright -->
+            <p class="text-sm md:text-base text-text md:whitespace-nowrap border-t border-border pt-6 md:pt-0 md:border-0">©2023 Hendy Oktavian</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Lightbox (single, non-duplicate) -->
+    <div id="hl-modal" class="fixed inset-0 z-50 hidden" aria-hidden="true">
+      <!-- Backdrop -->
+      <div id="hl-backdrop" class="absolute inset-0 bg-black/80 opacity-0 transition-opacity"></div>
+
+      <!-- Image -->
+      <img id="hl-image" src="" alt="" class="absolute inset-0 m-auto max-w-[90vw] max-h-[90vh] object-contain pointer-events-none select-none" />
+
+      <!-- Close -->
+      <button id="hl-close" type="button" class="absolute top-4 right-4 rounded-full bg-white/10 backdrop-blur px-3 py-2 text-white text-sm hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/60" aria-label="Close">✕</button>
+
+      <!-- Prev / Next -->
+      <button
+        id="hl-prev"
+        type="button"
+        class="absolute left-4 top-1/2 -translate-y-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-white/10 backdrop-blur text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/60"
+        aria-label="Previous"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <button
+        id="hl-next"
+        type="button"
+        class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-white/10 backdrop-blur text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/60"
+        aria-label="Next"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Lightbox Script -->
+    <script>
+      (() => {
+        const grid = document.getElementById("highlights-grid");
+        const modal = document.getElementById("hl-modal");
+        const backdrop = document.getElementById("hl-backdrop");
+        const imgEl = document.getElementById("hl-image");
+        const btnClose = document.getElementById("hl-close");
+        const btnPrev = document.getElementById("hl-prev");
+        const btnNext = document.getElementById("hl-next");
+
+        if (!grid || !modal || !backdrop || !imgEl || !btnClose || !btnPrev || !btnNext) return;
+
+        const items = Array.from(grid.querySelectorAll("button[data-index]")).map((btn) => ({
+          index: Number(btn.dataset.index),
+          src: btn.dataset.src,
+          alt: btn.querySelector("img")?.alt || "",
+        }));
+
+        let current = 0;
+        let lastFocused = null;
+
+        function openModal(i) {
+          current = i;
+          lastFocused = document.activeElement;
+          updateImage();
+          modal.classList.remove("hidden");
+          requestAnimationFrame(() => backdrop.classList.remove("opacity-0"));
+          document.body.classList.add("overflow-hidden");
+          btnClose.focus();
+          modal.setAttribute("aria-hidden", "false");
+          document.addEventListener("keydown", onKey);
+        }
+
+        function closeModal() {
+          backdrop.classList.add("opacity-0");
+          modal.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("overflow-hidden");
+          document.removeEventListener("keydown", onKey);
+          setTimeout(() => {
+            modal.classList.add("hidden");
+            if (lastFocused) lastFocused.focus();
+          }, 150);
+        }
+
+        function updateImage() {
+          const item = items[current];
+          imgEl.src = item.src;
+          imgEl.alt = item.alt;
+          const atStart = current === 0;
+          const atEnd = current === items.length - 1;
+          btnPrev.disabled = atStart;
+          btnNext.disabled = atEnd;
+          btnPrev.classList.toggle("opacity-40", atStart);
+          btnNext.classList.toggle("opacity-40", atEnd);
+        }
+
+        function prev() {
+          if (current > 0) {
+            current--;
+            updateImage();
+          }
+        }
+        function next() {
+          if (current < items.length - 1) {
+            current++;
+            updateImage();
+          }
+        }
+
+        function onKey(e) {
+          if (modal.classList.contains("hidden")) return;
+          if (e.key === "Escape") closeModal();
+          if (e.key === "ArrowLeft") prev();
+          if (e.key === "ArrowRight") next();
+        }
+
+        // Triggers
+        grid.addEventListener("click", (e) => {
+          const btn = e.target.closest("button[data-index]");
+          if (btn) openModal(Number(btn.dataset.index));
+        });
+
+        // Controls
+        btnClose.addEventListener("click", closeModal);
+        btnPrev.addEventListener("click", prev);
+        btnNext.addEventListener("click", next);
+        backdrop.addEventListener("click", closeModal);
+      })();
+    </script>
+  </body>
+</html>
