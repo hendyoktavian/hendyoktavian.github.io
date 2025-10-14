@@ -104,6 +104,59 @@
           animation: fadeSlideIn 1s ease-out forwards;
         }
 
+        /* Animation delays for mobile (logo first) */
+        .hero-logo {
+          animation-delay: 0s;
+        }
+        .hero-title {
+          animation-delay: 0.2s;
+        }
+        .hero-role {
+          animation-delay: 0.4s;
+        }
+        .hero-cta {
+          animation-delay: 0.6s;
+        }
+        .hero-nav {
+          animation-delay: 0.8s;
+        }
+
+        /* Animation delays for desktop (text first) - md breakpoint and up */
+        @media (min-width: 768px) {
+          .hero-title {
+            animation-delay: 0s;
+          }
+          .hero-role {
+            animation-delay: 0.2s;
+          }
+          .hero-logo {
+            animation-delay: 0.4s;
+          }
+          .hero-cta {
+            animation-delay: 0.6s;
+          }
+          .hero-nav {
+            animation-delay: 0.8s;
+          }
+        }
+
+        @keyframes slideUpFromBottom {
+          0% {
+            transform: translateY(100vh);
+            opacity: 0;
+          }
+          100% {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+        .nav-slide-up {
+          animation: slideUpFromBottom 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          animation-delay: 1s;
+          transform: translateY(100vh);
+          opacity: 0;
+        }
+
         .container-page {
           @apply container mx-auto max-w-6xl px-4;
         }
@@ -144,43 +197,49 @@
   </head>
 
   <body class="font-display bg-background text-text">
-    <!-- Header / Hero -->
     <header class="relative flex flex-col justify-center text-black min-h-[70vh] sm:min-h-[80vh] md:min-h-screen bg-aurora bg-cover bg-center">
-      <!-- Overlay -->
+      <!-- overlay atas yang sudah ada -->
       <div class="absolute inset-0 pointer-events-none bg-gradient-to-b from-white/10 via-transparent to-white/10"></div>
 
+      <!-- overlay bawah: fade ke putih -->
+      <div class="absolute inset-x-0 bottom-0 h-[24vh] sm:h-[22vh] md:h-[20vh] lg:h-[18vh] pointer-events-none bg-gradient-to-b from-transparent to-white"></div>
+
       <div class="relative z-10 container-page">
-        <div class="group w-full flex flex-col-reverse md:flex-row justify-center items-center md:items-start text-center md:text-left gap-6 sm:gap-10 md:gap-[72px]">
+        <div class="w-full flex flex-col-reverse md:flex-row justify-center items-center md:items-start text-center md:text-left gap-6 sm:gap-10 md:gap-[72px]">
           <!-- Text -->
           <div class="flex flex-col gap-3 sm:gap-4">
-            <h1 class="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight animate-fade-slide">I’m Hendy Oktavian</h1>
-            <p class="italic text-lg sm:text-xl md:text-2xl lg:text-3xl animate-fade-slide opacity-0">A Product Designer.</p>
+            <h1 class="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight animate-fade-slide hero-title opacity-0">I'm Hendy Oktavian</h1>
+            <p class="italic text-lg sm:text-xl md:text-2xl lg:text-3xl animate-fade-slide hero-role opacity-0">A Product Designer.</p>
 
             <!-- CTA -->
             <div class="flex flex-wrap mt-12 items-center justify-center md:justify-start gap-4 sm:gap-6">
-              <a href="mailto:hendyoktavians@gmail.com" class="btn animate-fade-slide"><span>Contact Me</span></a>
+              <a href="mailto:hendyoktavians@gmail.com" class="btn animate-fade-slide hero-cta opacity-0"><span>Contact Me</span></a>
             </div>
           </div>
 
           <!-- Logo -->
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" class="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24 transition-transform duration-500 group-hover:scale-[1.03] animate-fade-slide">
-            <defs>
-              <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#1F1E5C" class="group-hover:animate-shift-a" />
-                <stop offset="100%" stop-color="#E73429" class="group-hover:animate-shift-b" />
-              </linearGradient>
-            </defs>
-            <path
-              class="fill-black"
-              d="M642.88,587.42c-5.42-5.41-13.52-2.33-19.63.18-42.05,17.3-105.44,99.82-134.85,136.9-36.04,45.43-69.91,98.4-107.43,141.34-89.37,102.3-236.93,82.14-255.15-64.58-13.79-111.04,30.06-250.82,72.34-353.01,37.25-90.05,84.4-181.2,138.32-262.31,35.79-53.83,57.09-86.11,120.66-109.13,47.68-17.26,139.04-33.87,188.25-23.91,20.04,4.05,27.29,10.83,14.22,29.57-15.65,22.43-38.7,45.8-56.33,67.55-114.72,141.49-237.8,304.73-284.68,483.61-10.23,39.05-19.13,84.35-16.1,124.84.82,11.05,5.09,26,19.08,22.99,25.28-5.43,69.62-56.33,87.37-76.47,47.44-53.81,91.19-111.12,139.84-163.88,54.58-59.19,126.89-117.56,212.67-80.77,103.02,44.19,52.15,153.1,22.11,227.63-27.09,67.2-59.47,132.82-74.42,204.3l2.06,1.13c59.72-15.34,112.21-48.24,168.1-72.71,16.1-7.05,46.79-21.96,63.59-16.28,23.9,8.08,11.43,34.62,2.83,49.73-34.48,60.58-152.49,155.48-220.57,171.07-45.09,10.32-128.88,5.33-165.89-25-38.4-31.46-20.23-88.48-6-127.91,22.7-62.91,50.55-123.77,71.22-187.55,7.27-22.43,16.76-50.49,20.4-73.51,1.07-6.77,3.42-18.4-2.02-23.83Z"
-            />
-            <!-- Overlay gradient on hover -->
-            <path
-              fill="url(#logoGradient)"
-              class="opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none"
-              d="M642.88,587.42c-5.42-5.41-13.52-2.33-19.63.18-42.05,17.3-105.44,99.82-134.85,136.9-36.04,45.43-69.91,98.4-107.43,141.34-89.37,102.3-236.93,82.14-255.15-64.58-13.79-111.04,30.06-250.82,72.34-353.01,37.25-90.05,84.4-181.2,138.32-262.31,35.79-53.83,57.09-86.11,120.66-109.13,47.68-17.26,139.04-33.87,188.25-23.91,20.04,4.05,27.29,10.83,14.22,29.57-15.65,22.43-38.7,45.8-56.33,67.55-114.72,141.49-237.8,304.73-284.68,483.61-10.23,39.05-19.13,84.35-16.1,124.84.82,11.05,5.09,26,19.08,22.99,25.28-5.43,69.62-56.33,87.37-76.47,47.44-53.81,91.19-111.12,139.84-163.88,54.58-59.19,126.89-117.56,212.67-80.77,103.02,44.19,52.15,153.1,22.11,227.63-27.09,67.2-59.47,132.82-74.42,204.3l2.06,1.13c59.72-15.34,112.21-48.24,168.1-72.71,16.1-7.05,46.79-21.96,63.59-16.28,23.9,8.08,11.43,34.62,2.83,49.73-34.48,60.58-152.49,155.48-220.57,171.07-45.09,10.32-128.88,5.33-165.89-25-38.4-31.46-20.23-88.48-6-127.91,22.7-62.91,50.55-123.77,71.22-187.55,7.27-22.43,16.76-50.49,20.4-73.51,1.07-6.77,3.42-18.4-2.02-23.83Z"
-            />
-          </svg>
+          <div class="animate-fade-slide hero-logo opacity-0">
+            <div class="group transition-transform duration-500 hover:scale-[1.03]">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" class="h-16 w-16 sm:h-20 sm:w-20 md:h-24 md:w-24">
+                <defs>
+                  <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#1F1E5C" class="group-hover:animate-shift-a" />
+                    <stop offset="100%" stop-color="#E73429" class="group-hover:animate-shift-b" />
+                  </linearGradient>
+                </defs>
+                <path
+                  class="fill-black"
+                  d="M642.88,587.42c-5.42-5.41-13.52-2.33-19.63.18-42.05,17.3-105.44,99.82-134.85,136.9-36.04,45.43-69.91,98.4-107.43,141.34-89.37,102.3-236.93,82.14-255.15-64.58-13.79-111.04,30.06-250.82,72.34-353.01,37.25-90.05,84.4-181.2,138.32-262.31,35.79-53.83,57.09-86.11,120.66-109.13,47.68-17.26,139.04-33.87,188.25-23.91,20.04,4.05,27.29,10.83,14.22,29.57-15.65,22.43-38.7,45.8-56.33,67.55-114.72,141.49-237.8,304.73-284.68,483.61-10.23,39.05-19.13,84.35-16.1,124.84.82,11.05,5.09,26,19.08,22.99,25.28-5.43,69.62-56.33,87.37-76.47,47.44-53.81,91.19-111.12,139.84-163.88,54.58-59.19,126.89-117.56,212.67-80.77,103.02,44.19,52.15,153.1,22.11,227.63-27.09,67.2-59.47,132.82-74.42,204.3l2.06,1.13c59.72-15.34,112.21-48.24,168.1-72.71,16.1-7.05,46.79-21.96,63.59-16.28,23.9,8.08,11.43,34.62,2.83,49.73-34.48,60.58-152.49,155.48-220.57,171.07-45.09,10.32-128.88,5.33-165.89-25-38.4-31.46-20.23-88.48-6-127.91,22.7-62.91,50.55-123.77,71.22-187.55,7.27-22.43,16.76-50.49,20.4-73.51,1.07-6.77,3.42-18.4-2.02-23.83Z"
+                />
+                <!-- Overlay gradient on hover -->
+                <path
+                  fill="url(#logoGradient)"
+                  class="opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none"
+                  d="M642.88,587.42c-5.42-5.41-13.52-2.33-19.63.18-42.05,17.3-105.44,99.82-134.85,136.9-36.04,45.43-69.91,98.4-107.43,141.34-89.37,102.3-236.93,82.14-255.15-64.58-13.79-111.04,30.06-250.82,72.34-353.01,37.25-90.05,84.4-181.2,138.32-262.31,35.79-53.83,57.09-86.11,120.66-109.13,47.68-17.26,139.04-33.87,188.25-23.91,20.04,4.05,27.29,10.83,14.22,29.57-15.65,22.43-38.7,45.8-56.33,67.55-114.72,141.49-237.8,304.73-284.68,483.61-10.23,39.05-19.13,84.35-16.1,124.84.82,11.05,5.09,26,19.08,22.99,25.28-5.43,69.62-56.33,87.37-76.47,47.44-53.81,91.19-111.12,139.84-163.88,54.58-59.19,126.89-117.56,212.67-80.77,103.02,44.19,52.15,153.1,22.11,227.63-27.09,67.2-59.47,132.82-74.42,204.3l2.06,1.13c59.72-15.34,112.21-48.24,168.1-72.71,16.1-7.05,46.79-21.96,63.59-16.28,23.9,8.08,11.43,34.62,2.83,49.73-34.48,60.58-152.49,155.48-220.57,171.07-45.09,10.32-128.88,5.33-165.89-25-38.4-31.46-20.23-88.48-6-127.91,22.7-62.91,50.55-123.77,71.22-187.55,7.27-22.43,16.76-50.49,20.4-73.51,1.07-6.77,3.42-18.4-2.02-23.83Z"
+                />
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
     </header>
@@ -337,7 +396,7 @@
               </div>
 
               <div class="space-y-3">
-                <p class="text-base uppercase tracking-wide text-footer text-secondary">Let’s Connect</p>
+                <p class="text-base uppercase tracking-wide text-footer text-secondary">Let's Connect</p>
                 <nav class="flex flex-wrap gap-x-4 gap-y-2 text-text" aria-label="Social links">
                   <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/hendy-oktavian/" class="hover:underline">LinkedIn</a>
                   <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/moka.cinno/" class="hover:underline">Instagram</a>
