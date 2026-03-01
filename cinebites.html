@@ -3,8 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hendy Oktavian | Product Designer</title>
+    <title>Cinebites | Hendy Oktavian</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 
     <!-- Fonts & Favicon -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,9 +15,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/svg+xml" href="dist/img/logo/Logo H Black.svg" />
 
-    <!-- Tailwind Config -->
     <script>
+      // Apply dark mode BEFORE render to avoid flash
+      (function () {
+        const saved = localStorage.getItem("theme");
+        if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+
+      // Tailwind Config
       tailwind.config = {
+        darkMode: "class",
         theme: {
           extend: {
             colors: {
@@ -28,6 +40,14 @@
             },
             fontFamily: { display: ["Plus Jakarta Sans", "ui-sans-serif", "system-ui", "sans-serif"] },
             borderRadius: { lg: "1rem" },
+            keyframes: {
+              bgShift: {
+                "0%": { backgroundPosition: "0% 50%" },
+                "50%": { backgroundPosition: "100% 50%" },
+                "100%": { backgroundPosition: "0% 50%" },
+              },
+            },
+            animation: { "bg-shift": "bgShift 3s ease infinite" },
           },
         },
       };
@@ -40,43 +60,191 @@
           @apply container mx-auto max-w-5xl px-4;
         }
         .badge {
-          @apply rounded-full bg-card px-4 py-1 text-sm;
+          @apply rounded-full bg-card px-4 py-1 text-sm transition-colors duration-300;
         }
         .k-section {
           @apply mt-16;
         }
       }
     </style>
+
+    <style>
+      /* Dark mode overrides */
+      .dark body {
+        background-color: #0a0a12;
+        color: #e8e8e8;
+      }
+
+      .dark main#project-detail {
+        background-color: #0a0a12;
+      }
+
+      .dark .badge {
+        background-color: #1e1e2e;
+        color: #9e9e9e;
+        border: 1px solid #2e2e42;
+      }
+
+      .dark aside .rounded-2xl {
+        background-color: #1a1a24 !important;
+        border-color: #2e2e42 !important;
+      }
+
+      .dark aside dt {
+        color: #616161 !important;
+      }
+
+      .dark aside dd {
+        color: #e8e8e8 !important;
+      }
+
+      .dark figcaption {
+        color: #9e9e9e !important;
+      }
+
+      .dark .text-secondary {
+        color: #9e9e9e;
+      }
+
+      .dark .border-border {
+        border-color: #2e2e42;
+      }
+
+      .dark a:not(.btn) {
+        color: #e8e8e8;
+      }
+
+      .dark a:not(.btn):hover {
+        color: #ffffff;
+      }
+
+      .dark #pain-points li h3 {
+        color: #ffffff;
+      }
+
+      .dark #pain-points li p {
+        color: #9e9e9e;
+      }
+
+      .dark [class*="Usability Study"] li h3 {
+        color: #ffffff;
+      }
+
+      .dark [class*="Usability Study"] li p {
+        color: #9e9e9e;
+      }
+
+      /* Dark toggle button */
+      #darkToggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 9999px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        color: inherit;
+        flex-shrink: 0;
+      }
+
+      #darkToggle:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+      }
+
+      #darkToggle:active {
+        transform: scale(0.99);
+      }
+
+      .ph {
+        font-size: 1.25rem;
+      }
+
+      /* Lightbox adjustments for dark mode */
+      .dark #hl-modal button {
+        color: white;
+      }
+    </style>
   </head>
 
-  <body class="font-display bg-background text-text">
-    <main id="project-detail" class="bg-white">
+  <body class="font-display bg-background text-text transition-colors duration-300">
+    <!-- Navigation -->
+    <div class="flex sticky top-0 z-50 w-full justify-center">
+      <nav class="mt-12 w-full max-w-[380px] sm:max-w-[480px] md:max-w-[540px]">
+        <ul
+          class="relative overflow-hidden flex items-center justify-between rounded-full px-2 py-2 text-black dark:text-white shadow-[0_4px_12px_rgba(0,0,0,0.08)] ring-1 ring-black/10 bg-black supports-[backdrop-filter]:backdrop-blur-2xl supports-[backdrop-filter]:backdrop-saturate-150 before:content-[''] before:absolute before:inset-0 before:rounded-full before:bg-gradient-to-b before:from-white/40 before:to-transparent before:opacity-60 before:pointer-events-none after:content-[''] after:absolute after:inset-0 after:rounded-full after:pointer-events-none after:[box-shadow:inset_0_1px_0_rgba(255,255,255,0.5),inset_0_-1px_0_rgba(255,255,255,0.1)] [background:radial-gradient(140px_100px_at_10%_0%,rgba(255,255,255,.28),rgba(255,255,255,0)),radial-gradient(160px_140px_at_90%_30%,rgba(255,255,255,.18),rgba(255,255,255,0))]"
+        >
+          <li class="flex-1">
+            <a
+              href="index.html#work"
+              class="block text-center rounded-full px-4 py-2.5 sm:px-4 sm:py-2.5 md:px-5 md:py-3 text-xs sm:text-sm md:text-base transition-colors duration-300 ease-in-out hover:bg-black/5 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)] active:scale-[0.99]"
+              >Work</a
+            >
+          </li>
+          <li class="flex-1">
+            <a
+              href="aboutme.html"
+              class="block text-center rounded-full px-4 py-2.5 sm:px-4 sm:py-2.5 md:px-5 md:py-3 text-xs sm:text-sm md:text-base transition-colors duration-300 ease-in-out hover:bg-black/5 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)] active:scale-[0.99]"
+              >About</a
+            >
+          </li>
+          <li class="flex-1">
+            <a
+              href="https://drive.google.com/file/d/1H6n4esL4zbqSCZvwfpK4qqR3ngo8dlt4/view?usp=drive_link"
+              target="_blank"
+              class="block text-center rounded-full px-4 py-2.5 sm:px-4 sm:py-2.5 md:px-5 md:py-3 text-xs sm:text-sm md:text-base transition-colors duration-300 ease-in-out hover:bg-black/5 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)] active:scale-[0.99]"
+              >Resume</a
+            >
+          </li>
+          <li class="flex-1">
+            <a
+              href="mailto:hendyoktavians@gmail.com"
+              class="block text-center rounded-full px-4 py-2.5 sm:px-4 sm:py-2.5 md:px-5 md:py-3 text-xs sm:text-sm md:text-base transition-colors duration-300 ease-in-out hover:bg-black/5 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)] active:scale-[0.99]"
+              >Contact</a
+            >
+          </li>
+
+          <!-- Dark mode toggle dengan Phosphor Icons -->
+          <li class="relative z-10 pr-1">
+            <button id="darkToggle" aria-label="Toggle dark mode" title="Toggle dark mode" class="mr-2">
+              <i id="iconSun" class="ph ph-sun hidden"></i>
+              <i id="iconMoon" class="ph ph-moon"></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <main id="project-detail" class="bg-white dark:bg-[#0a0a12] transition-colors duration-300">
       <!-- Container -->
       <section class="container-page py-16">
         <!-- Back / Breadcrumb -->
         <div class="mb-8 flex items-center justify-between gap-4">
-          <a href="index.html#work" class="inline-flex items-center gap-2 text-sm hover:opacity-70">
+          <a href="index.html#work" class="inline-flex items-center gap-2 text-sm hover:opacity-70 dark:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
             Back to Work
           </a>
-          <div class="hidden md:flex items-center gap-2 text-sm text-secondary">
-            <a href="index.html#work" class="hover:opacity-70">Work</a>
+          <div class="hidden md:flex items-center gap-2 text-sm text-secondary dark:text-gray-400">
+            <a href="index.html#work" class="hover:opacity-70 dark:text-gray-400">Work</a>
             <span>/</span>
-            <span class="text-primary">Project Detail</span>
+            <span class="text-primary dark:text-white">Project Detail</span>
           </div>
         </div>
 
         <!-- Cover -->
         <div class="mt-12">
-          <img src="dist/img/project details/cinebites/Cinebites.png" alt="Project Cover" class="w-full rounded-3xl" />
+          <img src="dist/img/project details/cinebites/Cinebites.webp" alt="Project Cover" class="w-full rounded-3xl" />
         </div>
 
         <!-- Title Row -->
         <div class="mt-12 flex flex-col md:flex-row md:items-start md:justify-between gap-10">
           <div class="md:max-w-[60%]">
-            <h1 class="text-5xl font-bold leading-tight">Cinebites</h1>
+            <h1 class="text-5xl font-bold leading-tight dark:text-white">Cinebites</h1>
             <div class="mt-6 flex flex-wrap gap-2">
               <span class="badge">Product Design</span>
               <span class="badge">Research</span>
@@ -85,23 +253,23 @@
 
           <!-- Quick facts -->
           <aside class="md:max-w-[40%] w-full">
-            <div class="rounded-2xl border border-border bg-[#f9f9f9] p-6">
+            <div class="rounded-2xl border border-border bg-[#f9f9f9] p-6 dark:bg-[#1a1a24] dark:border-[#2e2e42] transition-colors duration-300">
               <dl class="grid grid-cols-2 gap-x-6 gap-y-4 text-sm">
                 <div>
-                  <dt class="uppercase tracking-wide text-[#acacac]">Role</dt>
-                  <dd class="mt-1">Product Designer</dd>
+                  <dt class="uppercase tracking-wide text-[#acacac] dark:text-gray-500">Role</dt>
+                  <dd class="mt-1 dark:text-white">Product Designer</dd>
                 </div>
                 <div>
-                  <dt class="uppercase tracking-wide text-[#acacac]">Timeline</dt>
-                  <dd class="mt-1">May–Jul 2024</dd>
+                  <dt class="uppercase tracking-wide text-[#acacac] dark:text-gray-500">Timeline</dt>
+                  <dd class="mt-1 dark:text-white">May–Jul 2024</dd>
                 </div>
                 <div>
-                  <dt class="uppercase tracking-wide text-[#acacac]">Team</dt>
-                  <dd class="mt-1">Only Me</dd>
+                  <dt class="uppercase tracking-wide text-[#acacac] dark:text-gray-500">Team</dt>
+                  <dd class="mt-1 dark:text-white">Only Me</dd>
                 </div>
                 <div>
-                  <dt class="uppercase tracking-wide text-[#acacac]">Tools</dt>
-                  <dd class="mt-1">Figma, Google Suites</dd>
+                  <dt class="uppercase tracking-wide text-[#acacac] dark:text-gray-500">Tools</dt>
+                  <dd class="mt-1 dark:text-white">Figma, Google Suites</dd>
                 </div>
               </dl>
             </div>
@@ -110,8 +278,8 @@
 
         <!-- Context -->
         <div class="k-section">
-          <h2 class="text-2xl font-semibold">Context</h2>
-          <p class="k-caption mt-4">
+          <h2 class="text-2xl font-semibold dark:text-white">Context</h2>
+          <p class="k-caption mt-4 text-secondary dark:text-gray-400">
             Cinebites is a movie theater snack ordering app that offers a snack delivery feature to your seat inside the theater while the movie is running. This app was a part of the Google UX Design Certificate program, I completed this
             project in three months, covering the entire user experience design process from start to finish. The project focused on the application of user-centered design methods, from user research and persona creation, wireframing,
             prototyping, to testing and iterating the design based on feedback.
@@ -120,8 +288,8 @@
 
         <!-- Problem & Goals -->
         <div class="k-section">
-          <h2 class="text-2xl font-semibold">Problem &amp; Goals</h2>
-          <p class="k-caption mt-4">
+          <h2 class="text-2xl font-semibold dark:text-white">Problem &amp; Goals</h2>
+          <p class="k-caption mt-4 text-secondary dark:text-gray-400">
             Users want to be able to order snacks while the movie is showing, because often the snacks run out in the middle of the road or they forget to order snacks, but don't want to miss an important part when the movie starts, besides
             that users want a recommendation menu and other promo tabs so that users can get the best deals. Users can order snacks when the movie has started and users get recommendations and the best deals when they want to make a
             purchase.
@@ -130,45 +298,45 @@
 
         <!-- Pain Points -->
         <div class="k-section" id="pain-points">
-          <h2 class="text-2xl font-semibold">Pain Points</h2>
+          <h2 class="text-2xl font-semibold dark:text-white">Pain Points</h2>
           <ul class="mt-4 space-y-6">
             <li>
-              <h3 class="font-semibold">Price</h3>
-              <p class="mt-1 text-secondary">There are often promos for ordering snacks at movie theaters, but customers don't know what promos are available, so they don't get the best price.</p>
+              <h3 class="font-semibold dark:text-white">Price</h3>
+              <p class="mt-1 text-secondary dark:text-gray-400">There are often promos for ordering snacks at movie theaters, but customers don't know what promos are available, so they don't get the best price.</p>
             </li>
             <li>
-              <h3 class="font-semibold">Ease of Access</h3>
-              <p class="mt-1 text-secondary">Some customers want to buy snacks while the movie is playing but don’t want to leave their seats because they don’t want to miss important parts of the movie.</p>
+              <h3 class="font-semibold dark:text-white">Ease of Access</h3>
+              <p class="mt-1 text-secondary dark:text-gray-400">Some customers want to buy snacks while the movie is playing but don't want to leave their seats because they don't want to miss important parts of the movie.</p>
             </li>
             <li>
-              <h3 class="font-semibold">Buyer’s Dilemma</h3>
-              <p class="mt-1 text-secondary">Not knowing what recommendations to buy for each buyer profile (e.g., for a family or a large portion for yourself), including which bundle/best deal to choose.</p>
+              <h3 class="font-semibold dark:text-white">Buyer's Dilemma</h3>
+              <p class="mt-1 text-secondary dark:text-gray-400">Not knowing what recommendations to buy for each buyer profile (e.g., for a family or a large portion for yourself), including which bundle/best deal to choose.</p>
             </li>
           </ul>
         </div>
 
         <!-- Persona -->
         <div class="k-section">
-          <h2 class="text-2xl font-semibold">Persona</h2>
+          <h2 class="text-2xl font-semibold dark:text-white">Persona</h2>
           <figure class="my-8">
-            <img src="dist/img/project details/cinebites/Google UX Design Certificate - Persona.png" alt="Persona" class="w-full rounded-3xl" />
-            <figcaption class="mt-3 text-center text-sm text-secondary">Cinebites User Persona</figcaption>
+            <img src="dist/img/project details/cinebites/Google UX Design Certificate - Persona.webp" alt="Persona" class="w-full rounded-3xl" />
+            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Cinebites User Persona</figcaption>
           </figure>
         </div>
 
         <!-- User Journey -->
         <div class="k-section">
-          <h2 class="text-2xl font-semibold">User Journey</h2>
+          <h2 class="text-2xl font-semibold dark:text-white">User Journey</h2>
           <figure class="my-8">
-            <img src="dist/img/project details/cinebites/User Journey.png" alt="User Journey" class="w-full rounded-3xl" />
-            <figcaption class="mt-3 text-center text-sm text-secondary">Cinebites User Journey</figcaption>
+            <img src="dist/img/project details/cinebites/User Journey.webp" alt="User Journey" class="w-full rounded-3xl" />
+            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Cinebites User Journey</figcaption>
           </figure>
         </div>
 
         <!-- Research & Insights -->
         <div class="k-section">
-          <h2 class="text-2xl font-semibold">Research Insights</h2>
-          <p class="k-caption mt-4">
+          <h2 class="text-2xl font-semibold dark:text-white">Research Insights</h2>
+          <p class="k-caption mt-4 text-secondary dark:text-gray-400">
             I conducted interviews and created empathy maps to understand the users in relation to my design and their needs. The main user groups identified through the research were teenagers in college or internships to working adults
             with families who generally like to go to the movies to enjoy their leisure time. The user problems found were that users are often confused about what to order because there are no recommendations and such, users also do not
             know what promos are going on and what is the best purchase for them. Another user problem is when they run out of their snacks in the theater or they haven't bought them and want to buy back snacks from the theater but don't
@@ -178,56 +346,56 @@
 
         <!-- Solution -->
         <div class="k-section">
-          <h2 class="text-2xl font-semibold">Solution</h2>
+          <h2 class="text-2xl font-semibold dark:text-white">Solution</h2>
           <figure class="my-8">
-            <img src="dist/img/project details/cinebites/Posters.png" alt="Solution Screens" class="w-full rounded-3xl" />
-            <figcaption class="mt-3 text-center text-sm text-secondary">Cinebites Visual Design</figcaption>
+            <img src="dist/img/project details/cinebites/Posters.webp" alt="Solution Screens" class="w-full rounded-3xl" />
+            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Cinebites Visual Design</figcaption>
           </figure>
 
-          <p class="k-caption mt-4">Cinebites is a movie theater snack ordering app that offers a snack delivery feature to your seat inside the theater while the movie is running.</p>
+          <p class="k-caption mt-4 text-secondary dark:text-gray-400">Cinebites is a movie theater snack ordering app that offers a snack delivery feature to your seat inside the theater while the movie is running.</p>
         </div>
 
         <!-- Wireframes -->
         <div class="k-section">
-          <h2 class="text-2xl font-semibold">Wireframe</h2>
+          <h2 class="text-2xl font-semibold dark:text-white">Wireframe</h2>
           <figure class="my-8">
-            <img src="dist/img/project details/cinebites/Sketch.jpg" alt="Wireframe Sketch" class="w-full rounded-3xl" />
-            <figcaption class="mt-3 text-center text-sm text-secondary">Early paper sketches exploring layout ideas and key user actions.</figcaption>
+            <img src="dist/img/project details/cinebites/Sketch.webp" alt="Wireframe Sketch" class="w-full rounded-3xl" />
+            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Early paper sketches exploring layout ideas and key user actions.</figcaption>
           </figure>
-          <p class="k-caption mt-4">My goal in creating this wireframe paper was to quickly brainstorm the layout and features I wanted to include in a fast, low-commitment way.</p>
+          <p class="k-caption mt-4 text-secondary dark:text-gray-400">My goal in creating this wireframe paper was to quickly brainstorm the layout and features I wanted to include in a fast, low-commitment way.</p>
           <figure class="my-8">
-            <img src="dist/img/project details/cinebites/Lofi.png" alt="LoFi Wireframe" class="w-full rounded-3xl" />
-            <figcaption class="mt-3 text-center text-sm text-secondary">Low-fidelity wireframes</figcaption>
+            <img src="dist/img/project details/cinebites/Lofi.webp" alt="LoFi Wireframe" class="w-full rounded-3xl" />
+            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Low-fidelity wireframes</figcaption>
           </figure>
 
-          <img src="dist/img/project details/cinebites/Digital Wireframe 1.png" alt="Digital Wireframe 1" class="w-full my-8 rounded-3xl" />
+          <img src="dist/img/project details/cinebites/Digital Wireframe 1.webp" alt="Digital Wireframe 1" class="w-full my-8 rounded-3xl" />
           <figure class="my-8">
-            <img src="dist/img/project details/cinebites/Digital Wireframe 2.png" alt="LoFi Wireframe" class="w-full rounded-3xl" />
-            <figcaption class="mt-3 text-center text-sm text-secondary">Digital wireframes</figcaption>
+            <img src="dist/img/project details/cinebites/Digital Wireframe 2.webp" alt="LoFi Wireframe" class="w-full rounded-3xl" />
+            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Digital wireframes</figcaption>
           </figure>
         </div>
 
         <!-- Usability Study: Findings -->
         <div class="k-section">
-          <h2 class="text-2xl font-semibold">Usability Study: Findings</h2>
+          <h2 class="text-2xl font-semibold dark:text-white">Usability Study: Findings</h2>
           <ul class="mt-4 space-y-6">
             <li>
-              <h3 class="font-semibold">Round 1 Findings</h3>
-              <p class="mt-1 text-secondary">the user wants to be able to change the order when it is already in the confirmation stage</p>
-              <p class="mt-1 text-secondary">users want to be able to add notes during the ordering stage</p>
+              <h3 class="font-semibold dark:text-white">Round 1 Findings</h3>
+              <p class="mt-1 text-secondary dark:text-gray-400">the user wants to be able to change the order when it is already in the confirmation stage</p>
+              <p class="mt-1 text-secondary dark:text-gray-400">users want to be able to add notes during the ordering stage</p>
             </li>
             <li>
-              <h3 class="font-semibold">Round 2 Findings</h3>
-              <p class="mt-1 text-secondary">Adding edit order feature</p>
-              <p class="mt-1 text-secondary">Adding order note feature</p>
+              <h3 class="font-semibold dark:text-white">Round 2 Findings</h3>
+              <p class="mt-1 text-secondary dark:text-gray-400">Adding edit order feature</p>
+              <p class="mt-1 text-secondary dark:text-gray-400">Adding order note feature</p>
             </li>
           </ul>
         </div>
 
         <!-- Results & Impact -->
         <div class="k-section">
-          <h2 class="text-2xl font-semibold">Results &amp; Impact</h2>
-          <p class="k-caption mt-4">
+          <h2 class="text-2xl font-semibold dark:text-white">Results &amp; Impact</h2>
+          <p class="k-caption mt-4 text-secondary dark:text-gray-400">
             After I updated some features based on user needs through the usability study, and conducted the test again, the majority of users I tested did not experience any problems and all participants successfully completed the
             usability study test. I learned that by conducting usability studies and thinking about accessibility, my designs can be more inclusive for many people.
           </p>
@@ -235,19 +403,19 @@
 
         <!-- Gallery / Highlights -->
         <div class="k-section">
-          <h2 class="text-2xl font-semibold">Highlights</h2>
+          <h2 class="text-2xl font-semibold dark:text-white">Highlights</h2>
           <div class="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-6" id="highlights-grid">
-            <button type="button" class="group rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-white/50" data-index="0" data-src="dist/img/project details/cinebites/Highlight 1">
-              <img class="w-full h-full object-cover transition-transform group-hover:scale-[1.02]" src="dist/img/project details/cinebites/Highlight 1.png" alt="Highlight 1" loading="lazy" />
+            <button type="button" class="group rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-white/50" data-index="0" data-src="dist/img/project details/cinebites/Highlight 1.webp">
+              <img class="w-full h-full object-cover transition-transform group-hover:scale-[1.02]" src="dist/img/project details/cinebites/Highlight 1.webp" alt="Highlight 1" loading="lazy" />
             </button>
-            <button type="button" class="group rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-white/50" data-index="1" data-src="dist/img/project details/compast/Compast Highlight 2.png">
-              <img class="w-full h-full object-cover transition-transform group-hover:scale-[1.02]" src="dist/img/project details/cinebites/Highlight 2.png" alt="Highlight 2" loading="lazy" />
+            <button type="button" class="group rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-white/50" data-index="1" data-src="dist/img/project details/cinebites/Highlight 2.webp">
+              <img class="w-full h-full object-cover transition-transform group-hover:scale-[1.02]" src="dist/img/project details/cinebites/Highlight 2.webp" alt="Highlight 2" loading="lazy" />
             </button>
-            <button type="button" class="group rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-white/50" data-index="2" data-src="dist/img/project details/compast/Compast Highlight 3.png">
-              <img class="w-full h-full object-cover transition-transform group-hover:scale-[1.02]" src="dist/img/project details/cinebites/Highlight 3.png" alt="Highlight 3" loading="lazy" />
+            <button type="button" class="group rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-white/50" data-index="2" data-src="dist/img/project details/cinebites/Highlight 3.webp">
+              <img class="w-full h-full object-cover transition-transform group-hover:scale-[1.02]" src="dist/img/project details/cinebites/Highlight 3.webp" alt="Highlight 3" loading="lazy" />
             </button>
-            <button type="button" class="group rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-white/50" data-index="3" data-src="dist/img/project details/compast/Compast Highlight 4.png">
-              <img class="w-full h-full object-cover transition-transform group-hover:scale-[1.02]" src="dist/img/project details/cinebites/Highlight 4.png" alt="Highlight 4" loading="lazy" />
+            <button type="button" class="group rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-white/50" data-index="3" data-src="dist/img/project details/cinebites/Highlight 4.webp">
+              <img class="w-full h-full object-cover transition-transform group-hover:scale-[1.02]" src="dist/img/project details/cinebites/Highlight 4.webp" alt="Highlight 4" loading="lazy" />
             </button>
           </div>
         </div>
@@ -255,7 +423,7 @@
         <!-- Prev / Next -->
         <div class="mt-20 flex w-full justify-between">
           <!-- Prev Project -->
-          <a href="compast.html" class="group inline-flex items-center gap-2">
+          <a href="compast.html" class="group inline-flex items-center gap-2 dark:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
@@ -263,7 +431,7 @@
           </a>
 
           <!-- Next Project -->
-          <a href="coofisnde.html" class="group inline-flex items-center gap-2">
+          <a href="coofisnde.html" class="group inline-flex items-center gap-2 dark:text-white">
             Next Project
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
@@ -274,22 +442,22 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-card">
+    <footer class="bg-card transition-colors duration-300 dark:bg-[#111118]">
       <div class="container-page py-12">
         <div class="space-y-8 md:space-y-12">
-          <h3 class="text-2xl font-semibold text-text">Get In Touch</h3>
+          <h3 class="text-2xl font-semibold text-text dark:text-white">Get In Touch</h3>
 
           <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:gap-12">
             <!-- Contact & Social -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div class="space-y-3">
-                <p class="text-base uppercase tracking-wide text-footer text-secondary">Contact Me</p>
-                <a href="mailto:hendyoktavians@gmail.com" class="hover:underline text-text break-all sm:break-normal flex flex-wrap gap-x-4 gap-y-2"> hendyoktavians@gmail.com </a>
+                <p class="text-base uppercase tracking-wide text-footer text-secondary dark:text-gray-500">Contact Me</p>
+                <a href="mailto:hendyoktavians@gmail.com" class="hover:underline text-text break-all sm:break-normal flex flex-wrap gap-x-4 gap-y-2 dark:text-white"> hendyoktavians@gmail.com </a>
               </div>
 
               <div class="space-y-3">
-                <p class="text-base uppercase tracking-wide text-footer text-secondary">Let’s Connect</p>
-                <nav class="flex flex-wrap gap-x-4 gap-y-2 text-text" aria-label="Social links">
+                <p class="text-base uppercase tracking-wide text-footer text-secondary dark:text-gray-500">Let's Connect</p>
+                <nav class="flex flex-wrap gap-x-4 gap-y-2 text-text dark:text-white" aria-label="Social links">
                   <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/hendy-oktavian/" class="hover:underline">LinkedIn</a>
                   <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/moka.cinno/" class="hover:underline">Instagram</a>
                   <a target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/1H6n4esL4zbqSCZvwfpK4qqR3ngo8dlt4/view?usp=drive_link" class="hover:underline">Resume</a>
@@ -298,13 +466,13 @@
             </div>
 
             <!-- Copyright -->
-            <p class="text-sm md:text-base text-text md:whitespace-nowrap border-t border-border pt-6 md:pt-0 md:border-0">©2023 Hendy Oktavian</p>
+            <p class="text-sm md:text-base text-text md:whitespace-nowrap border-t border-border pt-6 md:pt-0 md:border-0 dark:text-white dark:border-gray-800">©2023 Hendy Oktavian</p>
           </div>
         </div>
       </div>
     </footer>
 
-    <!-- Lightbox (single, non-duplicate) -->
+    <!-- Lightbox (same as before) -->
     <div id="hl-modal" class="fixed inset-0 z-50 hidden" aria-hidden="true">
       <!-- Backdrop -->
       <div id="hl-backdrop" class="absolute inset-0 bg-black/80 opacity-0 transition-opacity"></div>
@@ -428,6 +596,32 @@
         btnNext.addEventListener("click", next);
         backdrop.addEventListener("click", closeModal);
       })();
+
+      // Dark mode toggle functionality
+      const toggle = document.getElementById("darkToggle");
+      const iconSun = document.getElementById("iconSun");
+      const iconMoon = document.getElementById("iconMoon");
+      const html = document.documentElement;
+
+      function updateIcons() {
+        if (html.classList.contains("dark")) {
+          iconSun.classList.remove("hidden");
+          iconMoon.classList.add("hidden");
+        } else {
+          iconSun.classList.add("hidden");
+          iconMoon.classList.remove("hidden");
+        }
+      }
+
+      // Init icons on load
+      updateIcons();
+
+      toggle.addEventListener("click", () => {
+        html.classList.toggle("dark");
+        const isDark = html.classList.contains("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+        updateIcons();
+      });
     </script>
   </body>
 </html>

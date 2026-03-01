@@ -3,8 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hendy Oktavian | Product Designer</title>
+    <title>Compast | Hendy Oktavian</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 
     <!-- Fonts & Favicon -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,9 +15,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/svg+xml" href="dist/img/logo/Logo H Black.svg" />
 
-    <!-- Tailwind Config -->
     <script>
+      // Apply dark mode BEFORE render to avoid flash
+      (function () {
+        const saved = localStorage.getItem("theme");
+        if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+
+      // Tailwind Config
       tailwind.config = {
+        darkMode: "class",
         theme: {
           extend: {
             colors: {
@@ -28,6 +40,14 @@
             },
             fontFamily: { display: ["Plus Jakarta Sans", "ui-sans-serif", "system-ui", "sans-serif"] },
             borderRadius: { lg: "1rem" },
+            keyframes: {
+              bgShift: {
+                "0%": { backgroundPosition: "0% 50%" },
+                "50%": { backgroundPosition: "100% 50%" },
+                "100%": { backgroundPosition: "0% 50%" },
+              },
+            },
+            animation: { "bg-shift": "bgShift 3s ease infinite" },
           },
         },
       };
@@ -40,43 +60,175 @@
           @apply container mx-auto max-w-5xl px-4;
         }
         .badge {
-          @apply rounded-full bg-card px-4 py-1 text-sm;
+          @apply rounded-full bg-card px-4 py-1 text-sm transition-colors duration-300;
         }
         .k-section {
           @apply mt-16;
         }
       }
     </style>
+
+    <style>
+      /* Dark mode overrides */
+      .dark body {
+        background-color: #0a0a12;
+        color: #e8e8e8;
+      }
+
+      .dark main#project-detail {
+        background-color: #0a0a12;
+      }
+
+      .dark .badge {
+        background-color: #1e1e2e;
+        color: #9e9e9e;
+        border: 1px solid #2e2e42;
+      }
+
+      .dark aside .rounded-2xl {
+        background-color: #1a1a24 !important;
+        border-color: #2e2e42 !important;
+      }
+
+      .dark aside dt {
+        color: #616161 !important;
+      }
+
+      .dark aside dd {
+        color: #e8e8e8 !important;
+      }
+
+      .dark figcaption {
+        color: #9e9e9e !important;
+      }
+
+      .dark .text-secondary {
+        color: #9e9e9e;
+      }
+
+      .dark .border-border {
+        border-color: #2e2e42;
+      }
+
+      .dark a:not(.btn) {
+        color: #e8e8e8;
+      }
+
+      .dark a:not(.btn):hover {
+        color: #ffffff;
+      }
+
+      /* Dark toggle button */
+      #darkToggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 9999px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        color: inherit;
+        flex-shrink: 0;
+      }
+
+      #darkToggle:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+      }
+
+      #darkToggle:active {
+        transform: scale(0.99);
+      }
+
+      .ph {
+        font-size: 1.25rem;
+      }
+
+      /* Lightbox adjustments for dark mode */
+      .dark #hl-modal button {
+        color: white;
+      }
+    </style>
   </head>
 
-  <body class="font-display bg-background text-text">
-    <main id="project-detail" class="bg-white">
+  <body class="font-display bg-background text-text transition-colors duration-300">
+    <!-- Navigation -->
+    <div class="flex sticky top-0 z-50 w-full justify-center">
+      <nav class="mt-12 w-full max-w-[380px] sm:max-w-[480px] md:max-w-[540px]">
+        <ul
+          class="relative overflow-hidden flex items-center justify-between rounded-full px-2 py-2 text-black dark:text-white shadow-[0_4px_12px_rgba(0,0,0,0.08)] ring-1 ring-black/10 bg-black supports-[backdrop-filter]:backdrop-blur-2xl supports-[backdrop-filter]:backdrop-saturate-150 before:content-[''] before:absolute before:inset-0 before:rounded-full before:bg-gradient-to-b before:from-white/40 before:to-transparent before:opacity-60 before:pointer-events-none after:content-[''] after:absolute after:inset-0 after:rounded-full after:pointer-events-none after:[box-shadow:inset_0_1px_0_rgba(255,255,255,0.5),inset_0_-1px_0_rgba(255,255,255,0.1)] [background:radial-gradient(140px_100px_at_10%_0%,rgba(255,255,255,.28),rgba(255,255,255,0)),radial-gradient(160px_140px_at_90%_30%,rgba(255,255,255,.18),rgba(255,255,255,0))]"
+        >
+          <li class="flex-1">
+            <a
+              href="index.html#work"
+              class="block text-center rounded-full px-4 py-2.5 sm:px-4 sm:py-2.5 md:px-5 md:py-3 text-xs sm:text-sm md:text-base transition-colors duration-300 ease-in-out hover:bg-black/5 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)] active:scale-[0.99]"
+              >Work</a
+            >
+          </li>
+          <li class="flex-1">
+            <a
+              href="aboutme.html"
+              class="block text-center rounded-full px-4 py-2.5 sm:px-4 sm:py-2.5 md:px-5 md:py-3 text-xs sm:text-sm md:text-base transition-colors duration-300 ease-in-out hover:bg-black/5 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)] active:scale-[0.99]"
+              >About</a
+            >
+          </li>
+          <li class="flex-1">
+            <a
+              href="https://drive.google.com/file/d/1H6n4esL4zbqSCZvwfpK4qqR3ngo8dlt4/view?usp=drive_link"
+              target="_blank"
+              class="block text-center rounded-full px-4 py-2.5 sm:px-4 sm:py-2.5 md:px-5 md:py-3 text-xs sm:text-sm md:text-base transition-colors duration-300 ease-in-out hover:bg-black/5 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)] active:scale-[0.99]"
+              >Resume</a
+            >
+          </li>
+          <li class="flex-1">
+            <a
+              href="mailto:hendyoktavians@gmail.com"
+              class="block text-center rounded-full px-4 py-2.5 sm:px-4 sm:py-2.5 md:px-5 md:py-3 text-xs sm:text-sm md:text-base transition-colors duration-300 ease-in-out hover:bg-black/5 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)] active:scale-[0.99]"
+              >Contact</a
+            >
+          </li>
+
+          <!-- Dark mode toggle dengan Phosphor Icons -->
+          <li class="relative z-10 pr-1">
+            <button id="darkToggle" aria-label="Toggle dark mode" title="Toggle dark mode" class="mr-2">
+              <i id="iconSun" class="ph ph-sun hidden"></i>
+              <i id="iconMoon" class="ph ph-moon"></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <main id="project-detail" class="bg-white dark:bg-[#0a0a12] transition-colors duration-300">
       <!-- Container -->
       <section class="container-page py-16">
         <!-- Back / Breadcrumb -->
         <div class="mb-8 flex items-center justify-between gap-4">
-          <a href="index.html#work" class="inline-flex items-center gap-2 text-sm hover:opacity-70">
+          <a href="index.html#work" class="inline-flex items-center gap-2 text-sm hover:opacity-70 dark:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
             Back to Work
           </a>
-          <div class="hidden md:flex items-center gap-2 text-sm text-secondary">
-            <a href="index.html#work" class="hover:opacity-70">Work</a>
+          <div class="hidden md:flex items-center gap-2 text-sm text-secondary dark:text-gray-400">
+            <a href="index.html#work" class="hover:opacity-70 dark:text-gray-400">Work</a>
             <span>/</span>
-            <span class="text-primary">Project Detail</span>
+            <span class="text-primary dark:text-white">Project Detail</span>
           </div>
         </div>
 
         <!-- Cover -->
         <div class="mt-12">
-          <img src="dist/img/project details/compast/Compast.png" alt="Project Cover" class="w-full rounded-3xl" />
+          <img src="dist/img/project details/compast/Compast.webp" alt="Project Cover" class="w-full rounded-3xl" />
         </div>
 
         <!-- Title Row -->
         <div class="mt-12 flex flex-col md:flex-row md:items-start md:justify-between gap-10">
           <div class="md:max-w-[60%]">
-            <h1 class="text-5xl font-bold leading-tight">Compast</h1>
+            <h1 class="text-5xl font-bold leading-tight dark:text-white">Compast</h1>
             <div class="mt-6 flex flex-wrap gap-2">
               <span class="badge">Product Design</span>
               <span class="badge">Research</span>
@@ -86,23 +238,23 @@
 
           <!-- Quick facts -->
           <aside class="md:max-w-[40%] w-full">
-            <div class="rounded-2xl border border-border bg-[#f9f9f9] p-6">
+            <div class="rounded-2xl border border-border bg-[#f9f9f9] p-6 dark:bg-[#1a1a24] dark:border-[#2e2e42] transition-colors duration-300">
               <dl class="grid grid-cols-2 gap-x-6 gap-y-4 text-sm">
                 <div>
-                  <dt class="uppercase tracking-wide text-[#acacac]">Role</dt>
-                  <dd class="mt-1">Product Designer</dd>
+                  <dt class="uppercase tracking-wide text-[#acacac] dark:text-gray-500">Role</dt>
+                  <dd class="mt-1 dark:text-white">Product Designer</dd>
                 </div>
                 <div>
-                  <dt class="uppercase tracking-wide text-[#acacac]">Timeline</dt>
-                  <dd class="mt-1">Jul–Aug 2025</dd>
+                  <dt class="uppercase tracking-wide text-[#acacac] dark:text-gray-500">Timeline</dt>
+                  <dd class="mt-1 dark:text-white">Jul–Aug 2025</dd>
                 </div>
                 <div>
-                  <dt class="uppercase tracking-wide text-[#acacac]">Team</dt>
-                  <dd class="mt-1">2 Designers, 1 PM, 2 Coders</dd>
+                  <dt class="uppercase tracking-wide text-[#acacac] dark:text-gray-500">Team</dt>
+                  <dd class="mt-1 dark:text-white">2 Designers, 1 PM, 2 Coders</dd>
                 </div>
                 <div>
-                  <dt class="uppercase tracking-wide text-[#acacac]">Tools</dt>
-                  <dd class="mt-1">Figma, Swift, Miro</dd>
+                  <dt class="uppercase tracking-wide text-[#acacac] dark:text-gray-500">Tools</dt>
+                  <dd class="mt-1 dark:text-white">Figma, Swift, Miro</dd>
                 </div>
               </dl>
             </div>
@@ -111,8 +263,8 @@
 
         <!-- Context -->
         <div class="k-section">
-          <h2 class="text-2xl font-semibold">Context</h2>
-          <p class="k-caption mt-4">
+          <h2 class="text-2xl font-semibold dark:text-white">Context</h2>
+          <p class="k-caption mt-4 text-secondary dark:text-gray-400">
             Compast is a smart composting assistant that makes composting simple for beginners and households. It provides step-by-step guidance, a smart to-do list, and personalized reminders based on waste mix, temperature, and moisture.
             Users can track progress and see their real impact through clear, relatable metrics, turning composting into an easy, rewarding, and sustainable habit.
           </p>
@@ -120,21 +272,21 @@
 
         <!-- Problem & Goals -->
         <div class="k-section">
-          <h2 class="text-2xl font-semibold">Problem &amp; Goals</h2>
-          <p class="k-caption mt-4">
-            TPA Suwung, the largest landfill in Bali, has stopped accepting organic waste. About 60–70% of the island’s waste is organic, and the lack of clear alternatives is pushing people to dump trash on roads, in rivers, and in other
+          <h2 class="text-2xl font-semibold dark:text-white">Problem &amp; Goals</h2>
+          <p class="k-caption mt-4 text-secondary dark:text-gray-400">
+            TPA Suwung, the largest landfill in Bali, has stopped accepting organic waste. About 60–70% of the island's waste is organic, and the lack of clear alternatives is pushing people to dump trash on roads, in rivers, and in other
             public places.
           </p>
         </div>
 
         <!-- Research & Insights -->
         <div class="k-section">
-          <h2 class="text-2xl font-semibold">Research Insights</h2>
+          <h2 class="text-2xl font-semibold dark:text-white">Research Insights</h2>
           <figure class="my-8">
-            <img src="dist/img/project details/compast/Documentation.png" alt="Documentation" class="w-full rounded-3xl" />
-            <figcaption class="mt-3 text-center text-sm text-secondary">Pictures of us with communities and banjar (village communitiy)</figcaption>
+            <img src="dist/img/project details/compast/Documentation.webp" alt="Documentation" class="w-full rounded-3xl" />
+            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Pictures of us with communities and banjar (village communitiy)</figcaption>
           </figure>
-          <p class="k-caption mt-4">
+          <p class="k-caption mt-4 text-secondary dark:text-gray-400">
             After identifying the landfill issue, we ran three interviews. First, Sungai Watch showed that organics in rivers cause strong odors and poor water quality. Next, local leaders and residents in Banjar Segara said some households
             already compost, but basic methods are slow. Finally, Urban Compost confirmed that simple controls for aeration, moisture, and carbon-to-nitrogen balance can speed the cycle. These findings point to a need for simple daily
             guidance, small-space setups, basic pest prevention, and community support.
@@ -143,39 +295,39 @@
 
         <!-- Solution -->
         <div class="k-section">
-          <h2 class="text-2xl font-semibold">Solution</h2>
+          <h2 class="text-2xl font-semibold dark:text-white">Solution</h2>
           <figure class="my-8">
-            <img src="dist/img/projects/Compast.png" alt="Solution Images" class="w-full rounded-3xl" />
-            <figcaption class="mt-3 text-center text-sm text-secondary">Compast Visual Design</figcaption>
+            <img src="dist/img/projects/Compast.webp" alt="Solution Images" class="w-full rounded-3xl" />
+            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Compast Visual Design</figcaption>
           </figure>
-          <p class="k-caption mt-4">
-            Compast helps you turn food scraps into compost with clear, easy steps. Create a project, add materials until the ratio meter says “ideal,” then check in occasionally (moist, dry, hot, smell). Compast reads the condition and
+          <p class="k-caption mt-4 text-secondary dark:text-gray-400">
+            Compast helps you turn food scraps into compost with clear, easy steps. Create a project, add materials until the ratio meter says "ideal," then check in occasionally (moist, dry, hot, smell). Compast reads the condition and
             tells you what to do next—add browns/greens, mix, or rest—then sets gentle reminders and tracks progress to harvest, with tips for small spaces and pest prevention.
           </p>
         </div>
 
         <!-- Wireframes -->
         <div class="k-section">
-          <h2 class="text-2xl font-semibold">Wireframe</h2>
+          <h2 class="text-2xl font-semibold dark:text-white">Wireframe</h2>
           <figure class="my-8">
-            <img src="dist/img/project details/compast/LoFi.png" alt="Compast Wireframes" class="w-full rounded-3xl" />
-            <figcaption class="mt-3 text-center text-sm text-secondary">Compast Wireframes</figcaption>
+            <img src="dist/img/project details/compast/LoFi.webp" alt="Compast Wireframes" class="w-full rounded-3xl" />
+            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Compast Wireframes</figcaption>
           </figure>
         </div>
 
         <!-- UI Components (Design Systems) -->
         <div class="k-section">
-          <h2 class="text-2xl font-semibold">UI Components (Design Systems)</h2>
+          <h2 class="text-2xl font-semibold dark:text-white">UI Components (Design Systems)</h2>
           <figure class="my-8">
-            <img src="dist/img/project details/compast/Design System.png" alt="Design System Compast" class="w-full rounded-3xl" />
-            <figcaption class="mt-3 text-center text-sm text-secondary">Compast Design System</figcaption>
+            <img src="dist/img/project details/compast/Design System.webp" alt="Design System Compast" class="w-full rounded-3xl" />
+            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Compast Design System</figcaption>
           </figure>
         </div>
 
         <!-- Results & Impact -->
         <div class="k-section">
-          <h2 class="text-2xl font-semibold">Results &amp; Impact</h2>
-          <p class="k-caption mt-4">
+          <h2 class="text-2xl font-semibold dark:text-white">Results &amp; Impact</h2>
+          <p class="k-caption mt-4 text-secondary dark:text-gray-400">
             Compast simplifies composting for households with step-by-step guidance and reminders calibrated by real conditions (waste mix, temperature, moisture). Progress tracking and relatable impact metrics help turn composting into a
             sustainable habit.
           </p>
@@ -183,35 +335,35 @@
 
         <!-- Team -->
         <div class="k-section">
-          <h2 class="text-2xl font-semibold">Nothing great is ever done alone</h2>
-          <p class="k-caption mt-4">This project came to life thanks to:</p>
-          <p class="k-caption mt-4"><strong>Designer:</strong> Hendy (UI), Saskia (UI, Illustration &amp; Design Research), Olaff (Design Research)</p>
-          <p class="k-caption mt-2"><strong>Coder:</strong> Wikan &amp; Reva (Code), Olaff (Code)</p>
-          <p class="k-caption mt-2"><strong>PM:</strong> Wikan</p>
+          <h2 class="text-2xl font-semibold dark:text-white">Nothing great is ever done alone</h2>
+          <p class="k-caption mt-4 text-secondary dark:text-gray-400">This project came to life thanks to:</p>
+          <p class="k-caption mt-4 text-secondary dark:text-gray-400"><strong class="dark:text-white">Designer:</strong> Hendy (UI), Saskia (UI, Illustration &amp; Design Research), Olaff (Design Research)</p>
+          <p class="k-caption mt-2 text-secondary dark:text-gray-400"><strong class="dark:text-white">Coder:</strong> Wikan &amp; Reva (Code), Olaff (Code)</p>
+          <p class="k-caption mt-2 text-secondary dark:text-gray-400"><strong class="dark:text-white">PM:</strong> Wikan</p>
         </div>
 
         <!-- Gallery / Highlights -->
         <div class="k-section">
-          <h2 class="text-2xl font-semibold">Highlights</h2>
+          <h2 class="text-2xl font-semibold dark:text-white">Highlights</h2>
           <div class="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-6" id="highlights-grid">
-            <button type="button" class="group rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-white/50" data-index="0" data-src="dist/img/project details/compast/Compast Highlight 1.png">
-              <img class="w-full h-full object-cover transition-transform group-hover:scale-[1.02]" src="dist/img/project details/compast/Compast Highlight 1.png" alt="Highlight 1" loading="lazy" />
+            <button type="button" class="group rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-white/50" data-index="0" data-src="dist/img/project details/compast/Compast Highlight 1.webp">
+              <img class="w-full h-full object-cover transition-transform group-hover:scale-[1.02]" src="dist/img/project details/compast/Compast Highlight 1.webp" alt="Highlight 1" loading="lazy" />
             </button>
-            <button type="button" class="group rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-white/50" data-index="1" data-src="dist/img/project details/compast/Compast Highlight 2.png">
-              <img class="w-full h-full object-cover transition-transform group-hover:scale-[1.02]" src="dist/img/project details/compast/Compast Highlight 2.png" alt="Highlight 2" loading="lazy" />
+            <button type="button" class="group rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-white/50" data-index="1" data-src="dist/img/project details/compast/Compast Highlight 2.webp">
+              <img class="w-full h-full object-cover transition-transform group-hover:scale-[1.02]" src="dist/img/project details/compast/Compast Highlight 2.webp" alt="Highlight 2" loading="lazy" />
             </button>
-            <button type="button" class="group rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-white/50" data-index="2" data-src="dist/img/project details/compast/Compast Highlight 3.png">
-              <img class="w-full h-full object-cover transition-transform group-hover:scale-[1.02]" src="dist/img/project details/compast/Compast Highlight 3.png" alt="Highlight 3" loading="lazy" />
+            <button type="button" class="group rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-white/50" data-index="2" data-src="dist/img/project details/compast/Compast Highlight 3.webp">
+              <img class="w-full h-full object-cover transition-transform group-hover:scale-[1.02]" src="dist/img/project details/compast/Compast Highlight 3.webp" alt="Highlight 3" loading="lazy" />
             </button>
-            <button type="button" class="group rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-white/50" data-index="3" data-src="dist/img/project details/compast/Compast Highlight 4.png">
-              <img class="w-full h-full object-cover transition-transform group-hover:scale-[1.02]" src="dist/img/project details/compast/Compast Highlight 4.png" alt="Highlight 4" loading="lazy" />
+            <button type="button" class="group rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-white/50" data-index="3" data-src="dist/img/project details/compast/Compast Highlight 4.webp">
+              <img class="w-full h-full object-cover transition-transform group-hover:scale-[1.02]" src="dist/img/project details/compast/Compast Highlight 4.webp" alt="Highlight 4" loading="lazy" />
             </button>
           </div>
         </div>
 
         <!-- Prev / Next -->
         <div class="mt-20 flex w-full justify-end">
-          <a href="cinebites.html" class="group inline-flex items-center gap-2">
+          <a href="cinebites.html" class="group inline-flex items-center gap-2 dark:text-white">
             Next Project
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
@@ -222,22 +374,22 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-card">
+    <footer class="bg-card transition-colors duration-300 dark:bg-[#111118]">
       <div class="container-page py-12">
         <div class="space-y-8 md:space-y-12">
-          <h3 class="text-2xl font-semibold text-text">Get In Touch</h3>
+          <h3 class="text-2xl font-semibold text-text dark:text-white">Get In Touch</h3>
 
           <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:gap-12">
             <!-- Contact & Social -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div class="space-y-3">
-                <p class="text-base uppercase tracking-wide text-footer text-secondary">Contact Me</p>
-                <a href="mailto:hendyoktavians@gmail.com" class="hover:underline text-text break-all sm:break-normal flex flex-wrap gap-x-4 gap-y-2"> hendyoktavians@gmail.com </a>
+                <p class="text-base uppercase tracking-wide text-footer text-secondary dark:text-gray-500">Contact Me</p>
+                <a href="mailto:hendyoktavians@gmail.com" class="hover:underline text-text break-all sm:break-normal flex flex-wrap gap-x-4 gap-y-2 dark:text-white"> hendyoktavians@gmail.com </a>
               </div>
 
               <div class="space-y-3">
-                <p class="text-base uppercase tracking-wide text-footer text-secondary">Let’s Connect</p>
-                <nav class="flex flex-wrap gap-x-4 gap-y-2 text-text" aria-label="Social links">
+                <p class="text-base uppercase tracking-wide text-footer text-secondary dark:text-gray-500">Let's Connect</p>
+                <nav class="flex flex-wrap gap-x-4 gap-y-2 text-text dark:text-white" aria-label="Social links">
                   <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/hendy-oktavian/" class="hover:underline">LinkedIn</a>
                   <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/moka.cinno/" class="hover:underline">Instagram</a>
                   <a target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/1H6n4esL4zbqSCZvwfpK4qqR3ngo8dlt4/view?usp=drive_link" class="hover:underline">Resume</a>
@@ -246,13 +398,13 @@
             </div>
 
             <!-- Copyright -->
-            <p class="text-sm md:text-base text-text md:whitespace-nowrap border-t border-border pt-6 md:pt-0 md:border-0">©2023 Hendy Oktavian</p>
+            <p class="text-sm md:text-base text-text md:whitespace-nowrap border-t border-border pt-6 md:pt-0 md:border-0 dark:text-white dark:border-gray-800">©2023 Hendy Oktavian</p>
           </div>
         </div>
       </div>
     </footer>
 
-    <!-- Lightbox (single, non-duplicate) -->
+    <!-- Lightbox (same as before) -->
     <div id="hl-modal" class="fixed inset-0 z-50 hidden" aria-hidden="true">
       <!-- Backdrop -->
       <div id="hl-backdrop" class="absolute inset-0 bg-black/80 opacity-0 transition-opacity"></div>
@@ -281,7 +433,7 @@
         class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-white/10 backdrop-blur text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/60"
         aria-label="Next"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       </button>
@@ -376,6 +528,32 @@
         btnNext.addEventListener("click", next);
         backdrop.addEventListener("click", closeModal);
       })();
+
+      // Dark mode toggle functionality
+      const toggle = document.getElementById("darkToggle");
+      const iconSun = document.getElementById("iconSun");
+      const iconMoon = document.getElementById("iconMoon");
+      const html = document.documentElement;
+
+      function updateIcons() {
+        if (html.classList.contains("dark")) {
+          iconSun.classList.remove("hidden");
+          iconMoon.classList.add("hidden");
+        } else {
+          iconSun.classList.add("hidden");
+          iconMoon.classList.remove("hidden");
+        }
+      }
+
+      // Init icons on load
+      updateIcons();
+
+      toggle.addEventListener("click", () => {
+        html.classList.toggle("dark");
+        const isDark = html.classList.contains("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+        updateIcons();
+      });
     </script>
   </body>
 </html>

@@ -6,15 +6,26 @@
     <title>About Me | Hendy Oktavian</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
 
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
     <!-- Fonts & Favicon -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="icon" type="image/svg+xml" href="dist/img/logo/Logo H Black.svg" />
 
-    <!-- Tailwind Config (copy dari index agar konsisten) -->
     <script>
+      // Apply dark mode BEFORE render to avoid flash
+      (function () {
+        const saved = localStorage.getItem("theme");
+        if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+
       tailwind.config = {
+        darkMode: "class",
         theme: {
           extend: {
             colors: {
@@ -43,14 +54,13 @@
       };
     </script>
 
-    <!-- Utilities -->
     <style type="text/tailwindcss">
       @layer utilities {
         .container-page {
           @apply container mx-auto max-w-6xl px-4;
         }
         .btn {
-          @apply relative inline-flex items-center justify-center rounded-full px-8 py-3 font-medium text-white bg-black overflow-hidden;
+          @apply relative inline-flex items-center justify-center rounded-full px-8 py-3 font-medium overflow-hidden;
         }
         .btn::before {
           content: "";
@@ -61,32 +71,268 @@
           @apply opacity-100 animate-bg-shift;
         }
         .btn > span {
-          @apply relative z-10;
+          @apply relative z-10 transition-colors duration-300;
         }
 
-        /* Badges */
+        /* Light mode */
+        .btn {
+          @apply text-white bg-black;
+        }
+
+        /* Dark mode */
+        .dark .btn {
+          @apply text-black bg-white;
+        }
+
+        /* Dark mode hover state - text berubah putih */
+        .dark .btn:hover > span {
+          @apply text-white;
+        }
+
         .chip {
           @apply inline-flex items-center rounded-full bg-card px-3 py-1 text-sm text-secondary ring-1 ring-border;
         }
-
-        /* Section card */
         .card {
-          @apply bg-white rounded-lg ring-1 ring-border p-5;
+          @apply bg-white rounded-lg ring-1 ring-border p-5 transition-colors duration-300;
         }
-
-        /* Grid for "Uses" */
         .uses-item {
-          @apply p-5 bg-white rounded-lg ring-1 ring-border shadow-sm;
+          @apply p-5 bg-white rounded-lg ring-1 ring-border shadow-sm transition-colors duration-300;
         }
+      }
+    </style>
+
+    <style>
+      /* ── LinkedIn-style experience card ── */
+      .exp-list {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .exp-item {
+        display: flex;
+        gap: 14px;
+        padding: 18px 0;
+        border-bottom: 1px solid #e0e0e0;
+      }
+      .exp-item:last-child {
+        border-bottom: none;
+      }
+
+      .exp-logo-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0;
+      }
+
+      .exp-logo {
+        width: 44px;
+        height: 44px;
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+        background: #f5f5f5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        flex-shrink: 0;
+      }
+
+      .exp-connector {
+        flex: 1;
+        width: 2px;
+        background: #e0e0e0;
+        margin-top: 8px;
+        min-height: 12px;
+      }
+      .exp-item:last-child .exp-connector {
+        display: none;
+      }
+
+      .exp-body {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .exp-role {
+        font-size: 15px;
+        font-weight: 600;
+        color: #212121;
+        line-height: 1.3;
+      }
+
+      .exp-company {
+        font-size: 13.5px;
+        color: #616161;
+        margin-top: 2px;
+      }
+
+      .exp-meta {
+        font-size: 12.5px;
+        color: #9e9e9e;
+        margin-top: 2px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        flex-wrap: wrap;
+      }
+
+      .exp-desc {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .exp-bullet {
+        font-size: 13.5px;
+        color: #616161;
+        line-height: 1.6;
+        display: flex;
+        gap: 8px;
+      }
+
+      .exp-bullet::before {
+        content: "•";
+        color: #212121;
+        font-size: 16px;
+        line-height: 1.45;
+        flex-shrink: 0;
+      }
+
+      .exp-toggle {
+        margin-top: 8px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #9e9e9e;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 3px;
+        background: none;
+        border: none;
+        padding: 0;
+        font-family: inherit;
+        transition: color 0.15s;
+      }
+      .exp-toggle:hover {
+        color: #212121;
+      }
+      .exp-toggle svg {
+        transition: transform 0.25s;
+      }
+      .exp-toggle.open svg {
+        transform: rotate(180deg);
+      }
+
+      .exp-collapsible {
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+      .exp-collapsible.collapsed {
+        max-height: 0 !important;
+      }
+
+      /* ── Dark mode overrides for experience section ── */
+      .dark .exp-item {
+        border-bottom-color: #2e2e42;
+      }
+      .dark .exp-role {
+        color: #f0f0f0;
+      }
+      .dark .exp-company {
+        color: #a0a0c0;
+      }
+      .dark .exp-meta {
+        color: #616161;
+      }
+      .dark .exp-bullet {
+        color: #9e9e9e;
+      }
+      .dark .exp-bullet::before {
+        color: #f0f0f0;
+      }
+      .dark .exp-toggle {
+        color: #616161;
+      }
+      .dark .exp-toggle:hover {
+        color: #f0f0f0;
+      }
+      .dark .exp-connector {
+        background: #2e2e42;
+      }
+
+      /* Dark mode overrides for cards */
+      .dark .card {
+        background-color: #1a1a24;
+        border-color: #2e2e42;
+      }
+      .dark .uses-item {
+        background-color: #1a1a24;
+        border-color: #2e2e42;
+      }
+      .dark .chip {
+        background-color: #1e1e2e;
+        color: #9e9e9e;
+        border-color: #2e2e42;
+      }
+
+      /* Dark mode text colors */
+      .dark body {
+        background-color: #0a0a12;
+        color: #e8e8e8;
+      }
+      .dark .text-secondary {
+        color: #9e9e9e;
+      }
+      .dark .text-text {
+        color: #e8e8e8;
+      }
+      .dark .text-footer {
+        color: #616161;
+      }
+
+      /* Dark toggle button */
+      #darkToggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 9999px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        color: inherit;
+        flex-shrink: 0;
+      }
+
+      #darkToggle:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+      }
+
+      #darkToggle:active {
+        transform: scale(0.99);
+      }
+
+      .ph {
+        font-size: 1.25rem;
+      }
+
+      /* Dark mode card adjustments */
+      .dark .card p:not(.text-secondary) {
+        color: #e8e8e8;
       }
     </style>
   </head>
 
-  <body class="font-display bg-background text-text">
+  <body class="font-display bg-background text-text transition-colors duration-300">
     <div class="flex sticky top-0 z-50 w-full justify-center">
-      <nav class="mt-12 w-full max-w-[340px] sm:max-w-[420px] md:max-w-[480px]">
+      <nav class="mt-12 w-full max-w-[380px] sm:max-w-[480px] md:max-w-[540px]">
         <ul
-          class="relative overflow-hidden flex justify-between rounded-full px-2 py-2 text-black shadow-[0_4px_12px_rgba(0,0,0,0.08)] ring-1 ring-black/10 bg-black supports-[backdrop-filter]:backdrop-blur-2xl supports-[backdrop-filter]:backdrop-saturate-150 before:content-[''] before:absolute before:inset-0 before:rounded-full before:bg-gradient-to-b before:from-white/40 before:to-transparent before:opacity-60 before:pointer-events-none after:content-[''] after:absolute after:inset-0 after:rounded-full after:pointer-events-none after:[box-shadow:inset_0_1px_0_rgba(255,255,255,0.5),inset_0_-1px_0_rgba(255,255,255,0.1)] [background:radial-gradient(140px_100px_at_10%_0%,rgba(255,255,255,.28),rgba(255,255,255,0)),radial-gradient(160px_140px_at_90%_30%,rgba(255,255,255,.18),rgba(255,255,255,0))]"
+          class="relative overflow-hidden flex items-center justify-between rounded-full px-2 py-2 text-black dark:text-white shadow-[0_4px_12px_rgba(0,0,0,0.08)] ring-1 ring-black/10 bg-black supports-[backdrop-filter]:backdrop-blur-2xl supports-[backdrop-filter]:backdrop-saturate-150 before:content-[''] before:absolute before:inset-0 before:rounded-full before:bg-gradient-to-b before:from-white/40 before:to-transparent before:opacity-60 before:pointer-events-none after:content-[''] after:absolute after:inset-0 after:rounded-full after:pointer-events-none after:[box-shadow:inset_0_1px_0_rgba(255,255,255,0.5),inset_0_-1px_0_rgba(255,255,255,0.1)] [background:radial-gradient(140px_100px_at_10%_0%,rgba(255,255,255,.28),rgba(255,255,255,0)),radial-gradient(160px_140px_at_90%_30%,rgba(255,255,255,.18),rgba(255,255,255,0))]"
         >
           <li class="flex-1">
             <a
@@ -117,183 +363,325 @@
               >Contact</a
             >
           </li>
+
+          <!-- Dark mode toggle dengan Phosphor Icons -->
+          <li class="relative z-10 pr-1">
+            <button id="darkToggle" aria-label="Toggle dark mode" title="Toggle dark mode" class="mr-2">
+              <i id="iconSun" class="ph ph-sun hidden"></i>
+              <i id="iconMoon" class="ph ph-moon"></i>
+            </button>
+          </li>
         </ul>
       </nav>
     </div>
 
     <main class="container-page mt-8 py-16 md:py-24 space-y-24 md:space-y-32">
       <!-- Intro -->
-      <section id="intro" class="flex flex-col-reverse md:flex-row items-center gap-10 md:gap-16">
-        <div class="flex-1 text-center md:text-left space-y-6">
-          <h2 class="text-2xl md:text-3xl font-bold">Hi, I’m Hendy 👋</h2>
-          <p class="text-secondary max-w-prose mx-auto md:mx-0">
-            A guy who labeled himself as a Product Designer, Use Figma as his main tools, but integrate it with others tools as well. Love to create something new/different that solve the problem and also love to share what i know to others
-            especially related to my expertise.
-          </p>
-          <div class="flex flex-wrap gap-2 justify-center md:justify-start">
-            <span class="chip">Product Design</span>
-            <span class="chip">UI/UX</span>
-            <span class="chip">Design Systems</span>
-            <span class="chip">SwiftUI (basics)</span>
+      <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16" data-purpose="hero-introduction">
+        <!-- Left Column: Text Content -->
+        <div class="lg:col-span-8 order-2 lg:order-1">
+          <!-- Metadata Bar -->
+          <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-medium text-gray-500 mb-8" data-purpose="metadata-bar">
+            <span>📍 Based in Jakarta, ID</span>
+            <span class="hidden sm:inline opacity-30">•</span>
+            <span>🎨 Product Designer</span>
           </div>
-
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4">
-            <div class="card">
-              <p class="text-sm text-secondary">Based in</p>
-              <p class="font-medium">Indonesia</p>
-            </div>
-            <div class="card">
-              <p class="text-sm text-secondary">Role</p>
-              <p class="font-medium">Product Designer</p>
-            </div>
+          <!-- Headline -->
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-6">
+            Hendy Oktavian. <br />
+            A Product Designer.
+          </h1>
+          <!-- Sub-headline -->
+          <p class="text-lg md:text-xl text-gray-600 leading-relaxed max-w-2xl">
+            I specialize in building scalable design systems and high-fidelity prototypes. I believe design is only as good as its implementation, integrating Figma workflows with technical literacy.
+          </p>
+        </div>
+        <!-- Right Column: Visual Portrait -->
+        <div class="lg:col-span-4 order-1 lg:order-2 flex justify-center lg:justify-end" data-purpose="portrait-visual">
+          <div class="relative w-64 h-64 md:w-80 md:h-80 mesh-gradient rounded-full flex items-center justify-center overflow-hidden border border-gray-100 shadow-sm">
+            <img alt="Hendy - Senior Product Designer" class="w-full h-full" src="dist/img/profile/Profile.webp" />
           </div>
         </div>
-        <img src="dist/img/profile/Photo.png" alt="Hendy Oktavian" class="w-[240px] rounded-3xl" />
       </section>
 
       <!-- Stack -->
-      <section id="stack" class="space-y-8">
-        <div>
-          <h2 class="text-2xl md:text-3xl font-bold">Design & Dev Stack</h2>
-        </div>
-        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-          <div class="uses-item">
-            <h3 class="font-semibold">Design</h3>
-            <div class="mt-3 flex flex-wrap gap-2"><span class="chip">Figma</span><span class="chip">Adobe Photoshop</span><span class="chip">Adobe Illustrator</span></div>
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-6" data-purpose="toolkit-bento-grid">
+        <!-- Design Stack Card -->
+        <div class="uses-item">
+          <div class="flex items-center mb-6">
+            <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400">Design</h3>
           </div>
-          <div class="uses-item">
-            <h3 class="font-semibold">Frontend</h3>
-            <div class="mt-3 flex flex-wrap gap-2"><span class="chip">TailwindCSS</span><span class="chip">HTML</span><span class="chip">Javascript</span><span class="chip">SwiftUI</span></div>
+          <div class="flex flex-wrap gap-2">
+            <span class="chip">Figma</span>
+            <span class="chip">Adobe Photoshop</span>
+            <span class="chip">Adobe Illustrator</span>
+          </div>
+        </div>
+
+        <!-- Tech Stack Card -->
+        <div class="uses-item">
+          <div class="flex items-center mb-6">
+            <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400">Tech</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="chip">TailwindCSS</span>
+            <span class="chip">HTML</span>
+            <span class="chip">Javascript</span>
+            <span class="chip">SwiftUI</span>
           </div>
         </div>
       </section>
 
-      <!-- Experience / Timeline -->
+      <!-- Experience -->
       <section id="experience" class="space-y-8">
-        <div>
-          <h2 class="text-2xl md:text-3xl font-bold">Experience</h2>
-        </div>
-        <div class="space-y-6">
-          <!-- Jr Product Designer — Apple Developer Academy -->
-          <article class="card">
-            <div class="flex items-start justify-between gap-6">
-              <div>
-                <h3 class="font-semibold">Jr Product Designer — Apple Developer Academy</h3>
-                <p class="text-sm text-secondary">Feb 2025</p>
-              </div>
-            </div>
-            <ul class="mt-3 list-disc list-inside text-secondary">
-              <li>Designed seamless UI/UX by conducting user research, creating personas, mapping user journeys, and developing both low-fidelity and high-fidelity prototypes.</li>
-            </ul>
-          </article>
+        <h2 class="text-2xl md:text-3xl font-bold dark:text-white">Experience</h2>
 
-          <!-- Multimedia Designer — PT Kimia Farma Tbk -->
-          <article class="card">
-            <div class="flex items-start justify-between gap-6">
-              <div>
-                <h3 class="font-semibold">Multimedia Designer — PT Kimia Farma Tbk</h3>
-                <p class="text-sm text-secondary">Jul 2024 – Jan 2025</p>
+        <div class="card !p-0 overflow-hidden">
+          <div class="exp-list p-6">
+            <!-- Alpha Vantage -->
+            <div class="exp-item">
+              <div class="exp-logo-col">
+                <img src="dist/img/icon experience/Alpha Vantage Solutions.webp" alt="Alpha Vantage Solutions" class="w-12 rounded-xl" />
+                <div class="exp-connector"></div>
+              </div>
+              <div class="exp-body">
+                <div class="exp-role dark:text-white">UI/UX Designer</div>
+                <div class="exp-company dark:text-gray-400">Alpha Vantage Solutions Pte Ltd</div>
+                <div class="exp-meta dark:text-gray-500">
+                  <span>Nov 2025 – Present</span>
+                  <span style="color: #e0e0e0">·</span>
+                  <span>Independent Contractor</span>
+                </div>
+                <div class="exp-desc">
+                  <div class="exp-bullet dark:text-gray-400">
+                    Work as an independent contractor to design a modern, scalable Audit Management Software. Responsible for end-to-end UI/UX design across multiple modules, including high-fidelity mockups, information architecture,
+                    component library, responsive layouts, and a full design system. Collaborated with stakeholders and engineering teams to support smooth handoff and implementation.
+                  </div>
+                </div>
               </div>
             </div>
-            <ul class="mt-3 list-disc list-inside text-secondary">
-              <li>Designed posters and flyers for training sessions across Kimia Farma Group to boost event visibility and engagement.</li>
-              <li>Produced Instagram content for the Corporate University: writing scripts, recording and editing videos, designing reel covers, and crafting captions.</li>
-              <li>Prepared LinkedIn Learning certificate reports and supported e-learning initiatives for Kimia Farma Group.</li>
-            </ul>
-          </article>
 
-          <!-- UI/UX Designer — PT ARM Solusi -->
-          <article class="card">
-            <div class="flex items-start justify-between gap-6">
-              <div>
-                <h3 class="font-semibold">UI/UX Designer — PT ARM Solusi</h3>
-                <p class="text-sm text-secondary">Feb 2024 – Jun 2024</p>
+            <!-- Apple Developer Academy -->
+            <div class="exp-item">
+              <div class="exp-logo-col">
+                <img src="dist/img/icon experience/Apple Academy.webp" alt="Apple Academy" class="w-12" />
+                <div class="exp-connector"></div>
+              </div>
+              <div class="exp-body">
+                <div class="exp-role dark:text-white">Product Designer</div>
+                <div class="exp-company dark:text-gray-400">Apple Developer Academy</div>
+                <div class="exp-meta dark:text-gray-500">
+                  <span>Feb 2025 – Dec 2025</span>
+                  <span style="color: #e0e0e0">·</span>
+                  <span>11 mos</span>
+                </div>
+                <div class="exp-desc">
+                  <div class="exp-bullet dark:text-gray-400">Designed end-to-end solutions across six product challenges, covering user research, flow creation, prototyping, and UI development.</div>
+                  <div class="exp-bullet dark:text-gray-400">
+                    Built Compast, a compost-tracking app: simplified a multi-method composting process into one actionable approach based on user insight; redesigned the temperature-tracking system into a simple 2-question log that powers
+                    automated recommendations.
+                  </div>
+                  <div id="apple-more" class="exp-collapsible collapsed" style="max-height: 200px">
+                    <div class="exp-desc" style="margin-top: 5px">
+                      <div class="exp-bullet dark:text-gray-400">Created reusable components to ensure design consistency across iterations.</div>
+                      <div class="exp-bullet dark:text-gray-400">Initiated peer-learning sessions (Figma Essentials &amp; Design System Essentials) to support team productivity and design quality.</div>
+                    </div>
+                  </div>
+                  <button class="exp-toggle dark:text-gray-500 dark:hover:text-white" onclick="expToggle('apple-more', this)">
+                    Show more
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
+                  </button>
+                </div>
               </div>
             </div>
-            <ul class="mt-3 list-disc list-inside text-secondary">
-              <li>Led UX redesign for Coofis, optimizing application flows while preserving essential UI patterns for user familiarity.</li>
-              <li>Developed an information-dense UI that balances clarity and modern aesthetics for a clean, user-friendly interface.</li>
-              <li>Produced hundreds of screens for Coofis NDE in collaboration with UI/UX intern teammates.</li>
-            </ul>
-          </article>
 
-          <!-- Graphic Designer — PT Penerbit Erlangga -->
-          <article class="card">
-            <div class="flex items-start justify-between gap-6">
-              <div>
-                <h3 class="font-semibold">Graphic Designer — PT Penerbit Erlangga</h3>
-                <p class="text-sm text-secondary">Feb 2020 – May 2020</p>
+            <!-- Kimia Farma -->
+            <div class="exp-item">
+              <div class="exp-logo-col">
+                <img src="dist/img/icon experience/Kimia Farma.webp" alt="Kimia Farma" class="w-12" />
+                <div class="exp-connector"></div>
+              </div>
+              <div class="exp-body">
+                <div class="exp-role dark:text-white">Multimedia Designer</div>
+                <div class="exp-company dark:text-gray-400">PT Kimia Farma Tbk</div>
+                <div class="exp-meta dark:text-gray-500">
+                  <span>Jul 2024 – Jan 2025</span>
+                  <span style="color: #e0e0e0">·</span>
+                  <span>7 mos</span>
+                </div>
+                <div class="exp-desc">
+                  <div class="exp-bullet dark:text-gray-400">Designed posters and flyers for training sessions across Kimia Farma Group to boost event visibility and engagement.</div>
+                  <div id="kf-more" class="exp-collapsible collapsed" style="max-height: 200px">
+                    <div class="exp-desc" style="margin-top: 5px">
+                      <div class="exp-bullet dark:text-gray-400">Produced Instagram content for the Corporate University: writing scripts, recording and editing videos, designing reel covers, and crafting captions.</div>
+                      <div class="exp-bullet dark:text-gray-400">Prepared LinkedIn Learning certificate reports and supported e-learning initiatives for Kimia Farma Group.</div>
+                    </div>
+                  </div>
+                  <button class="exp-toggle dark:text-gray-500 dark:hover:text-white" onclick="expToggle('kf-more', this)">
+                    Show more
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
+                  </button>
+                </div>
               </div>
             </div>
-            <ul class="mt-3 list-disc list-inside text-secondary">
-              <li>Handled graphic design needs including posters, improvements to existing designs, and social media assets such as Instagram stories.</li>
-            </ul>
-          </article>
+
+            <!-- PT ARM Solusi -->
+            <div class="exp-item">
+              <div class="exp-logo-col">
+                <img src="dist/img/icon experience/Arm Solusi.webp" alt="ARMS" class="w-12" />
+                <div class="exp-connector"></div>
+              </div>
+              <div class="exp-body">
+                <div class="exp-role dark:text-white">UI/UX Designer</div>
+                <div class="exp-company dark:text-gray-400">PT ARM Solusi</div>
+                <div class="exp-meta dark:text-gray-500">
+                  <span>Feb 2024 – Jun 2024</span>
+                  <span style="color: #e0e0e0">·</span>
+                  <span>5 mos</span>
+                </div>
+                <div class="exp-desc">
+                  <div class="exp-bullet dark:text-gray-400">Led UX redesign for Coofis, optimizing application flows while preserving essential UI patterns for user familiarity.</div>
+                  <div id="arm-more" class="exp-collapsible collapsed" style="max-height: 200px">
+                    <div class="exp-desc" style="margin-top: 5px">
+                      <div class="exp-bullet dark:text-gray-400">Developed an information-dense UI that balances clarity and modern aesthetics for a clean, user-friendly interface.</div>
+                      <div class="exp-bullet dark:text-gray-400">Produced hundreds of screens for Coofis NDE in collaboration with UI/UX intern teammates.</div>
+                    </div>
+                  </div>
+                  <button class="exp-toggle dark:text-gray-500 dark:hover:text-white" onclick="expToggle('arm-more', this)">
+                    Show more
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- PT Penerbit Erlangga -->
+            <div class="exp-item">
+              <div class="exp-logo-col">
+                <img src="dist/img/icon experience/Penerbit Erlannga.webp" alt="Penerbit Erlannga" class="w-12" />
+                <div class="exp-connector"></div>
+              </div>
+              <div class="exp-body">
+                <div class="exp-role dark:text-white">Graphic Designer</div>
+                <div class="exp-company dark:text-gray-400">PT Penerbit Erlangga</div>
+                <div class="exp-meta dark:text-gray-500">
+                  <span>Feb 2020 – May 2020</span>
+                  <span style="color: #e0e0e0">·</span>
+                  <span>4 mos</span>
+                </div>
+                <div class="exp-desc">
+                  <div class="exp-bullet dark:text-gray-400">Handled graphic design needs including posters, improvements to existing designs, and social media assets such as Instagram stories.</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       <!-- Education -->
-      <section id="experience" class="space-y-8">
-        <div>
-          <h2 class="text-2xl md:text-3xl font-bold">Education</h2>
-        </div>
+      <section id="education" class="space-y-8">
+        <h2 class="text-2xl md:text-3xl font-bold dark:text-white">Education</h2>
 
-        <div class="space-y-6">
-          <!-- Universitas Pendidikan Indonesia -->
-          <article class="card">
-            <div class="flex items-start justify-between gap-6">
-              <div>
-                <h3 class="font-semibold">Visual Communication Design</h3>
-                <p class="text-sm text-secondary">Universitas Pendidikan Indonesia - GPA: 3.81</p>
+        <div class="card !p-0 overflow-hidden">
+          <div class="exp-list p-6">
+            <div class="exp-item">
+              <div class="exp-logo-col">
+                <img src="dist/img/icon experience/UPI.webp" alt="UPI" class="w-12" />
+                <div class="exp-connector"></div>
+              </div>
+              <div class="exp-body">
+                <div class="exp-role dark:text-white">Visual Communication Design</div>
+                <div class="exp-company dark:text-gray-400">Universitas Pendidikan Indonesia</div>
+                <div class="exp-meta dark:text-gray-500">GPA: 3.81 · Graduated in 3.5 years</div>
+                <div class="exp-desc">
+                  <div class="exp-bullet dark:text-gray-400">Served as Assistant Lecturer in Web Design and Art &amp; Design Studies, assisting with lectures, clarifying key concepts, and evaluating student assignments.</div>
+                  <div id="edu-more" class="exp-collapsible collapsed" style="max-height: 200px">
+                    <div class="exp-desc" style="margin-top: 5px">
+                      <div class="exp-bullet dark:text-gray-400">Led ISOLA Digital Media, a student-run media unit under the Faculty of Art and Design, focusing on digital publication and creative collaboration.</div>
+                      <div class="exp-bullet dark:text-gray-400">
+                        Actively involved in the Visual Communication Design Student Association (HIKAVI), including a term as Head of the Education Department, organizing academic development programs for students.
+                      </div>
+                    </div>
+                  </div>
+                  <button class="exp-toggle dark:text-gray-500 dark:hover:text-white" onclick="expToggle('edu-more', this)">
+                    Show more
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9" /></svg>
+                  </button>
+                </div>
               </div>
             </div>
-            <ul class="mt-3 list-disc list-inside text-secondary space-y-2">
-              <li>Served as Assistant Lecturer in Web Design and Art & Design Studies, assisting with lectures, clarifying key concepts, and evaluating student assignments.</li>
-              <li>Led ISOLA Digital Media, a student-run media unit under the Faculty of Art and Design, focusing on digital publication and creative collaboration.</li>
-              <li>Actively involved in the Visual Communication Design Student Association (HIKAVI), including a term as Head of the Education Department, organizing academic development programs for students.</li>
-              <li>Graduated in 3.5 years from the Visual Communication Design program.</li>
-            </ul>
-          </article>
+          </div>
         </div>
       </section>
 
       <!-- CTA -->
       <section id="contact" class="text-center space-y-6">
-        <h2 class="text-2xl md:text-3xl font-bold">Let’s build something</h2>
-        <p class="text-secondary max-w-xl mx-auto">I’m open to collaborations, freelance projects, or just a chat about design.</p>
+        <h2 class="text-2xl md:text-3xl font-bold dark:text-white">Let's build something</h2>
+        <p class="text-secondary max-w-xl mx-auto dark:text-gray-400">I'm open to collaborations, freelance projects, or just a chat about design.</p>
         <a href="mailto:hendyoktavians@gmail.com" class="btn"><span>Contact Me</span></a>
       </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-card">
+    <footer class="bg-card transition-colors duration-300 dark:bg-[#111118]">
       <div class="container-page py-12">
         <div class="space-y-8 md:space-y-12">
-          <h3 class="text-2xl font-semibold text-text">Get In Touch</h3>
-
+          <h3 class="text-2xl font-semibold text-text dark:text-white">Get In Touch</h3>
           <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:gap-12">
-            <!-- Contact & Social -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div class="space-y-3">
-                <p class="text-base uppercase tracking-wide text-footer text-secondary">Contact Me</p>
-                <a href="mailto:hendyoktavians@gmail.com" class="hover:underline text-text break-all sm:break-normal flex flex-wrap gap-x-4 gap-y-2"> hendyoktavians@gmail.com </a>
+                <p class="text-base uppercase tracking-wide text-footer text-secondary dark:text-gray-500">Contact Me</p>
+                <a href="mailto:hendyoktavians@gmail.com" class="hover:underline text-text break-all sm:break-normal flex flex-wrap gap-x-4 gap-y-2 dark:text-white">hendyoktavians@gmail.com</a>
               </div>
-
               <div class="space-y-3">
-                <p class="text-base uppercase tracking-wide text-footer text-secondary">Let’s Connect</p>
-                <nav class="flex flex-wrap gap-x-4 gap-y-2 text-text" aria-label="Social links">
+                <p class="text-base uppercase tracking-wide text-footer text-secondary dark:text-gray-500">Let's Connect</p>
+                <nav class="flex flex-wrap gap-x-4 gap-y-2 text-text dark:text-white" aria-label="Social links">
                   <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/hendy-oktavian/" class="hover:underline">LinkedIn</a>
                   <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/moka.cinno/" class="hover:underline">Instagram</a>
                   <a target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/1H6n4esL4zbqSCZvwfpK4qqR3ngo8dlt4/view?usp=drive_link" class="hover:underline">Resume</a>
                 </nav>
               </div>
             </div>
-
-            <!-- Copyright -->
-            <p class="text-sm md:text-base text-text md:whitespace-nowrap border-t border-border pt-6 md:pt-0 md:border-0">©2023 Hendy Oktavian</p>
+            <p class="text-sm md:text-base text-text md:whitespace-nowrap border-t border-border pt-6 md:pt-0 md:border-0 dark:text-white dark:border-gray-800">©2023 Hendy Oktavian</p>
           </div>
         </div>
       </div>
     </footer>
+
+    <script>
+      function expToggle(id, btn) {
+        const el = document.getElementById(id);
+        const isCollapsed = el.classList.contains("collapsed");
+        el.classList.toggle("collapsed");
+        btn.classList.toggle("open");
+        btn.childNodes[0].textContent = isCollapsed ? "Show less " : "Show more ";
+      }
+
+      // Dark mode toggle functionality
+      const toggle = document.getElementById("darkToggle");
+      const iconSun = document.getElementById("iconSun");
+      const iconMoon = document.getElementById("iconMoon");
+      const html = document.documentElement;
+
+      function updateIcons() {
+        if (html.classList.contains("dark")) {
+          iconSun.classList.remove("hidden");
+          iconMoon.classList.add("hidden");
+        } else {
+          iconSun.classList.add("hidden");
+          iconMoon.classList.remove("hidden");
+        }
+      }
+
+      // Init icons on load
+      updateIcons();
+
+      toggle.addEventListener("click", () => {
+        html.classList.toggle("dark");
+        const isDark = html.classList.contains("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+        updateIcons();
+      });
+    </script>
   </body>
 </html>
