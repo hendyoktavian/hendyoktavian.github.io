@@ -230,6 +230,9 @@
   .relative {
     position: relative;
   }
+  .static {
+    position: static;
+  }
   .sticky {
     position: sticky;
   }
@@ -364,6 +367,9 @@
   }
   .inline-flex {
     display: inline-flex;
+  }
+  .table {
+    display: table;
   }
   .h-4 {
     height: calc(var(--spacing) * 4);
@@ -514,9 +520,6 @@
   .gap-8 {
     gap: calc(var(--spacing) * 8);
   }
-  .gap-10 {
-    gap: calc(var(--spacing) * 10);
-  }
   .gap-12 {
     gap: calc(var(--spacing) * 12);
   }
@@ -525,13 +528,6 @@
       --tw-space-y-reverse: 0;
       margin-block-start: calc(calc(var(--spacing) * 1) * var(--tw-space-y-reverse));
       margin-block-end: calc(calc(var(--spacing) * 1) * calc(1 - var(--tw-space-y-reverse)));
-    }
-  }
-  .space-y-2 {
-    :where(& > :not(:last-child)) {
-      --tw-space-y-reverse: 0;
-      margin-block-start: calc(calc(var(--spacing) * 2) * var(--tw-space-y-reverse));
-      margin-block-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-y-reverse)));
     }
   }
   .space-y-3 {
@@ -577,9 +573,6 @@
   .gap-y-3 {
     row-gap: calc(var(--spacing) * 3);
   }
-  .gap-y-4 {
-    row-gap: calc(var(--spacing) * 4);
-  }
   .overflow-hidden {
     overflow: hidden;
   }
@@ -611,9 +604,6 @@
   }
   .border-gray-100 {
     border-color: var(--color-gray-100);
-  }
-  .bg-\[\#f9f9f9\] {
-    background-color: #f9f9f9;
   }
   .bg-black {
     background-color: var(--color-black);
@@ -783,10 +773,6 @@
     font-size: var(--text-4xl);
     line-height: var(--tw-leading, var(--text-4xl--line-height));
   }
-  .text-5xl {
-    font-size: var(--text-5xl);
-    line-height: var(--tw-leading, var(--text-5xl--line-height));
-  }
   .text-base {
     font-size: var(--text-base);
     line-height: var(--tw-leading, var(--text-base--line-height));
@@ -841,9 +827,6 @@
   }
   .break-all {
     word-break: break-all;
-  }
-  .text-\[\#acacac\] {
-    color: #acacac;
   }
   .text-black {
     color: var(--color-black);
@@ -1339,16 +1322,6 @@
       width: calc(var(--spacing) * 80);
     }
   }
-  .md\:max-w-\[40\%\] {
-    @media (width >= 48rem) {
-      max-width: 40%;
-    }
-  }
-  .md\:max-w-\[60\%\] {
-    @media (width >= 48rem) {
-      max-width: 60%;
-    }
-  }
   .md\:max-w-\[380px\] {
     @media (width >= 48rem) {
       max-width: 380px;
@@ -1593,11 +1566,6 @@
   .dark\:bg-\[\#0a0a12\] {
     @media (prefers-color-scheme: dark) {
       background-color: #0a0a12;
-    }
-  }
-  .dark\:bg-\[\#1a1a24\] {
-    @media (prefers-color-scheme: dark) {
-      background-color: #1a1a24;
     }
   }
   .dark\:bg-\[\#111118\] {

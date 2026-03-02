@@ -24,7 +24,6 @@
         }
       })();
 
-      // Tailwind Config
       tailwind.config = {
         darkMode: "class",
         theme: {
@@ -159,7 +158,6 @@
         font-size: 1.25rem;
       }
 
-      /* Lightbox adjustments for dark mode */
       .dark #hl-modal button {
         color: white;
       }
@@ -203,7 +201,7 @@
             >
           </li>
 
-          <!-- Dark mode toggle dengan Phosphor Icons -->
+          <!-- Dark mode toggle -->
           <li class="relative z-10 pr-1">
             <button id="darkToggle" aria-label="Toggle dark mode" title="Toggle dark mode" class="mr-2">
               <i id="iconSun" class="ph ph-sun hidden"></i>
@@ -215,7 +213,6 @@
     </div>
 
     <main id="project-detail" class="bg-white dark:bg-[#0a0a12] transition-colors duration-300">
-      <!-- Container -->
       <section class="container-page py-16">
         <!-- Back / Breadcrumb -->
         <div class="mb-8 flex items-center justify-between gap-4">
@@ -232,166 +229,171 @@
           </div>
         </div>
 
-        <!-- Cover -->
-        <div class="mt-12">
-          <img src="dist/img/project details/coofisdesignsystem/Coofis Design System.webp" alt="Project Cover" class="w-full rounded-3xl" />
+        <!-- ===== HERO ===== -->
+        <div class="mt-6">
+          <img src="dist/img/project details/coofisdesignsystem/Coofis Design System.webp" alt="Coofis Design System cover" class="w-full rounded-3xl" />
         </div>
 
-        <!-- Title Row -->
-        <div class="mt-12 flex flex-col md:flex-row md:items-start md:justify-between gap-10">
-          <div class="md:max-w-[60%]">
-            <h1 class="text-5xl font-bold leading-tight dark:text-white">Coofis Design System</h1>
-            <div class="mt-6 flex flex-wrap gap-2">
-              <span class="badge">Research</span>
-              <span class="badge">Design System</span>
-            </div>
+        <div class="mt-10">
+          <h1 class="text-4xl font-bold leading-tight dark:text-white">As products evolve, interfaces drift. Without a system, inconsistency becomes inevitable.</h1>
+          <p class="mt-6 text-secondary dark:text-gray-400 text-base md:text-lg">The Coofis Design System was created to unify fragmented UI patterns across the platform and establish a scalable foundation for future growth.</p>
+        </div>
+
+        <!-- Role & scope inline -->
+        <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm border-t border-border pt-6 dark:border-[#2e2e42]">
+          <span class="font-medium dark:text-white">UI/UX Designer</span>
+          <span class="text-secondary dark:text-gray-400">•</span>
+          <span class="text-secondary dark:text-gray-400">Research, System Architecture, Component Design, Documentation</span>
+        </div>
+
+        <!-- ===== THE REAL PROBLEM ===== -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold dark:text-white">The problem</h2>
+          <p class="mt-4 text-secondary dark:text-gray-400">
+            As Coofis expanded its features, UI decisions were made incrementally without a centralized design standard. Over time, this led to duplicated components, inconsistent spacing, conflicting color usage, and unpredictable
+            interaction patterns.
+          </p>
+          <p class="mt-4 text-secondary dark:text-gray-400">Designers recreated similar components from scratch. Developers implemented variations of the same UI logic across modules.</p>
+          <p class="mt-4 text-secondary dark:text-gray-400 font-medium text-primary dark:text-white">The issue was not visual inconsistency alone.<br />It was system fragmentation.</p>
+          <p class="mt-4 text-secondary dark:text-gray-400">This fragmentation slowed development, increased review cycles, and reduced overall product coherence.</p>
+          <figure class="my-8">
+            <img src="dist/img/project details/coofisdesignsystem/Coofis Before Redesign.webp" alt="Coofis before redesign" class="w-full rounded-3xl" />
+            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Previous UI — inconsistent patterns and spacing</figcaption>
+          </figure>
+        </div>
+
+        <!-- ===== DIAGNOSIS — WHAT WAS ACTUALLY BROKEN ===== -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold dark:text-white">What was actually broken</h2>
+          <p class="mt-4 text-secondary dark:text-gray-400">Before proposing a solution, a UI audit was conducted across key modules.</p>
+          <p class="mt-4 text-secondary dark:text-gray-400 font-medium dark:text-white">The audit revealed:</p>
+          <ul class="mt-2 list-disc pl-6 space-y-1 text-secondary dark:text-gray-400">
+            <li>Multiple button styles performing identical actions</li>
+            <li>Inconsistent typography hierarchy</li>
+            <li>Non-standardized spacing rules</li>
+            <li>Repeated table patterns with slight variations</li>
+          </ul>
+          <p class="mt-4 text-secondary dark:text-gray-400">This lack of standardization increased cognitive load for users and maintenance overhead for developers.</p>
+        </div>
+
+        <!-- ===== RESEARCH INSIGHTS (condensed) ===== -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold dark:text-white">Research, building on proven foundations</h2>
+          <p class="mt-4 text-secondary dark:text-gray-400">The research combined literature studies (Atomic Design, Material Design, Carbon), visual audits, and interviews with designers at PT ARM Solusi.</p>
+          <p class="mt-4 text-secondary dark:text-gray-400">
+            Interviews revealed the need for standardized elements, better documentation, and clearer collaboration practices. Pre-design testing showed that simple tasks like login flows took excessive time without a unified system.
+          </p>
+          <figure class="my-8">
+            <img src="dist/img/project details/coofisdesignsystem/Interview With Faizal.webp" alt="Interview with Muhammad Faizal" class="w-full rounded-3xl" />
+            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Interview with Muhammad Faizal (Coofis Design Team & Mentor)</figcaption>
+          </figure>
+        </div>
+
+        <!-- ===== STRATEGIC APPROACH ===== -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold dark:text-white">Approach</h2>
+          <p class="mt-4 text-secondary dark:text-gray-400">Instead of immediately designing components, the first step was defining foundational principles:</p>
+          <ul class="mt-2 list-disc pl-6 space-y-1 text-secondary dark:text-gray-400">
+            <li>Functional clarity over visual decoration</li>
+            <li>Reusability over one-off design</li>
+            <li>Scalable token structure</li>
+          </ul>
+          <p class="mt-4 text-secondary dark:text-gray-400 font-medium dark:text-white">The system was structured into three layers:</p>
+          <ul class="mt-2 list-disc pl-6 space-y-1 text-secondary dark:text-gray-400">
+            <li><span class="font-medium dark:text-white">Foundations</span> (color, typography, spacing, grid)</li>
+            <li><span class="font-medium dark:text-white">Components</span> (buttons, tables, forms, navigation)</li>
+            <li><span class="font-medium dark:text-white">Patterns</span> (dashboard layout, data presentation logic)</li>
+          </ul>
+          <p class="mt-4 text-secondary dark:text-gray-400">This ensured consistency from micro to macro level.</p>
+        </div>
+
+        <!-- ===== BUILDING THE SYSTEM ===== -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold dark:text-white">Building the system</h2>
+
+          <p class="mt-4 text-secondary dark:text-gray-400 font-medium dark:text-white">Foundations</p>
+          <p class="mt-1 text-secondary dark:text-gray-400">
+            Color tokens were reduced and functionally mapped to semantic roles such as primary, success, warning, and danger. Typography scales were standardized to enforce hierarchy consistency across dashboards.
+          </p>
+
+          <p class="mt-6 text-secondary dark:text-gray-400 font-medium dark:text-white">Components</p>
+          <p class="mt-1 text-secondary dark:text-gray-400">Reusable components were built with defined states (default, hover, active, disabled, loading). Clear usage documentation reduced ambiguity during implementation.</p>
+
+          <p class="mt-6 text-secondary dark:text-gray-400 font-medium dark:text-white">Patterns</p>
+          <p class="mt-1 text-secondary dark:text-gray-400">Common dashboard structures and data tables were standardized to prevent structural drift across modules.</p>
+
+          <figure class="my-8">
+            <img src="dist/img/project details/coofisdesignsystem/Design System.webp" alt="Design System foundations" class="w-full rounded-3xl" />
+            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Foundations — color, typography, spacing, grid</figcaption>
+          </figure>
+
+          <figure class="my-8">
+            <img src="dist/img/project details/coofisdesignsystem/Design System Components.webp" alt="Design System components" class="w-full rounded-3xl" />
+            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Component library — buttons, tables, forms, navigation</figcaption>
+          </figure>
+        </div>
+
+        <!-- ===== ADOPTION STRATEGY ===== -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold dark:text-white">Adoption strategy</h2>
+          <p class="mt-4 text-secondary dark:text-gray-400">The success of a design system depends on adoption.</p>
+          <p class="mt-4 text-secondary dark:text-gray-400">To ensure integration, documentation guidelines were created and shared with developers. Component usage rules were clarified to prevent deviations during feature expansion.</p>
+          <p class="mt-4 text-secondary dark:text-gray-400">Regular alignment discussions were conducted to refine the system iteratively.</p>
+          <p class="mt-4 text-secondary dark:text-gray-400 font-medium text-primary dark:text-white">This shifted the workflow from reactive redesign to proactive system governance.</p>
+        </div>
+
+        <!-- ===== IMPACT — EFFICIENCY & SCALABILITY ===== -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold dark:text-white">Impact, efficiency & scalability</h2>
+
+          <p class="mt-4 text-secondary dark:text-gray-400">To evaluate impact, usability testing was conducted before and after implementation. Designers were asked to complete common interface tasks such as building a login flow.</p>
+
+          <div class="grid md:grid-cols-2 gap-6 my-8">
+            <figure>
+              <img src="dist/img/project details/coofisdesignsystem/Before Design System.webp" alt="Before Design System testing" class="w-full rounded-2xl" />
+              <figcaption class="mt-2 text-center text-sm text-secondary dark:text-gray-400">Before: >60 mins, inconsistent outputs</figcaption>
+            </figure>
+            <figure>
+              <img src="dist/img/project details/coofisdesignsystem/After Design System.webp" alt="After Design System testing" class="w-full rounded-2xl" />
+              <figcaption class="mt-2 text-center text-sm text-secondary dark:text-gray-400">After: 20–39% faster, consistent outputs</figcaption>
+            </figure>
           </div>
 
-          <!-- Quick facts -->
-          <aside class="md:max-w-[40%] w-full">
-            <div class="rounded-2xl border border-border bg-[#f9f9f9] p-6 dark:bg-[#1a1a24] dark:border-[#2e2e42] transition-colors duration-300">
-              <dl class="grid grid-cols-2 gap-x-6 gap-y-4 text-sm">
-                <div>
-                  <dt class="uppercase tracking-wide text-[#acacac] dark:text-gray-500">Role</dt>
-                  <dd class="mt-1 dark:text-white">Product Designer</dd>
-                </div>
-                <div>
-                  <dt class="uppercase tracking-wide text-[#acacac] dark:text-gray-500">Timeline</dt>
-                  <dd class="mt-1 dark:text-white">Jun 2024 – Jan 2025</dd>
-                </div>
-                <div>
-                  <dt class="uppercase tracking-wide text-[#acacac] dark:text-gray-500">Team</dt>
-                  <dd class="mt-1 dark:text-white">Only Me</dd>
-                </div>
-                <div>
-                  <dt class="uppercase tracking-wide text-[#acacac] dark:text-gray-500">Tools</dt>
-                  <dd class="mt-1 dark:text-white">Figma, Google Suites, Adobe Illustrator</dd>
-                </div>
-              </dl>
-            </div>
-          </aside>
+          <p class="mt-4 text-secondary dark:text-gray-400 font-medium dark:text-white">After implementation:</p>
+          <ul class="mt-2 list-disc pl-6 space-y-1 text-secondary dark:text-gray-400">
+            <li>UI inconsistencies were significantly reduced</li>
+            <li>Development handoff became faster due to clearer component logic</li>
+            <li>Feature expansion required fewer design revisions</li>
+            <li>Cross-module visual coherence improved</li>
+          </ul>
+          <p class="mt-4 text-secondary dark:text-gray-400 font-medium text-primary dark:text-white">The design system transformed Coofis from a growing interface into a scalable product ecosystem.</p>
         </div>
 
-        <!-- Context -->
+        <!-- ===== REFLECTION — GOVERNANCE INSIGHT ===== -->
         <div class="k-section">
-          <h2 class="text-2xl font-semibold dark:text-white">Context</h2>
-          <p class="k-caption mt-4 text-secondary dark:text-gray-400">
-            Coofis, a web-based office collaboration platform by PT ARM Solusi, was created to digitize official correspondence and streamline workflows. As the product grew, the team faced challenges with inconsistent interfaces, repeated
-            design work, and unclear documentation. These issues slowed down development and weakened the product's visual identity. To address this, a Design System was proposed as a unified framework of reusable components and guidelines.
-            Its purpose was to improve design efficiency, ensure consistency, and strengthen collaboration between designers and developers while supporting Coofis' long-term scalability.
-          </p>
+          <h2 class="text-2xl font-semibold dark:text-white">Reflection</h2>
+          <p class="mt-4 text-secondary dark:text-gray-400">Design systems are not static deliverables. They are living frameworks that require governance and continuous refinement.</p>
+          <p class="mt-4 text-secondary dark:text-gray-400">This project strengthened my understanding that system thinking is not about designing more components, but about reducing entropy as a product grows.</p>
         </div>
 
-        <!-- Problem & Goals -->
-        <div class="k-section">
-          <h2 class="text-2xl font-semibold dark:text-white">Problem &amp; Goals</h2>
-          <p class="k-caption mt-4 text-secondary dark:text-gray-400">
-            The main challenge in developing Coofis was the lack of a consistent design approach. Interfaces often looked different across modules, forcing designers to repeat similar tasks and slowing down the process. Without proper
-            documentation, collaboration between designers and developers became inefficient, and delivery timelines were frequently missed. The goal of this project was to establish a structured Design System that could unify visual
-            elements and interaction patterns, improve efficiency, and reinforce Coofis' identity. By creating a shared framework, the system also aimed to enhance teamwork across disciplines and ensure the product could scale more
-            effectively in the future.
-          </p>
-          <figure class="my-8">
-            <img src="dist/img/project details/coofisdesignsystem/Coofis Before Redesign.webp" alt="Coofis Before Redesign" class="w-full rounded-3xl" />
-            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Coofis Previous UI</figcaption>
-          </figure>
-        </div>
-
-        <!-- Pain Point -->
-        <div class="k-section">
-          <h2 class="text-2xl font-semibold dark:text-white">Pain Point</h2>
-          <p class="k-caption mt-4 text-secondary dark:text-gray-400">
-            Before the Design System was introduced, the design process for Coofis was fragmented and time consuming. Designers often had to recreate the same interface elements multiple times, leading to wasted effort and inconsistent
-            results. Each version of the product showed variations in visual style, which confused users and weakened trust in the application. Developers also struggled to implement designs efficiently because of the absence of clear
-            guidelines, resulting in longer production cycles and higher chances of error. Together, these issues created a workflow that was both inefficient and difficult to maintain.
-          </p>
-        </div>
-
-        <!-- Research & Insights -->
-        <div class="k-section">
-          <h2 class="text-2xl font-semibold dark:text-white">Research Insights</h2>
-          <p class="k-caption mt-4 text-secondary dark:text-gray-400">
-            The research process combined literature studies, visual observations, interviews, and pre-design testing. From literature, references such as Atomic Design, Google's Material Design, and IBM's Carbon Design System provided a
-            theoretical foundation for modular and consistent design practices. Observations of existing applications and earlier versions of Coofis highlighted inconsistencies in visual patterns and navigation flows. Interviews with
-            designers at PT ARM Solusi revealed the need for standardized elements, better documentation, and clearer collaboration practices. Pre-design testing further showed that completing simple tasks, such as the login flow, required
-            excessive time without a unified system. These insights made it clear that a Design System was necessary to improve efficiency, consistency, and the overall design workflow.
-          </p>
-
-          <figure class="my-8">
-            <img src="dist/img/project details/coofisdesignsystem/Interview With Faizal.webp" alt="Interview With Faizal" class="w-full rounded-3xl" />
-            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Interview With Muhammad Faizal (Coofis Design Team & UI/UX Mentor)</figcaption>
-          </figure>
-        </div>
-
-        <!-- Solution -->
-        <div class="k-section">
-          <h2 class="text-2xl font-semibold dark:text-white">Solution</h2>
-          <p class="k-caption mt-4 text-secondary dark:text-gray-400">
-            The proposed solution was to design and implement a comprehensive Design System for Coofis, built on the principles of Design Thinking. This system defined visual foundations such as color, typography, iconography, spacing, and
-            illustration style, ensuring a consistent identity across the application. It also introduced a library of reusable interface components, buttons, forms, navigation bars, tables, and modals, that could be applied repeatedly
-            without redesigning from scratch. Beyond visual assets, the Design System was documented as a shared reference for both designers and developers. This documentation provided clear usage guidelines, making collaboration smoother
-            and reducing miscommunication. By establishing a single source of truth, the Design System not only addressed immediate issues of inconsistency and inefficiency but also laid the groundwork for scalability and sustainable
-            product development.
-          </p>
-        </div>
-
-        <!-- UI Components (Design Systems) -->
-        <div class="k-section">
-          <h2 class="text-2xl font-semibold dark:text-white">UI Components (Design Systems)</h2>
-          <figure class="my-8">
-            <img src="dist/img/project details/coofisdesignsystem/Design System.webp" alt="Design System" class="w-full rounded-3xl" />
-            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Coofis Design System Foundation</figcaption>
-          </figure>
-
-          <figure class="my-8">
-            <img src="dist/img/project details/coofisdesignsystem/Design System Components.webp" alt="Design System" class="w-full rounded-3xl" />
-            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Coofis Design Components</figcaption>
-          </figure>
-        </div>
-
-        <!-- Results & Impact -->
-        <div class="k-section">
-          <h2 class="text-2xl font-semibold dark:text-white">Results &amp; Impact</h2>
-          <p class="k-caption mt-4 text-secondary dark:text-gray-400">
-            To evaluate the impact of the Design System, usability testing was conducted before and after its implementation. In the pre-design phase, designers were asked to complete common interface tasks such as building a login flow.
-            The process was slow and inconsistent, with results varying between individuals. On average, completing the tasks required more than an hour, highlighting inefficiencies in the workflow. After introducing the Design System, the
-            same tasks were repeated using standardized components and documented guidelines. The results showed a significant reduction in completion time, with efficiency improvements ranging between 20% and 39%. Designers were able to
-            produce more consistent outputs, while developers found implementation clearer and faster. The usability study confirmed that the Design System not only improved efficiency but also created a more reliable foundation for
-            collaboration and product growth.
-          </p>
-
-          <figure class="my-8">
-            <img src="dist/img/project details/coofisdesignsystem/Before Design System.webp" alt="Before Design System" class="w-full rounded-3xl" />
-            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Before Design System Testing</figcaption>
-          </figure>
-
-          <figure class="my-8">
-            <img src="dist/img/project details/coofisdesignsystem/After Design System.webp" alt=" After Design System" class="w-full rounded-3xl" />
-            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">After Design System Testing</figcaption>
-          </figure>
-        </div>
-
-        <!-- Collaborator -->
+        <!-- ===== COLLABORATOR ===== -->
         <div class="k-section">
           <h2 class="text-2xl font-semibold dark:text-white">Collaborator</h2>
-          <p class="k-caption mt-4 text-secondary dark:text-gray-400">
-            This project was part of Hendy Oktavian's final thesis and was completed with guidance from academic supervisors. Insights from <span class="font-semibold text-primary dark:text-white">Muhamad Faizal</span>, a UI designer at PT
-            ARM Solusi, provided valuable perspective on the practical needs and challenges in Coofis. In addition, the <span class="font-semibold text-primary dark:text-white">Coofis Design Team</span> supported the development of UI
-            elements during the project, helping ensure that the Design System could be applied effectively in practice. This combination of academic guidance and industry input shaped the project into a practical and relevant outcome.
+          <p class="mt-4 text-secondary dark:text-gray-400">
+            This project was part of my final thesis and completed with guidance from academic supervisors. Insights from <span class="font-semibold text-primary dark:text-white">Muhamad Faizal</span>, UI designer at PT ARM Solusi, provided
+            valuable perspective on practical needs and challenges in Coofis. The <span class="font-semibold text-primary dark:text-white">Coofis Design Team</span> supported the development of UI elements, helping ensure the system could
+            be applied effectively.
           </p>
         </div>
 
-        <!-- Prev / Next -->
+        <!-- ===== PREV / NEXT ===== -->
         <div class="mt-20 flex w-full justify-between">
-          <!-- Prev Project -->
           <a href="coofisnde.html" class="group inline-flex items-center gap-2 dark:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
             Prev Project
           </a>
-
-          <!-- Next Project -->
           <a href="tarea.html" class="group inline-flex items-center gap-2 dark:text-white">
             Next Project
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -409,13 +411,11 @@
           <h3 class="text-2xl font-semibold text-text dark:text-white">Get In Touch</h3>
 
           <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:gap-12">
-            <!-- Contact & Social -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div class="space-y-3">
                 <p class="text-base uppercase tracking-wide text-footer text-secondary dark:text-gray-500">Contact Me</p>
-                <a href="mailto:hendyoktavians@gmail.com" class="hover:underline text-text break-all sm:break-normal flex flex-wrap gap-x-4 gap-y-2 dark:text-white"> hendyoktavians@gmail.com </a>
+                <a href="mailto:hendyoktavians@gmail.com" class="hover:underline text-text break-all sm:break-normal flex flex-wrap gap-x-4 gap-y-2 dark:text-white">hendyoktavians@gmail.com</a>
               </div>
-
               <div class="space-y-3">
                 <p class="text-base uppercase tracking-wide text-footer text-secondary dark:text-gray-500">Let's Connect</p>
                 <nav class="flex flex-wrap gap-x-4 gap-y-2 text-text dark:text-white" aria-label="Social links">
@@ -425,52 +425,38 @@
                 </nav>
               </div>
             </div>
-
-            <!-- Copyright -->
             <p class="text-sm md:text-base text-text md:whitespace-nowrap border-t border-border pt-6 md:pt-0 md:border-0 dark:text-white dark:border-gray-800">©2023 Hendy Oktavian</p>
           </div>
         </div>
       </div>
     </footer>
 
-    <!-- Lightbox (single, non-duplicate) -->
+    <!-- Lightbox (no highlights grid, but script handles gracefully) -->
     <div id="hl-modal" class="fixed inset-0 z-50 hidden" aria-hidden="true">
-      <!-- Backdrop -->
       <div id="hl-backdrop" class="absolute inset-0 bg-black/80 opacity-0 transition-opacity"></div>
-
-      <!-- Image -->
       <img id="hl-image" src="" alt="" class="absolute inset-0 m-auto max-w-[90vw] max-h-[90vh] object-contain pointer-events-none select-none" />
-
-      <!-- Close -->
       <button id="hl-close" type="button" class="absolute top-4 right-4 rounded-full bg-white/10 backdrop-blur px-3 py-2 text-white text-sm hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/60" aria-label="Close">✕</button>
-
-      <!-- Prev / Next -->
       <button
         id="hl-prev"
         type="button"
         class="absolute left-4 top-1/2 -translate-y-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-white/10 backdrop-blur text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/60"
         aria-label="Previous"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
       </button>
-
       <button
         id="hl-next"
         type="button"
         class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-white/10 backdrop-blur text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/60"
         aria-label="Next"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
       </button>
     </div>
 
-    <!-- Lightbox Script -->
     <script>
       (() => {
+        // Lightbox only if highlights grid exists
         const grid = document.getElementById("highlights-grid");
         const modal = document.getElementById("hl-modal");
         const backdrop = document.getElementById("hl-backdrop");
@@ -479,117 +465,103 @@
         const btnPrev = document.getElementById("hl-prev");
         const btnNext = document.getElementById("hl-next");
 
-        // Check if grid exists (it doesn't on this page)
-        if (!grid) {
-          // If no highlights grid, we can disable the lightbox or just return
-          console.log("No highlights grid found on this page");
-          return;
-        }
+        if (grid && modal && backdrop && imgEl && btnClose && btnPrev && btnNext) {
+          const items = Array.from(grid.querySelectorAll("button[data-index]")).map((btn) => ({
+            index: Number(btn.dataset.index),
+            src: btn.dataset.src,
+            alt: btn.querySelector("img")?.alt || "",
+          }));
 
-        if (!modal || !backdrop || !imgEl || !btnClose || !btnPrev || !btnNext) return;
+          let current = 0;
+          let lastFocused = null;
 
-        const items = Array.from(grid.querySelectorAll("button[data-index]")).map((btn) => ({
-          index: Number(btn.dataset.index),
-          src: btn.dataset.src,
-          alt: btn.querySelector("img")?.alt || "",
-        }));
-
-        let current = 0;
-        let lastFocused = null;
-
-        function openModal(i) {
-          current = i;
-          lastFocused = document.activeElement;
-          updateImage();
-          modal.classList.remove("hidden");
-          requestAnimationFrame(() => backdrop.classList.remove("opacity-0"));
-          document.body.classList.add("overflow-hidden");
-          btnClose.focus();
-          modal.setAttribute("aria-hidden", "false");
-          document.addEventListener("keydown", onKey);
-        }
-
-        function closeModal() {
-          backdrop.classList.add("opacity-0");
-          modal.setAttribute("aria-hidden", "true");
-          document.body.classList.remove("overflow-hidden");
-          document.removeEventListener("keydown", onKey);
-          setTimeout(() => {
-            modal.classList.add("hidden");
-            if (lastFocused) lastFocused.focus();
-          }, 150);
-        }
-
-        function updateImage() {
-          const item = items[current];
-          imgEl.src = item.src;
-          imgEl.alt = item.alt;
-          const atStart = current === 0;
-          const atEnd = current === items.length - 1;
-          btnPrev.disabled = atStart;
-          btnNext.disabled = atEnd;
-          btnPrev.classList.toggle("opacity-40", atStart);
-          btnNext.classList.toggle("opacity-40", atEnd);
-        }
-
-        function prev() {
-          if (current > 0) {
-            current--;
+          function openModal(i) {
+            current = i;
+            lastFocused = document.activeElement;
             updateImage();
+            modal.classList.remove("hidden");
+            requestAnimationFrame(() => backdrop.classList.remove("opacity-0"));
+            document.body.classList.add("overflow-hidden");
+            btnClose.focus();
+            modal.setAttribute("aria-hidden", "false");
+            document.addEventListener("keydown", onKey);
+          }
+
+          function closeModal() {
+            backdrop.classList.add("opacity-0");
+            modal.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("overflow-hidden");
+            document.removeEventListener("keydown", onKey);
+            setTimeout(() => {
+              modal.classList.add("hidden");
+              if (lastFocused) lastFocused.focus();
+            }, 150);
+          }
+
+          function updateImage() {
+            const item = items[current];
+            imgEl.src = item.src;
+            imgEl.alt = item.alt;
+            const atStart = current === 0;
+            const atEnd = current === items.length - 1;
+            btnPrev.disabled = atStart;
+            btnNext.disabled = atEnd;
+            btnPrev.classList.toggle("opacity-40", atStart);
+            btnNext.classList.toggle("opacity-40", atEnd);
+          }
+
+          function prev() {
+            if (current > 0) {
+              current--;
+              updateImage();
+            }
+          }
+          function next() {
+            if (current < items.length - 1) {
+              current++;
+              updateImage();
+            }
+          }
+          function onKey(e) {
+            if (modal.classList.contains("hidden")) return;
+            if (e.key === "Escape") closeModal();
+            if (e.key === "ArrowLeft") prev();
+            if (e.key === "ArrowRight") next();
+          }
+
+          grid.addEventListener("click", (e) => {
+            const btn = e.target.closest("button[data-index]");
+            if (btn) openModal(Number(btn.dataset.index));
+          });
+          btnClose.addEventListener("click", closeModal);
+          btnPrev.addEventListener("click", prev);
+          btnNext.addEventListener("click", next);
+          backdrop.addEventListener("click", closeModal);
+        }
+
+        // Dark mode toggle
+        const toggle = document.getElementById("darkToggle");
+        const iconSun = document.getElementById("iconSun");
+        const iconMoon = document.getElementById("iconMoon");
+        const html = document.documentElement;
+
+        function updateIcons() {
+          if (html.classList.contains("dark")) {
+            iconSun.classList.remove("hidden");
+            iconMoon.classList.add("hidden");
+          } else {
+            iconSun.classList.add("hidden");
+            iconMoon.classList.remove("hidden");
           }
         }
-        function next() {
-          if (current < items.length - 1) {
-            current++;
-            updateImage();
-          }
-        }
-
-        function onKey(e) {
-          if (modal.classList.contains("hidden")) return;
-          if (e.key === "Escape") closeModal();
-          if (e.key === "ArrowLeft") prev();
-          if (e.key === "ArrowRight") next();
-        }
-
-        // Triggers
-        grid.addEventListener("click", (e) => {
-          const btn = e.target.closest("button[data-index]");
-          if (btn) openModal(Number(btn.dataset.index));
-        });
-
-        // Controls
-        btnClose.addEventListener("click", closeModal);
-        btnPrev.addEventListener("click", prev);
-        btnNext.addEventListener("click", next);
-        backdrop.addEventListener("click", closeModal);
-      })();
-
-      // Dark mode toggle functionality
-      const toggle = document.getElementById("darkToggle");
-      const iconSun = document.getElementById("iconSun");
-      const iconMoon = document.getElementById("iconMoon");
-      const html = document.documentElement;
-
-      function updateIcons() {
-        if (html.classList.contains("dark")) {
-          iconSun.classList.remove("hidden");
-          iconMoon.classList.add("hidden");
-        } else {
-          iconSun.classList.add("hidden");
-          iconMoon.classList.remove("hidden");
-        }
-      }
-
-      // Init icons on load
-      updateIcons();
-
-      toggle.addEventListener("click", () => {
-        html.classList.toggle("dark");
-        const isDark = html.classList.contains("dark");
-        localStorage.setItem("theme", isDark ? "dark" : "light");
         updateIcons();
-      });
+
+        toggle.addEventListener("click", () => {
+          html.classList.toggle("dark");
+          localStorage.setItem("theme", html.classList.contains("dark") ? "dark" : "light");
+          updateIcons();
+        });
+      })();
     </script>
   </body>
 </html>

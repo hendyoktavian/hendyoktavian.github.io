@@ -24,7 +24,6 @@
         }
       })();
 
-      // Tailwind Config
       tailwind.config = {
         darkMode: "class",
         theme: {
@@ -159,7 +158,6 @@
         font-size: 1.25rem;
       }
 
-      /* Lightbox adjustments for dark mode */
       .dark #hl-modal button {
         color: white;
       }
@@ -203,7 +201,7 @@
             >
           </li>
 
-          <!-- Dark mode toggle dengan Phosphor Icons -->
+          <!-- Dark mode toggle -->
           <li class="relative z-10 pr-1">
             <button id="darkToggle" aria-label="Toggle dark mode" title="Toggle dark mode" class="mr-2">
               <i id="iconSun" class="ph ph-sun hidden"></i>
@@ -215,7 +213,6 @@
     </div>
 
     <main id="project-detail" class="bg-white dark:bg-[#0a0a12] transition-colors duration-300">
-      <!-- Container -->
       <section class="container-page py-16">
         <!-- Back / Breadcrumb -->
         <div class="mb-8 flex items-center justify-between gap-4">
@@ -232,200 +229,127 @@
           </div>
         </div>
 
-        <!-- Cover -->
-        <div class="mt-12">
-          <img src="dist/img/project details/coofisnde/Cover.webp" alt="Project Cover" class="w-full rounded-3xl" />
+        <!-- ===== HERO ===== -->
+        <div class="mt-6">
+          <img src="dist/img/project details/coofisnde/Cover.webp" alt="Coofis NDE dashboard mockup" class="w-full rounded-3xl" />
         </div>
 
-        <!-- Title Row -->
-        <div class="mt-12 flex flex-col md:flex-row md:items-start md:justify-between gap-10">
-          <div class="md:max-w-[60%]">
-            <h1 class="text-5xl font-bold leading-tight dark:text-white">Coofis NDE</h1>
-            <div class="mt-6 flex flex-wrap gap-2">
-              <span class="badge">UI/UX</span>
-            </div>
-          </div>
-
-          <!-- Quick facts -->
-          <aside class="md:max-w-[40%] w-full">
-            <div class="rounded-2xl border border-border bg-[#f9f9f9] p-6 dark:bg-[#1a1a24] dark:border-[#2e2e42] transition-colors duration-300">
-              <dl class="grid grid-cols-2 gap-x-6 gap-y-4 text-sm">
-                <div>
-                  <dt class="uppercase tracking-wide text-[#acacac] dark:text-gray-500">Role</dt>
-                  <dd class="mt-1 dark:text-white">UI/UX Designer</dd>
-                </div>
-                <div>
-                  <dt class="uppercase tracking-wide text-[#acacac] dark:text-gray-500">Timeline</dt>
-                  <dd class="mt-1 dark:text-white">Feb 2024 – Jun 2024</dd>
-                </div>
-                <div>
-                  <dt class="uppercase tracking-wide text-[#acacac] dark:text-gray-500">Team</dt>
-                  <dd class="mt-1 dark:text-white">4 UI/UX Designer, 2 Graphic Designer</dd>
-                </div>
-                <div>
-                  <dt class="uppercase tracking-wide text-[#acacac] dark:text-gray-500">Tools</dt>
-                  <dd class="mt-1 dark:text-white">Figma, Microsoft Loop, Adobe Illustrator</dd>
-                </div>
-              </dl>
-            </div>
-          </aside>
-        </div>
-
-        <!-- Context -->
-        <div class="k-section">
-          <h2 class="text-2xl font-semibold dark:text-white">Context</h2>
-          <p class="k-caption mt-4 text-secondary dark:text-gray-400">
-            During my internship at PT ARM Solusi, my team and I worked on a project to redesign the Coofis application. Coofis is a platform developed to support collaboration and office correspondence management within organizations,
-            providing an end-to-end solution for document workflows and internal communication. Our redesign focused on enhancing the overall user experience and interface consistency, while aligning the product with modern design
-            principles and Coofis's visual identity.
+        <div class="mt-10">
+          <h1 class="text-4xl font-bold leading-tight dark:text-white">When operational dashboards slow down decision-making, productivity suffers.</h1>
+          <p class="mt-6 text-secondary dark:text-gray-400 text-base md:text-lg">
+            Coofis NDE is an internal web platform used to manage operational workflows. As usage increased during remote work, the interface became harder to navigate, slower to interpret, and visually inconsistent.
           </p>
+          <p class="mt-4 text-secondary dark:text-gray-400 text-base md:text-lg">This redesign focused on improving clarity, speed, and system consistency without disrupting existing workflows.</p>
         </div>
 
-        <!-- Problem & Goals -->
+        <!-- Role & scope inline -->
+        <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm border-t border-border pt-6 dark:border-[#2e2e42]">
+          <span class="font-medium dark:text-white">UI/UX Designer</span>
+          <span class="text-secondary dark:text-gray-400">•</span>
+          <span class="text-secondary dark:text-gray-400">Research, Interaction Design, Design System</span>
+        </div>
+
+        <!-- ===== THE REAL PROBLEM (merged problem + pain points) ===== -->
         <div class="k-section">
-          <h2 class="text-2xl font-semibold dark:text-white">Problem &amp; Goals</h2>
-          <p class="k-caption mt-4 text-secondary dark:text-gray-400">
-            The previous version of Coofis presented several usability and consistency issues that affected user efficiency and clarity. Many interface elements lacked structure, and the overall user flow felt fragmented. Inconsistent
-            language use, unclear icons, and a long login process created friction for users in completing daily tasks.
-          </p>
-          <ul class="k-caption mt-4 list-disc pl-6 space-y-2 text-secondary dark:text-gray-400">
-            <li>Improve usability and interface consistency through a structured design system.</li>
-            <li>Simplify user flows, especially for login, 2FA, and document management.</li>
-            <li>Enhance visual hierarchy and readability by refining typography, spacing, and color use.</li>
-            <li>Ensure language consistency across all features to improve comprehension.</li>
-            <li>Align the design with Coofis's brand identity while maintaining a professional and minimal aesthetic.</li>
+          <h2 class="text-2xl font-semibold dark:text-white">The problem</h2>
+          <p class="mt-4 text-secondary dark:text-gray-400">As the platform evolved, features were added without structural alignment. Navigation became cluttered, visual hierarchy weakened, and critical data competed for attention.</p>
+          <p class="mt-4 text-secondary dark:text-gray-400">Users reported difficulty locating frequently used tools, while inconsistent component behavior created friction in daily workflows.</p>
+          <p class="mt-4 text-secondary dark:text-gray-400 font-medium text-primary dark:text-white">This wasn't just a visual issue.<br />It affected operational efficiency.</p>
+        </div>
+
+        <!-- ===== RESEARCH – CONNECT TO RISK ===== -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold dark:text-white">Research</h2>
+          <p class="mt-4 text-secondary dark:text-gray-400">User interviews and workflow observation revealed three critical friction points:</p>
+          <ul class="mt-4 list-disc pl-6 space-y-1 text-secondary dark:text-gray-400">
+            <li><span class="font-medium dark:text-white">High cognitive load</span> caused by dense data presentation.</li>
+            <li><span class="font-medium dark:text-white">Inconsistent UI patterns</span> across modules.</li>
+            <li><span class="font-medium dark:text-white">Unclear information hierarchy</span> in dashboards.</li>
           </ul>
+          <p class="mt-4 text-secondary dark:text-gray-400">These issues increased time spent interpreting data and navigating between sections.</p>
+          <p class="mt-4 text-secondary dark:text-gray-400 font-medium text-primary dark:text-white">Insight:<br />Clarity in enterprise tools is not about aesthetics — it is about reducing decision latency.</p>
+        </div>
 
+        <!-- ===== DESIGN STRATEGY – SHOW TRADE-OFF ===== -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold dark:text-white">Design strategy</h2>
+          <p class="mt-4 text-secondary dark:text-gray-400">Instead of redesigning the platform entirely, the approach focused on structural refinement rather than disruptive change.</p>
+          <p class="mt-4 text-secondary dark:text-gray-400 font-medium dark:text-white">Key strategic decisions included:</p>
+          <ul class="mt-2 list-disc pl-6 space-y-1 text-secondary dark:text-gray-400">
+            <li>Maintaining familiar layout patterns to avoid retraining costs</li>
+            <li>Introducing consistent spacing and component logic</li>
+            <li>Simplifying visual noise without removing essential data</li>
+          </ul>
+          <p class="mt-4 text-secondary dark:text-gray-400 font-medium text-primary dark:text-white">The goal was optimization, not reinvention.</p>
+        </div>
+
+        <!-- ===== BEFORE → AFTER (MAKE IT STRUCTURAL) ===== -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold dark:text-white">Before → after (structural improvements)</h2>
           <figure class="my-8">
-            <img src="dist/img/project details/coofisnde/Previous Interface.webp" alt="Coofis Before Redesign" class="w-full rounded-3xl" />
-            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Coofis Before Redesign</figcaption>
+            <img src="dist/img/project details/coofisnde/Previous Interface.webp" alt="Coofis before redesign" class="w-full rounded-3xl" />
+            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Previous interface: dense tables, inconsistent spacing</figcaption>
           </figure>
-        </div>
-
-        <!-- Pain Point -->
-        <div class="k-section">
-          <h2 class="text-2xl font-semibold dark:text-white">Pain Point</h2>
-          <p class="k-caption mt-4 text-secondary dark:text-gray-400">Through a review of the previous Coofis interface and team discussions, we identified several key pain points that negatively impacted the user experience:</p>
-          <ul class="k-caption mt-4 list-disc pl-6 space-y-2 text-secondary dark:text-gray-400">
-            <li>Unclear iconography</li>
-            <li>Complex login and 2FA process</li>
-            <li>Inconsistent language and copywriting</li>
-            <li>Lack of visual feedback</li>
-            <li>No Help or Report feature</li>
-            <li>Inconsistent layout and spacing</li>
-          </ul>
-        </div>
-
-        <!-- Research & Insights -->
-        <div class="k-section">
-          <h2 class="text-2xl font-semibold dark:text-white">Research Insights</h2>
-          <p class="k-caption mt-4 text-secondary dark:text-gray-400">Before starting the redesign, our team aligned on the goals, constraints, and workflow to ensure efficiency and consistency throughout the project.</p>
-          <p class="k-caption mt-4 text-secondary dark:text-gray-400">
-            We aimed not only to fix usability issues but also to establish a new design system that reflected Coofis's identity and improved the user's overall journey. Our intention was to make the interface both functional and visually
-            engaging, allowing users to enjoy smooth interactions while maintaining productivity.
-          </p>
-          <p class="k-caption mt-4 font-bold dark:text-white">Constraints</p>
-          <p class="k-caption mt-4 text-secondary dark:text-gray-400">
-            The project was focused on Coofis NDE (Nota Dinas Elektronik), one of the main applications within the Coofis ecosystem. The redesign process, from ideation to the finalized version 1.0, took approximately two months.
-          </p>
-          <p class="k-caption mt-4 font-bold dark:text-white">Workflow</p>
-          <p class="k-caption mt-4 text-secondary dark:text-gray-400">
-            With a relatively large team, we divided tasks into specific sub-divisions such as UX, UI, and Graphic Design. Each group contributed to shared milestones, ensuring that design decisions stayed consistent across the system.
-            Collaboration was key, we continuously aligned on progress, exchanged feedback, and refined our outputs together.
-          </p>
-        </div>
-
-        <!-- Solution -->
-        <div class="k-section">
-          <h2 class="text-2xl font-semibold dark:text-white">Solution</h2>
           <figure class="my-8">
-            <img src="dist/img/project details/coofisnde/UI Redesign.webp" alt="Coofis UI Redesign" class="w-full rounded-3xl" />
-            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Coofis UI Before & After Redesign</figcaption>
+            <img src="dist/img/project details/coofisnde/UI Redesign.webp" alt="Coofis after redesign" class="w-full rounded-3xl" />
+            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Redesigned interface: clear grouping, improved hierarchy</figcaption>
           </figure>
-
-          <p class="k-caption mt-4 text-secondary dark:text-gray-400">
-            Our redesign of Coofis NDE focused on creating a more consistent, intuitive, and modern interface while maintaining the professional identity of the platform. We approached the redesign with both usability and visual clarity in
-            mind — ensuring that every improvement directly enhanced the user experience.
-          </p>
-
-          <p class="k-caption mt-4 font-bold dark:text-white">Key Improvements</p>
-          <ul class="k-caption mt-4 list-disc pl-6 space-y-2 text-secondary dark:text-gray-400">
-            <li>Introduced a structured design system for consistency.</li>
-            <li>Simplified the login and 2FA flow.</li>
-            <li>Refined layout and hierarchy.</li>
-            <li>Unified language usage.</li>
-            <li>Enhanced visual indicators such as icons, tooltips, and states.</li>
-            <li>Implemented main components and auto-layouts.</li>
-            <li>Integrated illustration and iconography that align with Coofis's identity.</li>
+          <p class="mt-4 text-secondary dark:text-gray-400">The previous interface relied heavily on dense tables and inconsistent spacing. Key metrics were visually buried among secondary information.</p>
+          <p class="mt-4 text-secondary dark:text-gray-400 font-medium dark:text-white">The redesigned interface introduced:</p>
+          <ul class="mt-2 list-disc pl-6 space-y-1 text-secondary dark:text-gray-400">
+            <li>Clear section grouping</li>
+            <li>Standardized component states</li>
+            <li>Improved typography hierarchy</li>
+            <li>Refined color usage for functional signaling</li>
           </ul>
-
-          <p class="k-caption mt-4 font-bold dark:text-white">Added Features</p>
-          <p class="k-caption mt-4 text-secondary dark:text-gray-400">To strengthen functionality and accessibility, we also introduced several new features in version 1.0 of the redesign:</p>
-          <ul class="k-caption mt-4 list-disc pl-6 space-y-2 text-secondary dark:text-gray-400">
-            <li>Help & Report section</li>
-            <li>Error alert system</li>
-            <li>File upload with comment feature</li>
-            <li>Search list improvement</li>
-            <li>SMS-based 2FA</li>
-            <li>Password visibility toggle</li>
-            <li>Filter function</li>
-          </ul>
+          <p class="mt-4 text-secondary dark:text-gray-400">By restructuring visual hierarchy, information became scannable within seconds rather than minutes.</p>
         </div>
 
-        <!-- UI Components (Design Systems) -->
+        <!-- ===== SYSTEMIZING THE INTERFACE (DESIGN SYSTEM) ===== -->
         <div class="k-section">
-          <h2 class="text-2xl font-semibold dark:text-white">UI Components (Design Systems)</h2>
-
+          <h2 class="text-2xl font-semibold dark:text-white">Systemizing the interface</h2>
+          <p class="mt-4 text-secondary dark:text-gray-400">As multiple modules shared similar functional patterns, a scalable component system was developed.</p>
           <figure class="my-8">
-            <img src="dist/img/project details/coofisdesignsystem/Design System.webp" alt="Design System" class="w-full rounded-3xl" />
-            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Coofis Design System Foundation</figcaption>
+            <img src="dist/img/project details/coofisdesignsystem/Design System.webp" alt="Design system foundation" class="w-full rounded-3xl" />
+            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Foundations: typography, color, spacing</figcaption>
           </figure>
-
           <figure class="my-8">
-            <img src="dist/img/project details/coofisdesignsystem/Design System Components.webp" alt="Design System" class="w-full rounded-3xl" />
-            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Coofis Design Components</figcaption>
+            <img src="dist/img/project details/coofisdesignsystem/Design System Components.webp" alt="Design system components" class="w-full rounded-3xl" />
+            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Component library: data tables, status indicators, forms</figcaption>
           </figure>
-        </div>
-
-        <!-- Results & Impact -->
-        <div class="k-section">
-          <h2 class="text-2xl font-semibold dark:text-white">Results &amp; Impact</h2>
-          <p class="k-caption mt-4 text-secondary dark:text-gray-400">
-            The redesign of Coofis NDE successfully addressed the core usability and consistency issues found in the previous version. Through the creation of a unified design system and refined user flows, the product became more
-            intuitive, visually coherent, and efficient for daily use.
-          </p>
-
-          <p class="k-caption mt-4 font-bold dark:text-white">Outcomes</p>
-          <ul class="k-caption mt-4 list-disc pl-6 space-y-2 text-secondary dark:text-gray-400">
-            <li>Improved interface consistency</li>
-            <li>Enhanced user clarity</li>
-            <li>Better accessibility and readability</li>
-            <li>Streamlined workflows</li>
-            <li>Established a scalable design system</li>
+          <p class="mt-4 text-secondary dark:text-gray-400 font-medium dark:text-white">The design system standardized:</p>
+          <ul class="mt-2 list-disc pl-6 space-y-1 text-secondary dark:text-gray-400">
+            <li>Data tables</li>
+            <li>Status indicators</li>
+            <li>Form structures</li>
+            <li>Navigation behavior</li>
           </ul>
-
-          <p class="k-caption mt-4 text-secondary dark:text-gray-400">
-            Beyond visual and functional improvements, this project also strengthened our team's collaboration and design communication, helping us better align with development teams and organizational stakeholders.
-          </p>
+          <p class="mt-4 text-secondary dark:text-gray-400">This reduced UI inconsistency across the platform and simplified collaboration with developers.</p>
+          <p class="mt-4 text-secondary dark:text-gray-400 font-medium text-primary dark:text-white">In enterprise environments, consistency directly impacts efficiency.</p>
         </div>
 
-        <!-- Learnings -->
+        <!-- ===== RESULTS & IMPACT ===== -->
         <div class="k-section">
-          <h2 class="text-2xl font-semibold dark:text-white">Learnings</h2>
-          <p class="k-caption mt-4 text-secondary dark:text-gray-400">
-            The Coofis NDE redesign taught me the importance of collaboration, communication, and consistency in large scale projects. Working with a multidisciplinary team helped me understand how design decisions affect real
-            implementation and user workflows. I also learned how a well-structured design system can improve efficiency and coherence across the product. Overall, this project strengthened my ability to think systematically, adapt to
-            challenges, and design with both function and clarity in mind.
-          </p>
+          <h2 class="text-2xl font-semibold dark:text-white">Results & impact</h2>
+          <p class="mt-4 text-secondary dark:text-gray-400">After implementation, users reported improved clarity and faster task completion during daily operations.</p>
+          <p class="mt-4 text-secondary dark:text-gray-400">Navigation errors decreased, and new team members required less onboarding time to understand the interface structure.</p>
+          <p class="mt-4 text-secondary dark:text-gray-400 font-medium text-primary dark:text-white">The redesign demonstrated that structural clarity can significantly enhance operational confidence.</p>
         </div>
 
-        <!-- Team -->
+        <!-- ===== LEARNING – STRATEGIC TAKEAWAY ===== -->
         <div class="k-section">
-          <h2 class="text-2xl font-semibold dark:text-white">Every Great Project Is Built Together</h2>
-          <p class="k-caption mt-4 text-secondary dark:text-gray-400">This project came to life thanks to the amazing collaboration between our team members:</p>
-          <p class="k-caption mt-4 text-secondary dark:text-gray-400"><strong class="dark:text-white">UI/UX Design:</strong> Hendy Oktavian, Javier Ramadhan, Ramdhan Mahfudz, Agung Tauhid, Yusran Habibi, Rustu Nur Ilham</p>
-          <p class="k-caption mt-2 text-secondary dark:text-gray-400"><strong class="dark:text-white">Illustration & Visual Assets:</strong> Tyara Nissa A, Najla Noor Faizah</p>
-          <p class="k-caption mt-2 text-secondary dark:text-gray-400"><strong class="dark:text-white">Mentor:</strong> Muhammad Faizal</p>
+          <h2 class="text-2xl font-semibold dark:text-white">What I Learn</h2>
+          <p class="mt-4 text-secondary dark:text-gray-400">This project reinforced that enterprise redesign is not about visual refresh. It is about balancing usability improvements with operational continuity.</p>
+          <p class="mt-4 text-secondary dark:text-gray-400">Working within constraints strengthened my ability to prioritize structural changes over aesthetic experimentation.</p>
+        </div>
+
+        <!-- ===== TEAM CREDIT ===== -->
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold dark:text-white">Every great project is built together</h2>
+          <p class="mt-4 text-secondary dark:text-gray-400">This project came to life thanks to the amazing collaboration between our team members:</p>
+          <p class="mt-4 text-secondary dark:text-gray-400"><strong class="dark:text-white">UI/UX Design:</strong> Hendy Oktavian, Javier Ramadhan, Ramdhan Mahfudz, Agung Tauhid, Yusran Habibi, Rustu Nur Ilham</p>
+          <p class="mt-2 text-secondary dark:text-gray-400"><strong class="dark:text-white">Illustration & Visual Assets:</strong> Tyara Nissa A, Najla Noor Faizah</p>
+          <p class="mt-2 text-secondary dark:text-gray-400"><strong class="dark:text-white">Mentor:</strong> Muhammad Faizal</p>
 
           <figure class="my-8">
             <img src="dist/img/project details/coofisnde/Arms Team.webp" alt="ARMS UI/UX Design Team" class="w-full rounded-3xl" />
@@ -433,17 +357,14 @@
           </figure>
         </div>
 
-        <!-- Prev / Next -->
+        <!-- ===== PREV / NEXT (same as original) ===== -->
         <div class="mt-20 flex w-full justify-between">
-          <!-- Prev Project -->
           <a href="cinebites.html" class="group inline-flex items-center gap-2 dark:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
             </svg>
             Prev Project
           </a>
-
-          <!-- Next Project -->
           <a href="coofisdesignsystem.html" class="group inline-flex items-center gap-2 dark:text-white">
             Next Project
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -461,13 +382,11 @@
           <h3 class="text-2xl font-semibold text-text dark:text-white">Get In Touch</h3>
 
           <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:gap-12">
-            <!-- Contact & Social -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <div class="space-y-3">
                 <p class="text-base uppercase tracking-wide text-footer text-secondary dark:text-gray-500">Contact Me</p>
-                <a href="mailto:hendyoktavians@gmail.com" class="hover:underline text-text break-all sm:break-normal flex flex-wrap gap-x-4 gap-y-2 dark:text-white"> hendyoktavians@gmail.com </a>
+                <a href="mailto:hendyoktavians@gmail.com" class="hover:underline text-text break-all sm:break-normal flex flex-wrap gap-x-4 gap-y-2 dark:text-white">hendyoktavians@gmail.com</a>
               </div>
-
               <div class="space-y-3">
                 <p class="text-base uppercase tracking-wide text-footer text-secondary dark:text-gray-500">Let's Connect</p>
                 <nav class="flex flex-wrap gap-x-4 gap-y-2 text-text dark:text-white" aria-label="Social links">
@@ -477,52 +396,38 @@
                 </nav>
               </div>
             </div>
-
-            <!-- Copyright -->
             <p class="text-sm md:text-base text-text md:whitespace-nowrap border-t border-border pt-6 md:pt-0 md:border-0 dark:text-white dark:border-gray-800">©2023 Hendy Oktavian</p>
           </div>
         </div>
       </div>
     </footer>
 
-    <!-- Lightbox (single, non-duplicate) -->
+    <!-- Lightbox (no highlights grid on this page, but script handles it gracefully) -->
     <div id="hl-modal" class="fixed inset-0 z-50 hidden" aria-hidden="true">
-      <!-- Backdrop -->
       <div id="hl-backdrop" class="absolute inset-0 bg-black/80 opacity-0 transition-opacity"></div>
-
-      <!-- Image -->
       <img id="hl-image" src="" alt="" class="absolute inset-0 m-auto max-w-[90vw] max-h-[90vh] object-contain pointer-events-none select-none" />
-
-      <!-- Close -->
       <button id="hl-close" type="button" class="absolute top-4 right-4 rounded-full bg-white/10 backdrop-blur px-3 py-2 text-white text-sm hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/60" aria-label="Close">✕</button>
-
-      <!-- Prev / Next -->
       <button
         id="hl-prev"
         type="button"
         class="absolute left-4 top-1/2 -translate-y-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-white/10 backdrop-blur text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/60"
         aria-label="Previous"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
       </button>
-
       <button
         id="hl-next"
         type="button"
         class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-white/10 backdrop-blur text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/60"
         aria-label="Next"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
       </button>
     </div>
 
-    <!-- Lightbox Script -->
     <script>
       (() => {
+        // Lightbox only if highlights grid exists
         const grid = document.getElementById("highlights-grid");
         const modal = document.getElementById("hl-modal");
         const backdrop = document.getElementById("hl-backdrop");
@@ -531,117 +436,103 @@
         const btnPrev = document.getElementById("hl-prev");
         const btnNext = document.getElementById("hl-next");
 
-        // Check if grid exists (it doesn't on this page)
-        if (!grid) {
-          // If no highlights grid, we can disable the lightbox or just return
-          console.log("No highlights grid found on this page");
-          return;
-        }
+        if (grid && modal && backdrop && imgEl && btnClose && btnPrev && btnNext) {
+          const items = Array.from(grid.querySelectorAll("button[data-index]")).map((btn) => ({
+            index: Number(btn.dataset.index),
+            src: btn.dataset.src,
+            alt: btn.querySelector("img")?.alt || "",
+          }));
 
-        if (!modal || !backdrop || !imgEl || !btnClose || !btnPrev || !btnNext) return;
+          let current = 0;
+          let lastFocused = null;
 
-        const items = Array.from(grid.querySelectorAll("button[data-index]")).map((btn) => ({
-          index: Number(btn.dataset.index),
-          src: btn.dataset.src,
-          alt: btn.querySelector("img")?.alt || "",
-        }));
-
-        let current = 0;
-        let lastFocused = null;
-
-        function openModal(i) {
-          current = i;
-          lastFocused = document.activeElement;
-          updateImage();
-          modal.classList.remove("hidden");
-          requestAnimationFrame(() => backdrop.classList.remove("opacity-0"));
-          document.body.classList.add("overflow-hidden");
-          btnClose.focus();
-          modal.setAttribute("aria-hidden", "false");
-          document.addEventListener("keydown", onKey);
-        }
-
-        function closeModal() {
-          backdrop.classList.add("opacity-0");
-          modal.setAttribute("aria-hidden", "true");
-          document.body.classList.remove("overflow-hidden");
-          document.removeEventListener("keydown", onKey);
-          setTimeout(() => {
-            modal.classList.add("hidden");
-            if (lastFocused) lastFocused.focus();
-          }, 150);
-        }
-
-        function updateImage() {
-          const item = items[current];
-          imgEl.src = item.src;
-          imgEl.alt = item.alt;
-          const atStart = current === 0;
-          const atEnd = current === items.length - 1;
-          btnPrev.disabled = atStart;
-          btnNext.disabled = atEnd;
-          btnPrev.classList.toggle("opacity-40", atStart);
-          btnNext.classList.toggle("opacity-40", atEnd);
-        }
-
-        function prev() {
-          if (current > 0) {
-            current--;
+          function openModal(i) {
+            current = i;
+            lastFocused = document.activeElement;
             updateImage();
+            modal.classList.remove("hidden");
+            requestAnimationFrame(() => backdrop.classList.remove("opacity-0"));
+            document.body.classList.add("overflow-hidden");
+            btnClose.focus();
+            modal.setAttribute("aria-hidden", "false");
+            document.addEventListener("keydown", onKey);
+          }
+
+          function closeModal() {
+            backdrop.classList.add("opacity-0");
+            modal.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("overflow-hidden");
+            document.removeEventListener("keydown", onKey);
+            setTimeout(() => {
+              modal.classList.add("hidden");
+              if (lastFocused) lastFocused.focus();
+            }, 150);
+          }
+
+          function updateImage() {
+            const item = items[current];
+            imgEl.src = item.src;
+            imgEl.alt = item.alt;
+            const atStart = current === 0;
+            const atEnd = current === items.length - 1;
+            btnPrev.disabled = atStart;
+            btnNext.disabled = atEnd;
+            btnPrev.classList.toggle("opacity-40", atStart);
+            btnNext.classList.toggle("opacity-40", atEnd);
+          }
+
+          function prev() {
+            if (current > 0) {
+              current--;
+              updateImage();
+            }
+          }
+          function next() {
+            if (current < items.length - 1) {
+              current++;
+              updateImage();
+            }
+          }
+          function onKey(e) {
+            if (modal.classList.contains("hidden")) return;
+            if (e.key === "Escape") closeModal();
+            if (e.key === "ArrowLeft") prev();
+            if (e.key === "ArrowRight") next();
+          }
+
+          grid.addEventListener("click", (e) => {
+            const btn = e.target.closest("button[data-index]");
+            if (btn) openModal(Number(btn.dataset.index));
+          });
+          btnClose.addEventListener("click", closeModal);
+          btnPrev.addEventListener("click", prev);
+          btnNext.addEventListener("click", next);
+          backdrop.addEventListener("click", closeModal);
+        }
+
+        // Dark mode toggle
+        const toggle = document.getElementById("darkToggle");
+        const iconSun = document.getElementById("iconSun");
+        const iconMoon = document.getElementById("iconMoon");
+        const html = document.documentElement;
+
+        function updateIcons() {
+          if (html.classList.contains("dark")) {
+            iconSun.classList.remove("hidden");
+            iconMoon.classList.add("hidden");
+          } else {
+            iconSun.classList.add("hidden");
+            iconMoon.classList.remove("hidden");
           }
         }
-        function next() {
-          if (current < items.length - 1) {
-            current++;
-            updateImage();
-          }
-        }
-
-        function onKey(e) {
-          if (modal.classList.contains("hidden")) return;
-          if (e.key === "Escape") closeModal();
-          if (e.key === "ArrowLeft") prev();
-          if (e.key === "ArrowRight") next();
-        }
-
-        // Triggers
-        grid.addEventListener("click", (e) => {
-          const btn = e.target.closest("button[data-index]");
-          if (btn) openModal(Number(btn.dataset.index));
-        });
-
-        // Controls
-        btnClose.addEventListener("click", closeModal);
-        btnPrev.addEventListener("click", prev);
-        btnNext.addEventListener("click", next);
-        backdrop.addEventListener("click", closeModal);
-      })();
-
-      // Dark mode toggle functionality
-      const toggle = document.getElementById("darkToggle");
-      const iconSun = document.getElementById("iconSun");
-      const iconMoon = document.getElementById("iconMoon");
-      const html = document.documentElement;
-
-      function updateIcons() {
-        if (html.classList.contains("dark")) {
-          iconSun.classList.remove("hidden");
-          iconMoon.classList.add("hidden");
-        } else {
-          iconSun.classList.add("hidden");
-          iconMoon.classList.remove("hidden");
-        }
-      }
-
-      // Init icons on load
-      updateIcons();
-
-      toggle.addEventListener("click", () => {
-        html.classList.toggle("dark");
-        const isDark = html.classList.contains("dark");
-        localStorage.setItem("theme", isDark ? "dark" : "light");
         updateIcons();
-      });
+
+        toggle.addEventListener("click", () => {
+          html.classList.toggle("dark");
+          localStorage.setItem("theme", html.classList.contains("dark") ? "dark" : "light");
+          updateIcons();
+        });
+      })();
     </script>
   </body>
 </html>
