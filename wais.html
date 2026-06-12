@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wais | Hendy Oktavian</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="dist/img/logo/Logo H Black.svg" />
+
+    <script>
+      // Apply dark mode BEFORE render to avoid flash
+      (function () {
+        const saved = localStorage.getItem("theme");
+        if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+
+      // Tailwind Config
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#212121",
+              background: "#FFFFFF",
+              text: "#212121",
+              secondary: "#616161",
+              footer: "#ACACAC",
+              border: "#E0E0E0",
+              card: "#F5F5F5",
+            },
+            fontFamily: { display: ["Plus Jakarta Sans", "ui-sans-serif", "system-ui", "sans-serif"] },
+            borderRadius: { lg: "1rem" },
+            keyframes: {
+              bgShift: {
+                "0%": { backgroundPosition: "0% 50%" },
+                "50%": { backgroundPosition: "100% 50%" },
+                "100%": { backgroundPosition: "0% 50%" },
+              },
+            },
+            animation: { "bg-shift": "bgShift 3s ease infinite" },
+          },
+        },
+      };
+    </script>
+
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .container-page {
+          @apply container mx-auto max-w-5xl px-4;
+        }
+        .badge {
+          @apply rounded-full bg-card px-4 py-1 text-sm transition-colors duration-300;
+        }
+        .k-section {
+          @apply mt-16;
+        }
+      }
+    </style>
+
+    <style>
+      /* Dark mode overrides */
+      .dark body {
+        background-color: #0a0a12;
+        color: #e8e8e8;
+      }
+
+      .dark main#project-detail {
+        background-color: #0a0a12;
+      }
+
+      .dark .badge {
+        background-color: #1e1e2e;
+        color: #9e9e9e;
+        border: 1px solid #2e2e42;
+      }
+
+      .dark aside .rounded-2xl {
+        background-color: #1a1a24 !important;
+        border-color: #2e2e42 !important;
+      }
+
+      .dark aside dt {
+        color: #616161 !important;
+      }
+
+      .dark aside dd {
+        color: #e8e8e8 !important;
+      }
+
+      .dark figcaption {
+        color: #9e9e9e !important;
+      }
+
+      .dark .text-secondary {
+        color: #9e9e9e;
+      }
+
+      .dark .border-border {
+        border-color: #2e2e42;
+      }
+
+      .dark a:not(.btn) {
+        color: #e8e8e8;
+      }
+
+      .dark a:not(.btn):hover {
+        color: #ffffff;
+      }
+
+      /* Dark toggle button */
+      #darkToggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 9999px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        color: inherit;
+        flex-shrink: 0;
+      }
+
+      #darkToggle:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+      }
+
+      #darkToggle:active {
+        transform: scale(0.99);
+      }
+
+      .ph {
+        font-size: 1.25rem;
+      }
+
+      /* Lightbox adjustments for dark mode */
+      .dark #hl-modal button {
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body class="font-display bg-background text-text transition-colors duration-300">
+    <div class="flex sticky top-0 z-50 w-full justify-center">
+      <nav class="mt-12 w-full max-w-[380px] sm:max-w-[480px] md:max-w-[540px]">
+        <ul
+          class="relative overflow-hidden flex items-center justify-between rounded-full px-2 py-2 text-black dark:text-white shadow-[0_4px_12px_rgba(0,0,0,0.08)] ring-1 ring-black/10 bg-black supports-[backdrop-filter]:backdrop-blur-2xl supports-[backdrop-filter]:backdrop-saturate-150 before:content-[''] before:absolute before:inset-0 before:rounded-full before:bg-gradient-to-b before:from-white/40 before:to-transparent before:opacity-60 before:pointer-events-none after:content-[''] after:absolute after:inset-0 after:rounded-full after:pointer-events-none after:[box-shadow:inset_0_1px_0_rgba(255,255,255,0.5),inset_0_-1px_0_rgba(255,255,255,0.1)] [background:radial-gradient(140px_100px_at_10%_0%,rgba(255,255,255,.28),rgba(255,255,255,0)),radial-gradient(160px_140px_at_90%_30%,rgba(255,255,255,.18),rgba(255,255,255,0))]"
+        >
+          <li class="flex-1">
+            <a
+              href="index.html#work"
+              class="block text-center rounded-full px-4 py-2.5 sm:px-4 sm:py-2.5 md:px-5 md:py-3 text-xs sm:text-sm md:text-base transition-colors duration-300 ease-in-out hover:bg-black/5 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)] active:scale-[0.99]"
+              >Work</a
+            >
+          </li>
+          <li class="flex-1">
+            <a
+              href="aboutme.html"
+              class="block text-center rounded-full px-4 py-2.5 sm:px-4 sm:py-2.5 md:px-5 md:py-3 text-xs sm:text-sm md:text-base transition-colors duration-300 ease-in-out hover:bg-black/5 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)] active:scale-[0.99]"
+              >About</a
+            >
+          </li>
+          <li class="flex-1">
+            <a
+              href="https://drive.google.com/file/d/1H6n4esL4zbqSCZvwfpK4qqR3ngo8dlt4/view?usp=drive_link"
+              target="_blank"
+              class="block text-center rounded-full px-4 py-2.5 sm:px-4 sm:py-2.5 md:px-5 md:py-3 text-xs sm:text-sm md:text-base transition-colors duration-300 ease-in-out hover:bg-black/5 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)] active:scale-[0.99]"
+              >Resume</a
+            >
+          </li>
+          <li class="flex-1">
+            <a
+              href="mailto:hendyoktavians@gmail.com"
+              class="block text-center rounded-full px-4 py-2.5 sm:px-4 sm:py-2.5 md:px-5 md:py-3 text-xs sm:text-sm md:text-base transition-colors duration-300 ease-in-out hover:bg-black/5 hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.35)] active:scale-[0.99]"
+              >Contact</a
+            >
+          </li>
+
+          <li class="relative z-10 pr-1">
+            <button id="darkToggle" aria-label="Toggle dark mode" title="Toggle dark mode" class="mr-2">
+              <i id="iconSun" class="ph ph-sun hidden"></i>
+              <i id="iconMoon" class="ph ph-moon"></i>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <main id="project-detail" class="bg-white dark:bg-[#0a0a12] transition-colors duration-300">
+      <section class="container-page py-16">
+        <div class="mb-8 flex items-center justify-between gap-4">
+          <a href="index.html#work" class="inline-flex items-center gap-2 text-sm hover:opacity-70 dark:text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Work
+          </a>
+          <div class="hidden md:flex items-center gap-2 text-sm text-secondary dark:text-gray-400">
+            <a href="index.html#work" class="hover:opacity-70 dark:text-gray-400">Work</a>
+            <span>/</span>
+            <span class="text-primary dark:text-white">Project Detail</span>
+          </div>
+        </div>
+
+        <div class="mt-6">
+          <img src="dist/img/project details/wais/Cover.png" alt="Wais hero mockup" class="w-full rounded-3xl" />
+        </div>
+
+        <div class="mt-10">
+          <h1 class="text-4xl font-bold leading-tight dark:text-white">Wais: Designing a Safe Space for Focused Ideation Processes</h1>
+          <p class="mt-6 text-secondary dark:text-gray-400 text-base md:text-lg">Untangling the knot of team discussions through the inclusive, objective, and unbiased Six Thinking Hats method.</p>
+        </div>
+
+        <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm border-t border-border pt-6 dark:border-[#2e2e42]">
+          <span class="font-medium dark:text-white">Product Designer</span>
+          <span class="font-medium dark:text-white">•</span>
+          <span class="font-medium dark:text-white">Research, UX Strategy, Interaction Design, UI Design</span>
+        </div>
+
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold dark:text-white">The Context: Trapped in a Discussion Echo Chamber</h2>
+          <p class="mt-4 text-secondary dark:text-gray-400">
+            The idea generation process often ends in chaos. Newborn ideas are immediately showered with criticism, team members with the loudest voices dominate the conversation, and the main goal of the discussion is slowly forgotten.<br /><br />
+            This concern originated from our own internal experience when trying to find a <em>big idea</em> for an application. A cycle of meetings that went in circles without clear documentation made us realize one thing:<br /><br />
+            <span class="font-medium text-primary dark:text-white">The main problem was not the idea we were looking for, but how we were looking for it.</span>
+          </p>
+        </div>
+
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold dark:text-white">From Observation to Understanding</h2>
+          <figure class="my-8">
+            <img src="dist/img/project details/wais/Miro.png" alt="Observing discussion sessions" class="w-full rounded-3xl" />
+            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Identifying psychological obstacles in conventional brainstorming</figcaption>
+          </figure>
+          <p class="mt-4 text-secondary dark:text-gray-400">
+            From observing various discussion sessions, we found a recurring pattern of psychological obstacles. Many participants felt reluctant (<em>ewuh pakewuh</em>) to give objective opinions, feared offending colleagues, or felt they
+            did not have the space because the speaking queue was dominated by one or two people.<br /><br />
+            After consulting with mentors and exploring various methods, we found that <span class="font-medium text-primary dark:text-white">Edward de Bono's Six Thinking Hats Method</span> was the right solution.<br /><br />
+            This method forces participants to think sequentially (structured) by separating facts, emotions, ideas, and criticism into different sessions. The process untangles participants' cognitive load, democratizes speaking time, and
+            ensures every perspective is explored fairly.
+          </p>
+        </div>
+
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold dark:text-white">Defining the Design Direction</h2>
+          <figure class="my-8">
+            <img src="dist/img/project details/wais/User Flow.png" alt="Wais core flow diagram" class="w-full rounded-3xl" />
+            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">The core flow: Quick Join → Room Setup → Input → Summary</figcaption>
+          </figure>
+          <p class="mt-4 text-secondary dark:text-gray-400">
+            The main challenge was packaging a rigid psychological theory into a natural and low-friction digital experience. We defined Wais's core flow with a frictionless entry approach like a multiplayer game (such as Gartic.io):
+          </p>
+          <ul class="mt-4 list-disc pl-5 text-secondary dark:text-gray-400 space-y-3">
+            <li><strong class="text-primary dark:text-white">Quick Join:</strong> Users are not forced to login. Simply enter a room code to join directly.</li>
+            <li><strong class="text-primary dark:text-white">Room Setup:</strong> The Host sets the discussion goal and selects the hats combination (presets like Quick Feedback or Custom are available for flexibility).</li>
+            <li><strong class="text-primary dark:text-white">Concurrent & Anonymous Input:</strong> Participants type ideas simultaneously without waiting in line to speak, in an anonymous space that eliminates job hierarchy.</li>
+            <li><strong class="text-primary dark:text-white">AI Summary:</strong> The system summarizes and categorizes input at the end of each hat session to guide the next steps.</li>
+          </ul>
+        </div>
+
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold dark:text-white">The Iteration & Design Challenge: Simplifying Complexity</h2>
+          <figure class="my-8">
+            <img src="dist/img/project details/wais/Sketch.png" alt="Early Sketch" class="w-full rounded-3xl" />
+            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Early Sketch Concept</figcaption>
+          </figure>
+          <figure class="my-8">
+            <img src="dist/img/project details/wais/Previous UIs.png" alt="Previous UIs" class="w-full rounded-3xl" />
+            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Early WAIS UI Design</figcaption>
+          </figure>
+          <p class="mt-6 text-secondary dark:text-gray-400">Translating the Six Hats thinking framework into an intuitive UI for general users required many iterations:</p>
+          <ul class="mt-4 list-disc pl-5 text-secondary dark:text-gray-400 space-y-3">
+            <li>
+              <strong class="text-primary dark:text-white">Idea Visualization Challenge:</strong> In the initial iteration, we tried the concept of "merging chat bubbles" for similar ideas. It turned out this approach consumed too much
+              screen space and was very complex from a technical development standpoint.
+            </li>
+            <li>
+              <strong class="text-primary dark:text-white">Pivoting to Personal View:</strong> We completely overhauled the interface to resemble a chatting application. While the time is running, participants only see their own input. This
+              prevents groupthink or feeling insecure before pressing the send button. After the session is finished, all cards are merged and categorized.
+            </li>
+            <li>
+              <strong class="text-primary dark:text-white">Cutting Down Cognitive Load:</strong> In the initial version, the explanation for each "hat" was very long and text-dense, overwhelming users who had limited session time to
+              remember. We redesigned the orientation (onboarding) and method selection screens to be much more visual and straight to the point.
+            </li>
+          </ul>
+        </div>
+
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold dark:text-white">The Final Solution & Visual Language</h2>
+          <figure class="my-8">
+            <img src="dist/img/project details/wais/UI Direction.png" alt="Wais polished UI mockups" class="w-full rounded-3xl" />
+            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Safe, inclusive, and actionable discussion companion</figcaption>
+          </figure>
+          <p class="mt-4 text-secondary dark:text-gray-400">The final result is a discussion companion application that prioritizes psychological safety and clarity of direction:</p>
+          <ul class="mt-4 list-disc pl-5 text-secondary dark:text-gray-400 space-y-3">
+            <li>
+              <strong class="text-primary dark:text-white">Color & Mascot:</strong> We use a blue color palette as the main color to instill a sense of trust and security. The presence of a casual mascot and representative icons for each
+              "hat" change keeps the application's mood relaxed yet professional, without appearing childish.
+            </li>
+            <li>
+              <strong class="text-primary dark:text-white">Focus on Results, Not Process:</strong> Instead of letting users read hundreds of piled-up chats, our AI Summary feature automatically categorizes input from all participants into
+              easily digestible points for decision-making reference.
+            </li>
+          </ul>
+        </div>
+
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold dark:text-white">Validation & Impact: From Business Meetings to Vacation Plans</h2>
+          <p class="mt-4 text-secondary dark:text-gray-400">
+            The usability testing results showed a very positive response. Participants felt much safer to express their opinions.<br /><br />
+            Interestingly, this anonymity and sequential method is not only effective for product development but also for solving everyday problems. Users realized Wais is very helpful for simple things like deciding on a place to eat or a
+            family vacation destination—accommodating the voices of those with a limited budget or who don't like spicy food, but who previously didn't dare to speak up.
+          </p>
+        </div>
+
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold dark:text-white">Reflection</h2>
+          <p class="mt-4 text-secondary dark:text-gray-400">
+            Accessibility is key. Wais proves that inclusiveness in discussion can be achieved through the right interface design.<br /><br />
+            Moving forward, we see great potential to bring Wais to the web platform so it can be accessed from any device without needing to download an application. Additionally, as a business learning from the product design side, we are
+            also formulating a freemium model to balance user value with the operational costs of AI tokens for the Summary feature.
+          </p>
+        </div>
+
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold dark:text-white">Nothing great is ever done alone</h2>
+          <figure class="my-8">
+            <img src="dist/img/project details/wais/Wais Team.JPG" alt="Wais Team" class="w-full rounded-3xl" />
+            <figcaption class="mt-3 text-center text-sm text-secondary dark:text-gray-400">Wais Team</figcaption>
+          </figure>
+          <p class="mt-4 text-secondary dark:text-gray-400">This project came to life thanks to:</p>
+          <p class="mt-4 text-secondary dark:text-gray-400"><strong class="dark:text-white">UI/UX & Design Research:</strong> Hendy Oktavian, Saskia</p>
+          <p class="mt-2 text-secondary dark:text-gray-400"><strong class="dark:text-white">Coder & Product Manager:</strong> Wikan, Selena</p>
+          <p class="mt-2 text-secondary dark:text-gray-400"><strong class="dark:text-white">Mentors:</strong> Richard, Doni, John</p>
+        </div>
+
+        <div class="k-section">
+          <h2 class="text-2xl font-semibold dark:text-white">Highlights</h2>
+          <div class="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-6" id="highlights-grid">
+            <button type="button" class="group rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-white/50" data-index="0" data-src="dist/img/project details/wais/Wais Highlight 1.png">
+              <img class="w-full h-full object-cover transition-transform group-hover:scale-[1.02]" src="dist/img/project details/wais/Wais Highlight 1.png" alt="Highlight 1" loading="lazy" />
+            </button>
+            <button type="button" class="group rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-white/50" data-index="1" data-src="dist/img/project details/wais/Wais Highlight 2.png">
+              <img class="w-full h-full object-cover transition-transform group-hover:scale-[1.02]" src="dist/img/project details/wais/Wais Highlight 2.png" alt="Highlight 2" loading="lazy" />
+            </button>
+            <button type="button" class="group rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-white/50" data-index="2" data-src="dist/img/project details/wais/Wais Highlight 3.png">
+              <img class="w-full h-full object-cover transition-transform group-hover:scale-[1.02]" src="dist/img/project details/wais/Wais Highlight 3.png" alt="Highlight 3" loading="lazy" />
+            </button>
+            <button type="button" class="group rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-white/50" data-index="3" data-src="dist/img/project details/wais/Wais Highlight 4.png">
+              <img class="w-full h-full object-cover transition-transform group-hover:scale-[1.02]" src="dist/img/project details/wais/Wais Highlight 4.png" alt="Highlight 4" loading="lazy" />
+            </button>
+          </div>
+        </div>
+
+        <div class="mt-20 flex w-full justify-end">
+          <a href="altaraone.html" class="group inline-flex items-center gap-2 dark:text-white">
+            Next Project
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-card transition-colors duration-300 dark:bg-[#111118]">
+      <div class="container-page py-12">
+        <div class="space-y-8 md:space-y-12">
+          <h3 class="text-2xl font-semibold text-text dark:text-white">Get In Touch</h3>
+
+          <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:gap-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div class="space-y-3">
+                <p class="text-base uppercase tracking-wide text-footer text-secondary dark:text-gray-500">Contact Me</p>
+                <a href="mailto:hendyoktavians@gmail.com" class="hover:underline text-text break-all sm:break-normal flex flex-wrap gap-x-4 gap-y-2 dark:text-white"> hendyoktavians@gmail.com </a>
+              </div>
+
+              <div class="space-y-3">
+                <p class="text-base uppercase tracking-wide text-footer text-secondary dark:text-gray-500">Let's Connect</p>
+                <nav class="flex flex-wrap gap-x-4 gap-y-2 text-text dark:text-white" aria-label="Social links">
+                  <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/hendy-oktavian/" class="hover:underline">LinkedIn</a>
+                  <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/moka.cinno/" class="hover:underline">Instagram</a>
+                  <a target="_blank" rel="noopener noreferrer" href="https://drive.google.com/file/d/17dqyq9HZe3QNMViZBZJiWSEq-bO_0lZP/view?usp=sharing" class="hover:underline">Resume</a>
+                </nav>
+              </div>
+            </div>
+
+            <p class="text-sm md:text-base text-text md:whitespace-nowrap border-t border-border pt-6 md:pt-0 md:border-0 dark:text-white dark:border-gray-800">©2023 Hendy Oktavian</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div id="hl-modal" class="fixed inset-0 z-50 hidden" aria-hidden="true">
+      <div id="hl-backdrop" class="absolute inset-0 bg-black/80 opacity-0 transition-opacity"></div>
+
+      <img id="hl-image" src="" alt="" class="absolute inset-0 m-auto max-w-[90vw] max-h-[90vh] object-contain pointer-events-none select-none" />
+
+      <button id="hl-close" type="button" class="absolute top-4 right-4 rounded-full bg-white/10 backdrop-blur px-3 py-2 text-white text-sm hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/60" aria-label="Close">✕</button>
+
+      <button
+        id="hl-prev"
+        type="button"
+        class="absolute left-4 top-1/2 -translate-y-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-white/10 backdrop-blur text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/60"
+        aria-label="Previous"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <button
+        id="hl-next"
+        type="button"
+        class="absolute right-4 top-1/2 -translate-y-1/2 flex items-center justify-center w-12 h-12 rounded-full bg-white/10 backdrop-blur text-white hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white/60"
+        aria-label="Next"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+
+    <script>
+      (() => {
+        const grid = document.getElementById("highlights-grid");
+        const modal = document.getElementById("hl-modal");
+        const backdrop = document.getElementById("hl-backdrop");
+        const imgEl = document.getElementById("hl-image");
+        const btnClose = document.getElementById("hl-close");
+        const btnPrev = document.getElementById("hl-prev");
+        const btnNext = document.getElementById("hl-next");
+
+        if (!grid || !modal || !backdrop || !imgEl || !btnClose || !btnPrev || !btnNext) return;
+
+        const items = Array.from(grid.querySelectorAll("button[data-index]")).map((btn) => ({
+          index: Number(btn.dataset.index),
+          src: btn.dataset.src,
+          alt: btn.querySelector("img")?.alt || "",
+        }));
+
+        let current = 0;
+        let lastFocused = null;
+
+        function openModal(i) {
+          current = i;
+          lastFocused = document.activeElement;
+          updateImage();
+          modal.classList.remove("hidden");
+          requestAnimationFrame(() => backdrop.classList.remove("opacity-0"));
+          document.body.classList.add("overflow-hidden");
+          btnClose.focus();
+          modal.setAttribute("aria-hidden", "false");
+          document.addEventListener("keydown", onKey);
+        }
+
+        function closeModal() {
+          backdrop.classList.add("opacity-0");
+          modal.setAttribute("aria-hidden", "true");
+          document.body.classList.remove("overflow-hidden");
+          document.removeEventListener("keydown", onKey);
+          setTimeout(() => {
+            modal.classList.add("hidden");
+            if (lastFocused) lastFocused.focus();
+          }, 150);
+        }
+
+        function updateImage() {
+          const item = items[current];
+          imgEl.src = item.src;
+          imgEl.alt = item.alt;
+          const atStart = current === 0;
+          const atEnd = current === items.length - 1;
+          btnPrev.disabled = atStart;
+          btnNext.disabled = atEnd;
+          btnPrev.classList.toggle("opacity-40", atStart);
+          btnNext.classList.toggle("opacity-40", atEnd);
+        }
+
+        function prev() {
+          if (current > 0) {
+            current--;
+            updateImage();
+          }
+        }
+        function next() {
+          if (current < items.length - 1) {
+            current++;
+            updateImage();
+          }
+        }
+
+        function onKey(e) {
+          if (modal.classList.contains("hidden")) return;
+          if (e.key === "Escape") closeModal();
+          if (e.key === "ArrowLeft") prev();
+          if (e.key === "ArrowRight") next();
+        }
+
+        // Triggers
+        grid.addEventListener("click", (e) => {
+          const btn = e.target.closest("button[data-index]");
+          if (btn) openModal(Number(btn.dataset.index));
+        });
+
+        // Controls
+        btnClose.addEventListener("click", closeModal);
+        btnPrev.addEventListener("click", prev);
+        btnNext.addEventListener("click", next);
+        backdrop.addEventListener("click", closeModal);
+      })();
+
+      // Dark mode toggle functionality
+      const toggle = document.getElementById("darkToggle");
+      const iconSun = document.getElementById("iconSun");
+      const iconMoon = document.getElementById("iconMoon");
+      const html = document.documentElement;
+
+      function updateIcons() {
+        if (html.classList.contains("dark")) {
+          iconSun.classList.remove("hidden");
+          iconMoon.classList.add("hidden");
+        } else {
+          iconSun.classList.add("hidden");
+          iconMoon.classList.remove("hidden");
+        }
+      }
+
+      // Init icons on load
+      updateIcons();
+
+      toggle.addEventListener("click", () => {
+        html.classList.toggle("dark");
+        const isDark = html.classList.contains("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+        updateIcons();
+      });
+    </script>
+  </body>
+</html>
