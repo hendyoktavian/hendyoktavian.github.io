@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Links | Hendy Oktavian</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+    <!-- Fonts & Favicon -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="dist/img/logo/Logo H Black.svg" />
+
+    <script>
+      // Apply dark mode BEFORE render to avoid flash
+      (function () {
+        const saved = localStorage.getItem("theme");
+        if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#212121",
+              background: "#FFFFFF",
+              text: "#212121",
+              secondary: "#616161",
+              footer: "#ACACAC",
+              border: "#E0E0E0",
+              card: "#F5F5F5",
+            },
+            fontFamily: {
+              display: ["Plus Jakarta Sans", "ui-sans-serif", "system-ui", "sans-serif"],
+            },
+            borderRadius: { lg: "1rem" },
+            keyframes: {
+              bgShift: {
+                "0%": { backgroundPosition: "0% 50%" },
+                "50%": { backgroundPosition: "100% 50%" },
+                "100%": { backgroundPosition: "0% 50%" },
+              },
+            },
+            animation: { "bg-shift": "bgShift 3s ease infinite" },
+          },
+        },
+      };
+    </script>
+
+    <style type="text/tailwindcss">
+      @layer utilities {
+        /* Styling khusus untuk link button */
+        .link-card {
+          @apply relative flex items-center w-full p-4 bg-white dark:bg-[#1a1a24] border border-border dark:border-[#2e2e42] rounded-2xl shadow-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-md hover:border-black/20 dark:hover:border-white/20 text-text dark:text-white font-medium;
+        }
+
+        .link-icon {
+          @apply flex items-center justify-center w-10 h-10 rounded-full bg-card dark:bg-[#2e2e42] mr-4 text-primary dark:text-white transition-colors;
+        }
+
+        /* Hover states */
+        .link-card:hover .link-icon {
+          @apply bg-black text-white dark:bg-white dark:text-black;
+        }
+      }
+    </style>
+
+    <style>
+      /* Dark mode overrides */
+      .dark body {
+        background-color: #0a0a12;
+        color: #e8e8e8;
+      }
+
+      /* Dark toggle button */
+      #darkToggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        color: inherit;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      }
+
+      .dark #darkToggle {
+        background: rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      #darkToggle:hover {
+        transform: scale(1.05);
+      }
+
+      #darkToggle:active {
+        transform: scale(0.95);
+      }
+    </style>
+  </head>
+
+  <body class="font-display bg-background text-text transition-colors duration-300 relative min-h-screen flex flex-col">
+    <!-- Floating Dark Mode Toggle -->
+    <div class="absolute top-6 right-6 z-50">
+      <button id="darkToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <i id="iconSun" class="ph ph-sun text-xl hidden"></i>
+        <i id="iconMoon" class="ph ph-moon text-xl"></i>
+      </button>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex flex-col items-center justify-center w-full px-4 py-12 md:py-20">
+      <!-- Profile Section -->
+      <div class="flex flex-col items-center mb-8 text-center max-w-sm">
+        <div class="relative w-28 h-28 mb-5 mesh-gradient rounded-full flex items-center justify-center overflow-hidden border border-gray-100 dark:border-gray-800 shadow-sm">
+          <img alt="Hendy Oktavian" class="w-full h-full object-cover" src="dist/img/profile/Profile.png" />
+        </div>
+        <h1 class="text-2xl font-bold dark:text-white tracking-tight">Hendy Oktavian</h1>
+        <p class="text-secondary dark:text-gray-400 mt-1">Product Designer</p>
+        <div class="flex items-center gap-3 mt-4 text-secondary dark:text-gray-400">
+          <a href="https://www.instagram.com/moka.cinno/" target="_blank" class="hover:text-black dark:hover:text-white transition-colors" aria-label="Instagram">
+            <i class="ph ph-instagram-logo text-2xl"></i>
+          </a>
+          <a href="https://www.tiktok.com/@moka.cinno/" target="_blank" class="hover:text-black dark:hover:text-white transition-colors" aria-label="Instagram">
+            <i class="ph ph-tiktok-logo text-2xl"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Links Container -->
+      <div class="w-full max-w-[480px] space-y-4">
+        <!-- 1. Portfolio / Homepage -->
+        <a href="index.html" class="link-card group">
+          <div class="link-icon">
+            <i class="ph ph-globe text-xl"></i>
+          </div>
+          <span class="flex-1">Explore My Work (Web Portfolio)</span>
+          <i class="ph ph-arrow-right text-secondary opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0"></i>
+        </a>
+
+        <!-- 2. LinkedIn -->
+        <a href="https://www.linkedin.com/in/hendy-oktavian/" target="_blank" class="link-card group">
+          <div class="link-icon">
+            <i class="ph ph-linkedin-logo text-xl"></i>
+          </div>
+          <span class="flex-1">Connect with me on LinkedIn</span>
+          <i class="ph ph-arrow-right text-secondary opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0"></i>
+        </a>
+
+        <!-- 3. Business & Collab Inquiries -->
+        <a href="mailto:hendyoktavians@gmail.com" class="link-card group">
+          <div class="link-icon">
+            <i class="ph ph-envelope-simple text-xl"></i>
+          </div>
+          <span class="flex-1">Business & Collab Inquiries</span>
+          <i class="ph ph-arrow-right text-secondary opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0"></i>
+        </a>
+
+        <!-- 4. Affiliate Link (Ganti tanda # dengan link asli kamu) -->
+        <a href="#" target="_blank" class="link-card group">
+          <div class="link-icon">
+            <i class="ph ph-shopping-bag text-xl"></i>
+          </div>
+          <span class="flex-1">Design Book Recommendations</span>
+          <i class="ph ph-arrow-right text-secondary opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0"></i>
+        </a>
+      </div>
+    </main>
+
+    <!-- Simple Footer -->
+    <footer class="w-full py-8 text-center text-sm text-secondary dark:text-gray-500">
+      <p>©2023 Hendy Oktavian</p>
+    </footer>
+
+    <!-- Script for Dark Mode -->
+    <script>
+      const toggle = document.getElementById("darkToggle");
+      const iconSun = document.getElementById("iconSun");
+      const iconMoon = document.getElementById("iconMoon");
+      const html = document.documentElement;
+
+      function updateIcons() {
+        if (html.classList.contains("dark")) {
+          iconSun.classList.remove("hidden");
+          iconMoon.classList.add("hidden");
+        } else {
+          iconSun.classList.add("hidden");
+          iconMoon.classList.remove("hidden");
+        }
+      }
+
+      // Init icons on load
+      updateIcons();
+
+      toggle.addEventListener("click", () => {
+        html.classList.toggle("dark");
+        const isDark = html.classList.contains("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+        updateIcons();
+      });
+    </script>
+  </body>
+</html>
